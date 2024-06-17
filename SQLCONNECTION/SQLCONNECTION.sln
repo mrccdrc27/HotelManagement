@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelManagement", "WinFormsApp1\HotelManagement.csproj", "{35F4CCB7-66E5-4D0D-B333-985BAD6A9D68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCONNECTION", "SQLCONNECTION\SQLCONNECTION.csproj", "{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35F4CCB7-66E5-4D0D-B333-985BAD6A9D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35F4CCB7-66E5-4D0D-B333-985BAD6A9D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35F4CCB7-66E5-4D0D-B333-985BAD6A9D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35F4CCB7-66E5-4D0D-B333-985BAD6A9D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A2CA1F4D-1DDE-46B4-A4CA-3D5B73643403}
+		SolutionGuid = {A2191BCD-CBBA-44C6-A128-EDB118652DC2}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+namespace SQLCONNECTION
 {
     internal static class Program
     {
