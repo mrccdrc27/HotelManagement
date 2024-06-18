@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formSIGNUP));
             panel1 = new Panel();
-            textBox1 = new TextBox();
+            entryConfirmPassword = new TextBox();
             label7 = new Label();
             checkboxShowPas = new CheckBox();
             pictureBox1 = new PictureBox();
@@ -53,7 +53,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(238, 238, 238);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(entryConfirmPassword);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(checkboxShowPas);
             panel1.Controls.Add(pictureBox1);
@@ -68,15 +68,15 @@
             panel1.Size = new Size(513, 632);
             panel1.TabIndex = 0;
             // 
-            // textBox1
+            // entryConfirmPassword
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(132, 326);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 43);
-            textBox1.TabIndex = 23;
+            entryConfirmPassword.BorderStyle = BorderStyle.FixedSingle;
+            entryConfirmPassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            entryConfirmPassword.Location = new Point(132, 326);
+            entryConfirmPassword.Multiline = true;
+            entryConfirmPassword.Name = "entryConfirmPassword";
+            entryConfirmPassword.Size = new Size(250, 43);
+            entryConfirmPassword.TabIndex = 23;
             // 
             // label7
             // 
@@ -131,6 +131,7 @@
             btnEnter.TabIndex = 18;
             btnEnter.Text = "Enter";
             btnEnter.UseVisualStyleBackColor = false;
+            btnEnter.Click += btnEnter_Click;
             // 
             // entryPassword
             // 
@@ -248,7 +249,7 @@
         private Panel panel1;
         private Label label6;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox entryConfirmPassword;
         private Label label7;
         private CheckBox checkboxShowPas;
         private PictureBox pictureBox1;

@@ -138,6 +138,7 @@
             btnEnter.TabIndex = 7;
             btnEnter.Text = "Enter";
             btnEnter.UseVisualStyleBackColor = false;
+            btnEnter.Click += btnEnter_Click;
             // 
             // label4
             // 
@@ -158,7 +159,6 @@
             entryPassword.Location = new Point(81, 404);
             entryPassword.Multiline = true;
             entryPassword.Name = "entryPassword";
-            entryPassword.PasswordChar = '*';
             entryPassword.Size = new Size(250, 43);
             entryPassword.TabIndex = 4;
             // 
