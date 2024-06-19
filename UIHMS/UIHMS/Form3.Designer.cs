@@ -1,6 +1,6 @@
 ﻿namespace UIHMS
 {
-    partial class Form1
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            label4 = new Label();
             panel2 = new Panel();
             panel5 = new Panel();
             label3 = new Label();
@@ -36,21 +36,22 @@
             label2 = new Label();
             panel3 = new Panel();
             label1 = new Label();
-            label4 = new Label();
+            panel1 = new Panel();
             panel2.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // label4
             // 
-            panel1.BackColor = SystemColors.ControlDark;
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1064, 29);
-            panel1.TabIndex = 0;
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(206, 32);
+            label4.Name = "label4";
+            label4.Size = new Size(87, 25);
+            label4.TabIndex = 8;
+            label4.Text = "LABEL 3";
             // 
             // panel2
             // 
@@ -62,7 +63,7 @@
             panel2.Location = new Point(0, 29);
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 652);
-            panel2.TabIndex = 1;
+            panel2.TabIndex = 7;
             // 
             // panel5
             // 
@@ -122,18 +123,16 @@
             label1.Text = "label1";
             label1.Click += label1_Click;
             // 
-            // label4
+            // panel1
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(206, 32);
-            label4.Name = "label4";
-            label4.Size = new Size(87, 25);
-            label4.TabIndex = 2;
-            label4.Text = "LABEL 1";
-            label4.Click += label4_Click;
+            panel1.BackColor = SystemColors.ControlDark;
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1064, 29);
+            panel1.TabIndex = 6;
             // 
-            // Form1
+            // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -141,10 +140,9 @@
             Controls.Add(label4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "Form3";
             panel2.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -158,14 +156,14 @@
 
         #endregion
 
-        private Panel panel1;
+        private Label label4;
         private Panel panel2;
-        private Panel panel3;
-        private Label label1;
-        private Panel panel4;
-        private Label label2;
         private Panel panel5;
         private Label label3;
-        private Label label4;
+        private Panel panel4;
+        private Label label2;
+        private Panel panel3;
+        private Label label1;
+        private Panel panel1;
     }
 }

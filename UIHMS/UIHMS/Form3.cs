@@ -10,31 +10,17 @@ using System.Windows.Forms;
 
 namespace UIHMS
 {
-    public partial class Form1 : Form
+    public partial class Form3 : Form
     {
-        public Form1()
+        public Form3()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             new Form1().Show();
             this.Hide();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -47,6 +33,11 @@ namespace UIHMS
         {
             new Form3().Show();
             this.Hide();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
