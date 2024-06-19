@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCONNECTION", "SQLCONNECTION\SQLCONNECTION.csproj", "{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIHMS", "UIHMS\UIHMS.csproj", "{D95C9878-F457-4547-8D99-EBDEA923AAEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C99ECFE3-A2D5-4011-AB74-AB8D8F576A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95C9878-F457-4547-8D99-EBDEA923AAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95C9878-F457-4547-8D99-EBDEA923AAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95C9878-F457-4547-8D99-EBDEA923AAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95C9878-F457-4547-8D99-EBDEA923AAEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A2191BCD-CBBA-44C6-A128-EDB118652DC2}
+		SolutionGuid = {03B474B0-350F-478C-8809-8B0991B910E9}
 	EndGlobalSection
 EndGlobal

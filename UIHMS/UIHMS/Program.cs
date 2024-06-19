@@ -1,7 +1,4 @@
-using HMS;
-using Microsoft.EntityFrameworkCore;
-
-namespace WinFormsApp1
+namespace UIHMS
 {
     internal static class Program
     {
@@ -15,10 +12,6 @@ namespace WinFormsApp1
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
-
-            Application.Run(new Form2());
-
-
         }
     }
 }
