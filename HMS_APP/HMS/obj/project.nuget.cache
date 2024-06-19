@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mF2El0vEribvEbNy0encSPa8IYIlalkGWMETlrCRfdnLt5zWXa3rtO80T15DTElQUvfZIE7794GxeGPyKgKPvA==",
+  "success": true,
+  "projectFilePath": "C:\\C# Programs\\HMS_APP\\HMS\\HMS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.data.sqlite.core\\1.0.118\\system.data.sqlite.core.1.0.118.nupkg.sha512"
+  ],
+  "logs": []
+}
