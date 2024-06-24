@@ -20,7 +20,6 @@ namespace UIHMS
         public GuestForm()
         {
             InitializeComponent();
-            //LoadData();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -29,26 +28,24 @@ namespace UIHMS
 
             //loading of database objects
             this.Connection = new Connection();
-
-            //this.dbContext.Database.EnsureDeleted();
+            
+            //.dbContext.Database.EnsureDeleted();
             this.Connection.Database.EnsureCreated();
-
             this.Connection.Guest.Load();
-
             this.guestTableBindingSource.DataSource = this.Connection.Guest.Local.ToBindingList();
 
         }
 
-        private void LoadData()
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
-            using (var context = new Connection())
-            {
-                var guests = context.Guest.ToList();
-                dataGridView1.DataSource = guests;
-            }
+
+        }
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -58,12 +55,12 @@ namespace UIHMS
 
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void ReservationList_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void panel6_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

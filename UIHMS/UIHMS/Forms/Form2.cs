@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace UIHMS
 {
-    public partial class ReservationForm : UserControl
+    public partial class Form2 : Form
     {
-        public ReservationForm()
+        public Form2()
         {
             InitializeComponent();
-        }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
+            Form3 embeddedForm = new Form3();
+            embeddedForm.TopLevel = false;
+            Controls.Add(embeddedForm);
+            embeddedForm.Show();
         }
     }
 }

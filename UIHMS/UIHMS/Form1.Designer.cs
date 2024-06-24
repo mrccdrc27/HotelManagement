@@ -50,7 +50,7 @@
             reservationForm1 = new ReservationForm();
             guestTableBindingSource = new BindingSource(components);
             room1 = new Room();
-            menu11 = new GuestForm();
+            guestForm1 = new GuestForm();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel7.SuspendLayout();
@@ -293,26 +293,29 @@
             // room1
             // 
             room1.BackColor = Color.FromArgb(242, 242, 242);
+            room1.Dock = DockStyle.Fill;
             room1.Location = new Point(274, 77);
             room1.Name = "room1";
-            room1.Size = new Size(694, 626);
-            room1.TabIndex = 8;
+            room1.Size = new Size(694, 604);
+            room1.TabIndex = 10;
+            room1.Load += room1_Load;
             // 
-            // menu11
+            // guestForm1
             // 
-            menu11.BackColor = Color.FromArgb(242, 242, 242);
-            menu11.Location = new Point(274, 77);
-            menu11.Name = "menu11";
-            menu11.Size = new Size(694, 626);
-            menu11.TabIndex = 9;
-            menu11.Load += guestForm1_Load;
+            guestForm1.BackColor = Color.FromArgb(242, 242, 242);
+            guestForm1.Dock = DockStyle.Fill;
+            guestForm1.Location = new Point(274, 77);
+            guestForm1.Name = "guestForm1";
+            guestForm1.Size = new Size(694, 604);
+            guestForm1.TabIndex = 11;
+            guestForm1.Load += guestForm1_Load_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 681);
-            Controls.Add(menu11);
+            Controls.Add(guestForm1);
             Controls.Add(room1);
             Controls.Add(reservationForm1);
             Controls.Add(panel5);
@@ -360,7 +363,8 @@
         private Label label4;
         private Splitter splitter1;
         private BindingSource guestTableBindingSource;
-        private Room room1;
         private GuestForm menu11;
+        private Room room1;
+        private GuestForm guestForm1;
     }
 }

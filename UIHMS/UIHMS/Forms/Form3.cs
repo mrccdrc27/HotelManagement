@@ -10,16 +10,12 @@ using System.Windows.Forms;
 
 namespace UIHMS
 {
-    public partial class ReservationForm : UserControl
+    public partial class Form3 : Form
     {
-        public ReservationForm()
+        public Connection? connection;
+        public Form3()
         {
             InitializeComponent();
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

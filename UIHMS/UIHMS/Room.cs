@@ -15,27 +15,41 @@ namespace UIHMS
     {
         public Connection? Connection;
 
-        protected override void OnLoad(EventArgs e)
+
+  
+         protected override void OnLoad(EventArgs e)
         {
-            base.OnLoad(e);
+            //base.OnLoad(e);
+
 
             //loading of database objects
             this.Connection = new Connection();
 
             //this.dbContext.Database.EnsureDeleted();
             this.Connection.Database.EnsureCreated();
-
             this.Connection.Room.Load();
+            //this.room.DataSource = this.Connection.Room.Local.ToBindingList();
 
-            this.roomTableBindingSource.DataSource = this.Connection.Room.Local.ToBindingList();
-
+            //LoadData();
         }
-        public Room()
-        {
-            InitializeComponent();
-        }
+    
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
         }

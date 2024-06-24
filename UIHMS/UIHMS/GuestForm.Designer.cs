@@ -36,11 +36,6 @@
             panel4 = new Panel();
             panel6 = new Panel();
             dataGridView1 = new DataGridView();
-            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            middleNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roomIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             guestTableBindingSource = new BindingSource(components);
             panel5 = new Panel();
             panel1.SuspendLayout();
@@ -81,9 +76,10 @@
             ReservationList.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ReservationList.Location = new Point(0, 11);
             ReservationList.Name = "ReservationList";
-            ReservationList.Size = new Size(52, 20);
-            ReservationList.TabIndex = 1;
-            ReservationList.Text = "Guest";
+            ReservationList.Size = new Size(58, 20);
+            ReservationList.TabIndex = 0;
+            ReservationList.Text = "Guests";
+            ReservationList.Click += ReservationList_Click;
             // 
             // panel4
             // 
@@ -94,7 +90,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(623, 150);
             panel4.TabIndex = 5;
-            panel4.Paint += panel4_Paint;
             // 
             // panel6
             // 
@@ -106,49 +101,15 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(623, 404);
             panel6.TabIndex = 7;
+            panel6.Paint += panel6_Paint_1;
             // 
             // dataGridView1
             // 
-            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, middleNameDataGridViewTextBoxColumn, roomIDDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = guestTableBindingSource;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(137, 64);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(621, 402);
+            dataGridView1.Size = new Size(240, 150);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
-            // 
-            // guestIDDataGridViewTextBoxColumn
-            // 
-            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
-            guestIDDataGridViewTextBoxColumn.HeaderText = "GuestID";
-            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // middleNameDataGridViewTextBoxColumn
-            // 
-            middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
-            middleNameDataGridViewTextBoxColumn.HeaderText = "MiddleName";
-            middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
-            // 
-            // roomIDDataGridViewTextBoxColumn
-            // 
-            roomIDDataGridViewTextBoxColumn.DataPropertyName = "RoomID";
-            roomIDDataGridViewTextBoxColumn.HeaderText = "RoomID";
-            roomIDDataGridViewTextBoxColumn.Name = "roomIDDataGridViewTextBoxColumn";
             // 
             // guestTableBindingSource
             // 
@@ -161,7 +122,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(623, 41);
             panel5.TabIndex = 6;
-            panel5.Paint += panel5_Paint;
             // 
             // GuestForm
             // 
@@ -192,12 +152,7 @@
         private Panel panel6;
         private Panel panel5;
         private Label ReservationList;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn guestIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn roomIDDataGridViewTextBoxColumn;
         private BindingSource guestTableBindingSource;
+        private DataGridView dataGridView1;
     }
 }

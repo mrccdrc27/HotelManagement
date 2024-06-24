@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             panel2 = new Panel();
             panel3 = new Panel();
             panel1 = new Panel();
             ReservationList = new Label();
             panel4 = new Panel();
             panel6 = new Panel();
-            dataGridView1 = new DataGridView();
             panel5 = new Panel();
-            category_name = new DataGridViewTextBoxColumn();
-            roomTableBindingSource = new BindingSource(components);
             panel1.SuspendLayout();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roomTableBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -90,28 +83,18 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(623, 150);
             panel4.TabIndex = 5;
+            panel4.Paint += panel4_Paint;
             // 
             // panel6
             // 
             panel6.BackColor = Color.White;
             panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(dataGridView1);
             panel6.Dock = DockStyle.Fill;
             panel6.Location = new Point(36, 222);
             panel6.Name = "panel6";
             panel6.Size = new Size(623, 404);
             panel6.TabIndex = 7;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { category_name });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(621, 402);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            panel6.Paint += panel6_Paint;
             // 
             // panel5
             // 
@@ -120,16 +103,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(623, 41);
             panel5.TabIndex = 6;
-            // 
-            // category_name
-            // 
-            category_name.DataPropertyName = "category_name";
-            category_name.HeaderText = "category_name";
-            category_name.Name = "category_name";
-            // 
-            // roomTableBindingSource
-            // 
-            roomTableBindingSource.DataSource = typeof(Room_Table);
             // 
             // Room
             // 
@@ -146,9 +119,6 @@
             Size = new Size(694, 626);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roomTableBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -160,8 +130,6 @@
         private Panel panel6;
         private Panel panel5;
         private Label ReservationList;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn category_name;
-        private BindingSource roomTableBindingSource;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }

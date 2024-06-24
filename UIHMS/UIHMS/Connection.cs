@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 
+
 // This Sets the creation of table to the database.
 namespace UIHMS
 {
+
     public class Connection : DbContext
     {
 
@@ -17,4 +19,5 @@ namespace UIHMS
         => optionsBuilder.UseSqlite("Data Source = HMS.db"); //connection string and to use sqlite
 
     }
+
 }

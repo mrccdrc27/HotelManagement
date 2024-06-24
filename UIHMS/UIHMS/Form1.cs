@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Media.TextFormatting.Unicode;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -140,6 +141,7 @@ namespace UIHMS
         }
 
 
+
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
@@ -166,6 +168,16 @@ namespace UIHMS
         }
 
         private void guestForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void room1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guestForm1_Load_1(object sender, EventArgs e)
         {
 
         }
