@@ -37,20 +37,20 @@
             label2 = new Label();
             pnlRoomList = new Panel();
             dgvRoomList = new Guna.UI2.WinForms.Guna2DataGridView();
-            roomModelBindingSource = new BindingSource(components);
-            roomGuestModelBindingSource = new BindingSource(components);
-            btnUpdateRStatus = new Button();
-            roomGuestModelBindingSource1 = new BindingSource(components);
-            roomCategoryDTOBindingSource = new BindingSource(components);
             roomIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             RoomStatus = new DataGridViewTextBoxColumn();
             RoomNum = new DataGridViewTextBoxColumn();
             CategoryName = new DataGridViewTextBoxColumn();
+            roomCategoryDTOBindingSource = new BindingSource(components);
+            roomModelBindingSource = new BindingSource(components);
+            roomGuestModelBindingSource = new BindingSource(components);
+            btnUpdateRStatus = new Button();
+            roomGuestModelBindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             SuspendLayout();
             // 
             // pnlOverview
@@ -69,7 +69,7 @@
             label1.ForeColor = Color.FromArgb(55, 58, 64);
             label1.Location = new Point(30, 27);
             label1.Name = "label1";
-            label1.Size = new Size(102, 23);
+            label1.Size = new Size(82, 19);
             label1.TabIndex = 1;
             label1.Text = "Overview";
             // 
@@ -80,7 +80,7 @@
             label2.ForeColor = Color.FromArgb(55, 58, 64);
             label2.Location = new Point(30, 283);
             label2.Name = "label2";
-            label2.Size = new Size(102, 23);
+            label2.Size = new Size(79, 19);
             label2.TabIndex = 2;
             label2.Text = "Room List";
             // 
@@ -128,6 +128,7 @@
             dgvRoomList.ReadOnly = true;
             dgvRoomList.RowHeadersVisible = false;
             dgvRoomList.RowHeadersWidth = 51;
+            dgvRoomList.RowTemplate.Height = 29;
             dgvRoomList.Size = new Size(1058, 388);
             dgvRoomList.TabIndex = 1;
             dgvRoomList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -151,38 +152,6 @@
             dgvRoomList.ThemeStyle.RowsStyle.Height = 29;
             dgvRoomList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvRoomList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // roomModelBindingSource
-            // 
-            roomModelBindingSource.DataSource = typeof(CLASSES.RoomModel);
-            // 
-            // roomGuestModelBindingSource
-            // 
-            roomGuestModelBindingSource.DataSource = typeof(CLASSES.RoomGuestModel);
-            // 
-            // btnUpdateRStatus
-            // 
-            btnUpdateRStatus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnUpdateRStatus.BackColor = Color.FromArgb(107, 144, 128);
-            btnUpdateRStatus.FlatAppearance.BorderSize = 0;
-            btnUpdateRStatus.FlatStyle = FlatStyle.Flat;
-            btnUpdateRStatus.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdateRStatus.ForeColor = Color.FromArgb(246, 255, 248);
-            btnUpdateRStatus.Location = new Point(937, 61);
-            btnUpdateRStatus.Name = "btnUpdateRStatus";
-            btnUpdateRStatus.Size = new Size(151, 33);
-            btnUpdateRStatus.TabIndex = 21;
-            btnUpdateRStatus.Text = "Update Room";
-            btnUpdateRStatus.UseVisualStyleBackColor = false;
-            btnUpdateRStatus.Click += btnUpdateRStatus_Click;
-            // 
-            // roomGuestModelBindingSource1
-            // 
-            roomGuestModelBindingSource1.DataSource = typeof(CLASSES.RoomGuestModel);
-            // 
-            // roomCategoryDTOBindingSource
-            // 
-            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
             // 
             // roomIdDataGridViewTextBoxColumn
             // 
@@ -216,9 +185,41 @@
             CategoryName.Name = "CategoryName";
             CategoryName.ReadOnly = true;
             // 
+            // roomCategoryDTOBindingSource
+            // 
+            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
+            // 
+            // roomModelBindingSource
+            // 
+            roomModelBindingSource.DataSource = typeof(CLASSES.RoomModel);
+            // 
+            // roomGuestModelBindingSource
+            // 
+            roomGuestModelBindingSource.DataSource = typeof(CLASSES.RoomGuestModel);
+            // 
+            // btnUpdateRStatus
+            // 
+            btnUpdateRStatus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnUpdateRStatus.BackColor = Color.FromArgb(107, 144, 128);
+            btnUpdateRStatus.FlatAppearance.BorderSize = 0;
+            btnUpdateRStatus.FlatStyle = FlatStyle.Flat;
+            btnUpdateRStatus.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateRStatus.ForeColor = Color.FromArgb(246, 255, 248);
+            btnUpdateRStatus.Location = new Point(937, 61);
+            btnUpdateRStatus.Name = "btnUpdateRStatus";
+            btnUpdateRStatus.Size = new Size(151, 33);
+            btnUpdateRStatus.TabIndex = 21;
+            btnUpdateRStatus.Text = "Update Room";
+            btnUpdateRStatus.UseVisualStyleBackColor = false;
+            btnUpdateRStatus.Click += btnUpdateRStatus_Click;
+            // 
+            // roomGuestModelBindingSource1
+            // 
+            roomGuestModelBindingSource1.DataSource = typeof(CLASSES.RoomGuestModel);
+            // 
             // DashboardRoom
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 255, 248);
             ClientSize = new Size(1119, 738);
@@ -232,11 +233,12 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardRoom";
             Text = "DashboardRoom";
+            Load += DashboardRoom_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

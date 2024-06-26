@@ -21,6 +21,11 @@ namespace NOAKAY.DASHFORM
         {
             base.OnLoad(e);
 
+
+        }
+
+        public void oldcode()
+        {
             // Loading of database objects
             dbContext = new Connection();
 
@@ -42,18 +47,23 @@ namespace NOAKAY.DASHFORM
                 INNER JOIN CategoryModels ON RoomModels.CategoryID = CategoryModels.CategoryID;";
 
             // Execute the query and map the results to DTO
-            var roomGuestCategoryList = dbContext.RoomCategoryDTO.FromSqlRaw(sqlQuery).ToList();
+            //var roomGuestCategoryList = dbContext.RoomCategoryDTO.FromSqlRaw(sqlQuery).ToList();
 
             // Bind data to BindingSource
-            roomModelBindingSource.DataSource = roomGuestCategoryList;
+            //roomModelBindingSource.DataSource = roomGuestCategoryList;
 
             // Set DataSource of DataGridView to BindingSource
-            dgvRoomList.DataSource = roomModelBindingSource;
+            //dgvRoomList.DataSource = roomModelBindingSource;
         }
 
         private void btnUpdateRStatus_Click(object sender, EventArgs e)
         {
             new UpdateRoomStat().Show();
+        }
+
+        private void DashboardRoom_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

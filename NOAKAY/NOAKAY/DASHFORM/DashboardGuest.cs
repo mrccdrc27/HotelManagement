@@ -28,7 +28,71 @@ namespace NOAKAY.DASHFORM
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            newcode();
 
+        }
+
+        public void newcode()
+        {
+            this.dbContext = new Connection();
+
+            var combinedData = from Guest in dbContext.GuestModels
+                               join Room in dbContext.RoomModels
+                               on Guest.RoomID equals Room.RoomID
+                               //Initial Join of Guest and Room
+                               join Category in dbContext.CategoryModels
+                               on Room.CategoryId equals Category.CategoryID
+                               select new GuestRoomCategoryDTO
+                               {
+                                   //IF Error, Data Must Be nulled, GO back and input data properly
+                                   RoomID = Room.RoomID,
+                                   GuestID = Guest.GuestID,
+                                   RoomNum = Room.RoomNum,
+                                   LastName = Guest.LastName!,
+                                   FirstName = Guest.FirstName!,
+                                   Contact = Guest.Contact!,
+                                   CheckIn = (DateTime)Guest.CheckIn!,
+                                   CheckOut = (DateTime)Guest.CheckIn!,
+                                   CategoryName = Category.CategoryName!,
+                                   GuestStatus = $"{Guest.GuestStatus}"
+
+                               };
+
+            var combinedList = combinedData.ToList();
+
+            foreach (var item in combinedList)
+            {
+                if (item.GuestStatus == "1")
+                {
+                    // Change GuestStatus if it is 1
+                    item.GuestStatus = "Checked Out"; // Example change to 3
+                }
+                else if (item.GuestStatus == "0")
+                {
+                    // Change GuestStatus if it is 2
+                    item.GuestStatus = "Checked IN"; // Example change to 3
+                }
+                // Add more conditions as needed
+            }
+
+
+            this.dbContext.Database.CloseConnection();
+
+            dgvGuestList.DataSource = combinedList;
+        }
+        public void guestOnly()
+        {
+            //deafult guest display
+            dbContext = new Connection();
+
+            // Ensure database is created
+            dbContext.Database.EnsureCreated();
+            this.dbContext.GuestModels.Load();
+            guestRoomCategoryDTOBindingSource.DataSource = this.dbContext.GuestModels.Local.ToList();
+        }
+
+        public void oldcode()
+        {
             // Loading of database objects
             dbContext = new Connection();
 
@@ -60,7 +124,7 @@ namespace NOAKAY.DASHFORM
                 INNER JOIN CategoryModels ON RoomModels.CategoryID = CategoryModels.CategoryID;";
 
             // Execute the query and map the results to DTO
-            allGuests = dbContext.GuestRoomCategoryDTO.FromSqlRaw(sqlQuery).ToList();
+            //allGuests = dbContext.RoomModels.FromSqlRaw(sqlQuery).ToList();
 
             // Bind data to BindingSource
             guestModelBindingSource.DataSource = allGuests;
@@ -76,7 +140,7 @@ namespace NOAKAY.DASHFORM
             new InsertGuest().Show();
         }
 
-    
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string searchTerm = txtSearch.Text.ToLower();
@@ -108,8 +172,8 @@ namespace NOAKAY.DASHFORM
 
             var filteredGuests = allGuests.Where(g =>
                 selectedStatusIndex == 0 || // Assuming index 0 is for 'All' or similar
-                (selectedStatusIndex == 0 && g.GuestStatus == "Check In") ||
-                (selectedStatusIndex == 1 && g.GuestStatus == "Check Out")
+                (selectedStatusIndex == 0 && g.GuestStatus == "CheckIn") ||
+                (selectedStatusIndex == 1 && g.GuestStatus == "CheckOut")
             ).ToList();
 
             // Update the BindingSource with the filtered list
@@ -117,6 +181,11 @@ namespace NOAKAY.DASHFORM
 
             // Refresh the DataGridView to reflect the changes
             dgvGuestList.Refresh();
+        }
+
+        private void dgvGuestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
