@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMain));
             pnlNav = new Panel();
+            button2 = new Button();
+            button1 = new Button();
             btnOut = new Button();
             btnBook = new Button();
             btnGuest = new Button();
@@ -52,6 +54,8 @@
             // pnlNav
             // 
             pnlNav.BackColor = Color.FromArgb(53, 79, 82);
+            pnlNav.Controls.Add(button2);
+            pnlNav.Controls.Add(button1);
             pnlNav.Controls.Add(btnOut);
             pnlNav.Controls.Add(btnBook);
             pnlNav.Controls.Add(btnGuest);
@@ -63,6 +67,34 @@
             pnlNav.Name = "pnlNav";
             pnlNav.Size = new Size(250, 664);
             pnlNav.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.ForeColor = Color.FromArgb(246, 255, 248);
+            button2.Location = new Point(3, 399);
+            button2.Name = "button2";
+            button2.Size = new Size(247, 61);
+            button2.TabIndex = 6;
+            button2.Text = "Reserved String";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.FromArgb(246, 255, 248);
+            button1.Location = new Point(0, 332);
+            button1.Name = "button1";
+            button1.Size = new Size(247, 61);
+            button1.TabIndex = 5;
+            button1.Text = "Reserved String";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnOut
             // 
@@ -240,5 +272,7 @@
         private PictureBox picMaximize;
         private PictureBox picExit;
         private PictureBox pictureBox1;
+        private Button button2;
+        private Button button1;
     }
 }

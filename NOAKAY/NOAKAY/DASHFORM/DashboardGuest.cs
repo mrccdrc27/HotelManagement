@@ -22,7 +22,7 @@ namespace NOAKAY.DASHFORM
         public DashboardGuest()
         {
             InitializeComponent();
-            allGuests = new List<GuestRoomCategoryDTO>(); // initialize
+            // allGuests = new List<GuestRoomCategoryDTO>(); // initialize
         }
 
         // == BINDING THE DATA TO DATA GRID VIEW ==
@@ -55,7 +55,8 @@ namespace NOAKAY.DASHFORM
                                    CheckIn = (DateTime)Guest.CheckIn!,
                                    CheckOut = (DateTime)Guest.CheckIn!,
                                    CategoryName = Category.CategoryName!,
-                                   GuestStatus = $"{Guest.GuestStatus}"
+                                   GuestStatus = $"{Guest.GuestStatus}",
+                                   Email = Guest.Email!
 
                                };
 
