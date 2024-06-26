@@ -1,52 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using NOAKAY.CLASSES;
 using SQLCONNECTION;
+using NOAKAY.CLASSES.Joined_Tables;
 
 namespace NOAKAY.DASHFORM
 {
     public partial class DashboardRoom : Form
     {
-        public Connection? dbContext;
+        private Connection dbContext;
+
         public DashboardRoom()
         {
             InitializeComponent();
         }
 
-        private List<RoomModel> allRooms; // Define this at the class level
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            //loading of database objects
-            this.dbContext = new Connection();
+            // Loading of database objects
+            dbContext = new Connection();
 
-            //this.dbContext.Database.EnsureDeleted();
-            this.dbContext.Database.EnsureCreated();
-            this.allRooms = this.dbContext.RoomModels.FromSqlRaw("SELECT * FROM RoomModels").ToList();
-            // Modify the data to include RoomStatusDisplay
-            var roomsWithDisplay = this.allRooms.Select(r => new
-            {
-                r.RoomID,
-                r.CategoryId,
-                RoomStatus = r.RoomStatusDisplay,
-                r.RoomNum
+            // Ensure database is created
+            dbContext.Database.EnsureCreated();
 
-            }).ToList();
+            // Raw SQL query with CASE statement for RoomStatus
+            string sqlQuery = @"
+                SELECT RoomModels.RoomId,
+                       CASE RoomModels.RoomStatus
+                           WHEN 0 THEN 'Occupied'
+                           WHEN 1 THEN 'Available'
+                           WHEN 2 THEN 'Unavailable'
+                           ELSE 'Unknown'  -- Handle any other values if necessary
+                       END AS RoomStatus,
+                       RoomModels.RoomNum,
+                       CategoryModels.CategoryName
+                FROM RoomModels
+                INNER JOIN CategoryModels ON RoomModels.CategoryID = CategoryModels.CategoryID;";
+
+            // Execute the query and map the results to DTO
+            var roomGuestCategoryList = dbContext.RoomCategoryDTO.FromSqlRaw(sqlQuery).ToList();
 
             // Bind data to BindingSource
-            this.roomModelBindingSource.DataSource = roomsWithDisplay;
+            roomModelBindingSource.DataSource = roomGuestCategoryList;
 
             // Set DataSource of DataGridView to BindingSource
-            this.dgvRoomList.DataSource = this.roomModelBindingSource;
+            dgvRoomList.DataSource = roomModelBindingSource;
+        }
+
+        private void btnUpdateRStatus_Click(object sender, EventArgs e)
+        {
+            new UpdateRoomStat().Show();
         }
     }
 }

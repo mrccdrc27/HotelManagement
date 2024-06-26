@@ -40,21 +40,21 @@
             btnAdd = new Button();
             pnlGuestList = new Panel();
             dgvGuestList = new Guna.UI2.WinForms.Guna2DataGridView();
-            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            GuestStatus = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            middleNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            CheckIn = new DataGridViewTextBoxColumn();
-            CheckOut = new DataGridViewTextBoxColumn();
-            contactDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roomIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            guestRoomCategoryDTOBindingSource = new BindingSource(components);
             guestModelBindingSource = new BindingSource(components);
             comboSearchStatus = new ComboBox();
+            RoomID = new DataGridViewTextBoxColumn();
+            RoomNum = new DataGridViewTextBoxColumn();
+            LastName = new DataGridViewTextBoxColumn();
+            FirstName = new DataGridViewTextBoxColumn();
+            Contact = new DataGridViewTextBoxColumn();
+            CheckIn = new DataGridViewTextBoxColumn();
+            CheckOut = new DataGridViewTextBoxColumn();
+            GuestStatus = new DataGridViewTextBoxColumn();
+            CategoryName = new DataGridViewTextBoxColumn();
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -153,8 +153,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvGuestList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvGuestList.ColumnHeadersHeight = 22;
-            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, GuestStatus, firstNameDataGridViewTextBoxColumn, middleNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, CheckIn, CheckOut, contactDataGridViewTextBoxColumn, roomIDDataGridViewTextBoxColumn });
-            dgvGuestList.DataSource = guestModelBindingSource;
+            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Contact, CheckIn, CheckOut, GuestStatus, CategoryName });
+            dgvGuestList.DataSource = guestRoomCategoryDTOBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -193,61 +193,63 @@
             dgvGuestList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvGuestList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // guestIDDataGridViewTextBoxColumn
+            // guestRoomCategoryDTOBindingSource
             // 
-            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
-            guestIDDataGridViewTextBoxColumn.HeaderText = "GuestID";
-            guestIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
-            guestIDDataGridViewTextBoxColumn.ReadOnly = true;
+            guestRoomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.GuestRoomCategoryDTO);
             // 
-            // GuestStatus
+            // guestModelBindingSource
             // 
-            GuestStatus.DataPropertyName = "GuestStatus";
-            GuestStatus.HeaderText = "GuestStatus";
-            GuestStatus.MinimumWidth = 6;
-            GuestStatus.Name = "GuestStatus";
-            GuestStatus.ReadOnly = true;
+            guestModelBindingSource.DataSource = typeof(CLASSES.GuestModel);
             // 
-            // firstNameDataGridViewTextBoxColumn
+            // comboSearchStatus
             // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            comboSearchStatus.BackColor = Color.FromArgb(204, 227, 222);
+            comboSearchStatus.Items.AddRange(new object[] { "Check In", "Check Out", "All" });
+            comboSearchStatus.Location = new Point(594, 83);
+            comboSearchStatus.Name = "comboSearchStatus";
+            comboSearchStatus.Size = new Size(151, 28);
+            comboSearchStatus.TabIndex = 7;
+            comboSearchStatus.SelectedIndexChanged += comboSearchStatus_SelectedIndexChanged;
             // 
-            // middleNameDataGridViewTextBoxColumn
+            // RoomID
             // 
-            middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
-            middleNameDataGridViewTextBoxColumn.HeaderText = "MiddleName";
-            middleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
-            middleNameDataGridViewTextBoxColumn.ReadOnly = true;
+            RoomID.DataPropertyName = "RoomID";
+            RoomID.HeaderText = "RoomID";
+            RoomID.MinimumWidth = 6;
+            RoomID.Name = "RoomID";
+            RoomID.ReadOnly = true;
             // 
-            // lastNameDataGridViewTextBoxColumn
+            // RoomNum
             // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            RoomNum.DataPropertyName = "RoomNum";
+            RoomNum.HeaderText = "RoomNum";
+            RoomNum.MinimumWidth = 6;
+            RoomNum.Name = "RoomNum";
+            RoomNum.ReadOnly = true;
             // 
-            // addressDataGridViewTextBoxColumn
+            // LastName
             // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            LastName.DataPropertyName = "LastName";
+            LastName.HeaderText = "LastName";
+            LastName.MinimumWidth = 6;
+            LastName.Name = "LastName";
+            LastName.ReadOnly = true;
             // 
-            // emailDataGridViewTextBoxColumn
+            // FirstName
             // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            FirstName.DataPropertyName = "FirstName";
+            FirstName.HeaderText = "FirstName";
+            FirstName.MinimumWidth = 6;
+            FirstName.Name = "FirstName";
+            FirstName.ReadOnly = true;
+            // 
+            // Contact
+            // 
+            Contact.DataPropertyName = "Contact";
+            Contact.HeaderText = "Contact";
+            Contact.MinimumWidth = 6;
+            Contact.Name = "Contact";
+            Contact.ReadOnly = true;
             // 
             // CheckIn
             // 
@@ -265,35 +267,21 @@
             CheckOut.Name = "CheckOut";
             CheckOut.ReadOnly = true;
             // 
-            // contactDataGridViewTextBoxColumn
+            // GuestStatus
             // 
-            contactDataGridViewTextBoxColumn.DataPropertyName = "Contact";
-            contactDataGridViewTextBoxColumn.HeaderText = "Contact";
-            contactDataGridViewTextBoxColumn.MinimumWidth = 6;
-            contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
-            contactDataGridViewTextBoxColumn.ReadOnly = true;
+            GuestStatus.DataPropertyName = "GuestStatus";
+            GuestStatus.HeaderText = "GuestStatus";
+            GuestStatus.MinimumWidth = 6;
+            GuestStatus.Name = "GuestStatus";
+            GuestStatus.ReadOnly = true;
             // 
-            // roomIDDataGridViewTextBoxColumn
+            // CategoryName
             // 
-            roomIDDataGridViewTextBoxColumn.DataPropertyName = "RoomID";
-            roomIDDataGridViewTextBoxColumn.HeaderText = "RoomID";
-            roomIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            roomIDDataGridViewTextBoxColumn.Name = "roomIDDataGridViewTextBoxColumn";
-            roomIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // guestModelBindingSource
-            // 
-            guestModelBindingSource.DataSource = typeof(CLASSES.GuestModel);
-            // 
-            // comboSearchStatus
-            // 
-            comboSearchStatus.BackColor = Color.FromArgb(204, 227, 222);
-            comboSearchStatus.Items.AddRange(new object[] { "Check In", "Check Out", "All" });
-            comboSearchStatus.Location = new Point(594, 83);
-            comboSearchStatus.Name = "comboSearchStatus";
-            comboSearchStatus.Size = new Size(151, 28);
-            comboSearchStatus.TabIndex = 7;
-            comboSearchStatus.SelectedIndexChanged += comboSearchStatus_SelectedIndexChanged;
+            CategoryName.DataPropertyName = "CategoryName";
+            CategoryName.HeaderText = "CategoryName";
+            CategoryName.MinimumWidth = 6;
+            CategoryName.Name = "CategoryName";
+            CategoryName.ReadOnly = true;
             // 
             // DashboardGuest
             // 
@@ -313,6 +301,7 @@
             Text = "DashboardGuest";
             pnlGuestList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -327,17 +316,16 @@
         private Panel pnlGuestList;
         private Guna.UI2.WinForms.Guna2DataGridView dgvGuestList;
         private BindingSource guestModelBindingSource;
-        private DataGridViewTextBoxColumn guestIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn GuestStatus;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private ComboBox comboSearchStatus;
+        private BindingSource guestRoomCategoryDTOBindingSource;
+        private DataGridViewTextBoxColumn RoomID;
+        private DataGridViewTextBoxColumn RoomNum;
+        private DataGridViewTextBoxColumn LastName;
+        private DataGridViewTextBoxColumn FirstName;
+        private DataGridViewTextBoxColumn Contact;
         private DataGridViewTextBoxColumn CheckIn;
         private DataGridViewTextBoxColumn CheckOut;
-        private DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn roomIDDataGridViewTextBoxColumn;
-        private ComboBox comboSearchStatus;
+        private DataGridViewTextBoxColumn GuestStatus;
+        private DataGridViewTextBoxColumn CategoryName;
     }
 }

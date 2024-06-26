@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NOAKAY.CLASSES;
+using NOAKAY.CLASSES.Joined_Tables;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -19,6 +20,8 @@ namespace SQLCONNECTION
         public DbSet<RoomModel> RoomModels { get; set; }
         public DbSet<CategoryModel> CategoryModels { get; set; }
         public DbSet<GuestModel> GuestModels { get; set; }
+        public DbSet<RoomCategoryDTO> RoomCategoryDTO { get; set; } // inner join
+        public DbSet<GuestRoomCategoryDTO> GuestRoomCategoryDTO { get; set; }
 
 
 

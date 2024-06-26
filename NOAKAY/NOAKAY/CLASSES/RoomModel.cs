@@ -11,44 +11,19 @@ namespace NOAKAY.CLASSES
         [Key]
         public int RoomID { get; set; }
 
-        // RoomStatus derived property
+        public int? RoomStatus { get; set; }
         [NotMapped] // Not mapped to database
-        public int RoomStatus
-        {
-            get
-            {
-                if (Guests != null || Guests.Any())
-                {
-                   // MessageBox.Show("YESSSSS");
-                    // Check if any guest is checked in
-                    bool isOccupied = Guests.Any(g => g.GuestStatus == 0);
-
-                    if (isOccupied)
-                        return 0; // Example: 1 might represent "Occupied"
-                    else
-                        return 1; // Example: 2 might represent "Available"
-                }
-                else
-                {
-                    MessageBox.Show("YESSSSS");
-                    return 0; // Default to "Available" if no guests are associated
-
-                }
-            }
-        }
         public string RoomStatusDisplay
         {
             get
             {
-                switch (RoomStatus)
+                if (RoomStatus.HasValue)
                 {
-                    case 0:
-                        return "Occupied";
-                    case 1:
-                        return "Available";
-                    default:
-                        return "Unknown"; // Handle any other values if needed
+                    return RoomStatus == 0 ? "Occupied" :
+                           RoomStatus == 1 ? "Available" :
+                           "Unknown"; // Handle any other values if needed
                 }
+                return "Unknown"; // Default value if GuestStatus is null
             }
         }
 

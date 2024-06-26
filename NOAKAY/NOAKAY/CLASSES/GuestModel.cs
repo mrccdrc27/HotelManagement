@@ -35,7 +35,7 @@ namespace NOAKAY.CLASSES
                 }
                 return "Unknown"; // Default value if GuestStatus is null
             }
-        }
+        }   
         public DateTime? CheckIn { get; set; }
         public DateTime? CheckOut { get; set; }
 
