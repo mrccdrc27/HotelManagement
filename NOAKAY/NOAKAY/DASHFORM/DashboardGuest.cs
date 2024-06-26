@@ -65,6 +65,7 @@ namespace NOAKAY.DASHFORM
 
             foreach (var item in combinedList)
             {
+
                 if (item.GuestStatus == "1")
                 {
                     // Change GuestStatus if it is 1
@@ -76,6 +77,7 @@ namespace NOAKAY.DASHFORM
                     item.GuestStatus = "Check In"; // Example change to 3
                 }
                 // Add more conditions as needed
+
             }
 
 

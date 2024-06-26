@@ -13,7 +13,7 @@ namespace NOAKAY.CLASSES
         [Key]
         public int CategoryID { get; set; }
         public string? CategoryName { get; set; }
-
+        public int? basePrice { get; set; }
         public virtual ObservableCollectionListSource<RoomModel> Rooms { get; set; } = new();
     }
 }

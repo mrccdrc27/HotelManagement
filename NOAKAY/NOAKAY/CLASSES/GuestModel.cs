@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace NOAKAY.CLASSES
 {
@@ -39,10 +40,10 @@ namespace NOAKAY.CLASSES
         public DateTime? CheckIn { get; set; }
         public DateTime? CheckOut { get; set; }
 
-
         public int RoomID { get; set; }
 
         [ForeignKey("RoomID")]
         public virtual RoomModel Rooms { get; set; } = null!;
+        public virtual ObservableCollection<BookingRecord> booking { get; set; } = new ObservableCollection<BookingRecord>();
     }
 }
