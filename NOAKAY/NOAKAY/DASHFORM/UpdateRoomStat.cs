@@ -43,7 +43,7 @@ namespace NOAKAY.DASHFORM
 
                 if (roomToUpdate != null)
                 {
-                    roomToUpdate.RoomStatus = roomstatus;
+                    //roomToUpdate.RoomStatus = roomstatus;
 
                     // Save changes to the database
                     dbContext.SaveChanges();

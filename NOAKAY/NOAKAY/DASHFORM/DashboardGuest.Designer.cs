@@ -41,6 +41,7 @@
             pnlGuestList = new Panel();
             dgvGuestList = new Guna.UI2.WinForms.Guna2DataGridView();
             guestRoomCategoryDTOBindingSource = new BindingSource(components);
+            guestRoomCategoryDTOBindingSource1 = new BindingSource(components);
             guestModelBindingSource = new BindingSource(components);
             comboSearchStatus = new ComboBox();
             RoomID = new DataGridViewTextBoxColumn();
@@ -55,6 +56,7 @@
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -199,6 +201,10 @@
             // 
             guestRoomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.GuestRoomCategoryDTO);
             // 
+            // guestRoomCategoryDTOBindingSource1
+            // 
+            guestRoomCategoryDTOBindingSource1.DataSource = typeof(CLASSES.Joined_Tables.GuestRoomCategoryDTO);
+            // 
             // guestModelBindingSource
             // 
             guestModelBindingSource.DataSource = typeof(CLASSES.GuestModel);
@@ -207,7 +213,7 @@
             // 
             comboSearchStatus.BackColor = Color.FromArgb(204, 227, 222);
             comboSearchStatus.Items.AddRange(new object[] { "Check In", "Check Out", "All" });
-            comboSearchStatus.Location = new Point(594, 83);
+            comboSearchStatus.Location = new Point(476, 85);
             comboSearchStatus.Name = "comboSearchStatus";
             comboSearchStatus.Size = new Size(151, 25);
             comboSearchStatus.TabIndex = 7;
@@ -304,6 +310,7 @@
             pnlGuestList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -320,6 +327,7 @@
         private BindingSource guestModelBindingSource;
         private ComboBox comboSearchStatus;
         private BindingSource guestRoomCategoryDTOBindingSource;
+        private BindingSource guestRoomCategoryDTOBindingSource1;
         private DataGridViewTextBoxColumn RoomID;
         private DataGridViewTextBoxColumn RoomNum;
         private DataGridViewTextBoxColumn LastName;

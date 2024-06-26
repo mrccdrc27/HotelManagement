@@ -37,20 +37,17 @@
             label2 = new Label();
             pnlRoomList = new Panel();
             dgvRoomList = new Guna.UI2.WinForms.Guna2DataGridView();
-            roomIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            RoomStatus = new DataGridViewTextBoxColumn();
-            RoomNum = new DataGridViewTextBoxColumn();
-            CategoryName = new DataGridViewTextBoxColumn();
+            roomGuestModelBindingSource = new BindingSource(components);
             roomCategoryDTOBindingSource = new BindingSource(components);
             roomModelBindingSource = new BindingSource(components);
-            roomGuestModelBindingSource = new BindingSource(components);
             btnUpdateRStatus = new Button();
-            roomGuestModelBindingSource1 = new BindingSource(components);
+            roomIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // pnlOverview
@@ -112,8 +109,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvRoomList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvRoomList.ColumnHeadersHeight = 22;
-            dgvRoomList.Columns.AddRange(new DataGridViewColumn[] { roomIdDataGridViewTextBoxColumn, RoomStatus, RoomNum, CategoryName });
-            dgvRoomList.DataSource = roomCategoryDTOBindingSource;
+            dgvRoomList.Columns.AddRange(new DataGridViewColumn[] { roomIdDataGridViewTextBoxColumn, guestIDDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            dgvRoomList.DataSource = roomGuestModelBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -153,37 +150,9 @@
             dgvRoomList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvRoomList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // roomIdDataGridViewTextBoxColumn
+            // roomGuestModelBindingSource
             // 
-            roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
-            roomIdDataGridViewTextBoxColumn.HeaderText = "RoomId";
-            roomIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
-            roomIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // RoomStatus
-            // 
-            RoomStatus.DataPropertyName = "RoomStatus";
-            RoomStatus.HeaderText = "RoomStatus";
-            RoomStatus.MinimumWidth = 6;
-            RoomStatus.Name = "RoomStatus";
-            RoomStatus.ReadOnly = true;
-            // 
-            // RoomNum
-            // 
-            RoomNum.DataPropertyName = "RoomNum";
-            RoomNum.HeaderText = "RoomNum";
-            RoomNum.MinimumWidth = 6;
-            RoomNum.Name = "RoomNum";
-            RoomNum.ReadOnly = true;
-            // 
-            // CategoryName
-            // 
-            CategoryName.DataPropertyName = "CategoryName";
-            CategoryName.HeaderText = "CategoryName";
-            CategoryName.MinimumWidth = 6;
-            CategoryName.Name = "CategoryName";
-            CategoryName.ReadOnly = true;
+            roomGuestModelBindingSource.DataSource = typeof(CLASSES.RoomGuestModel);
             // 
             // roomCategoryDTOBindingSource
             // 
@@ -192,10 +161,6 @@
             // roomModelBindingSource
             // 
             roomModelBindingSource.DataSource = typeof(CLASSES.RoomModel);
-            // 
-            // roomGuestModelBindingSource
-            // 
-            roomGuestModelBindingSource.DataSource = typeof(CLASSES.RoomGuestModel);
             // 
             // btnUpdateRStatus
             // 
@@ -213,9 +178,26 @@
             btnUpdateRStatus.UseVisualStyleBackColor = false;
             btnUpdateRStatus.Click += btnUpdateRStatus_Click;
             // 
-            // roomGuestModelBindingSource1
+            // roomIdDataGridViewTextBoxColumn
             // 
-            roomGuestModelBindingSource1.DataSource = typeof(CLASSES.RoomGuestModel);
+            roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
+            roomIdDataGridViewTextBoxColumn.HeaderText = "RoomId";
+            roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
+            roomIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // guestIDDataGridViewTextBoxColumn
+            // 
+            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
+            guestIDDataGridViewTextBoxColumn.HeaderText = "GuestID";
+            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
+            guestIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            statusDataGridViewTextBoxColumn.HeaderText = "status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // DashboardRoom
             // 
@@ -235,10 +217,9 @@
             Text = "DashboardRoom";
             Load += DashboardRoom_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,11 +234,9 @@
         private BindingSource roomModelBindingSource;
         private BindingSource roomGuestModelBindingSource;
         private Button btnUpdateRStatus;
-        private DataGridViewTextBoxColumn roomIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn RoomStatus;
-        private DataGridViewTextBoxColumn RoomNum;
-        private DataGridViewTextBoxColumn CategoryName;
         private BindingSource roomCategoryDTOBindingSource;
-        private BindingSource roomGuestModelBindingSource1;
+        private DataGridViewTextBoxColumn roomIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn guestIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }

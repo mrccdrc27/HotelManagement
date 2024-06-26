@@ -11,9 +11,11 @@ namespace NOAKAY.CLASSES
         [Key]
         public int RoomID { get; set; }
 
-        public int? RoomStatus { get; set; }
-        [NotMapped] // Not mapped to database
-        public string RoomStatusDisplay
+        //Removed RoomStatus
+
+        //public int? RoomStatus { get; set; }
+        //[NotMapped] // Not mapped to database
+        /*public string RoomStatusDisplay
         {
             get
             {
@@ -26,6 +28,7 @@ namespace NOAKAY.CLASSES
                 return "Unknown"; // Default value if GuestStatus is null
             }
         }
+        */
 
         public int RoomNum { get; set; }
         public int CategoryId { get; set; } // Foreign key referencing CategoryModel

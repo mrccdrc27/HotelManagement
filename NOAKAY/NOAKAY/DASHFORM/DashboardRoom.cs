@@ -20,10 +20,52 @@ namespace NOAKAY.DASHFORM
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            newcode();
+        }
+        public void newcode()
+        {
+            dbContext = new Connection();
 
+            // Ensure database is created
+            dbContext.Database.EnsureCreated();
+
+            var combinedData = from Guest in dbContext.GuestModels
+                               join Room in dbContext.RoomModels
+                               on Guest.RoomID equals Room.RoomID
+                               //Initial Join of Guest and Room
+                               select new RoomGuestModel
+                               {
+                                   //IF Error, Data Must Be nulled, GO back and input data properly
+                                   RoomId = Room.RoomID,
+                                   GuestID = Guest.GuestID,
+                                   status = $"{Guest.GuestStatus}"
+                                   
+
+                               };
+
+            var combinedList = combinedData.ToList();
+
+            foreach (var item in combinedList)
+            {
+                if (item.status == "1")
+                {
+                    // Change GuestStatus if it is 1
+                    item.status = "Available"; // Example change to 3
+                }
+                else if (item.status == "0")
+                {
+                    // Change GuestStatus if it is 2
+                    item.status = "Occupied"; // Example change to 3
+                }
+                // Add more conditions as needed
+            }
+
+
+            this.dbContext.Database.CloseConnection();
+
+            roomGuestModelBindingSource.DataSource = combinedList;
 
         }
-
         public void oldcode()
         {
             // Loading of database objects
