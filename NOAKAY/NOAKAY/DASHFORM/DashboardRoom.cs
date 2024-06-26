@@ -32,13 +32,13 @@ namespace NOAKAY.DASHFORM
             var combinedData = from Guest in dbContext.GuestModels
                                join Room in dbContext.RoomModels
                                on Guest.RoomID equals Room.RoomID
-                               //Initial Join of Guest and Room
+                               // Initial Join of Guest and Room
                                select new RoomGuestModel
                                {
-                                   //IF Error, Data Must Be nulled, GO back and input data properly
+                                   // IF Error, Data Must Be nulled, GO back and input data properly
                                    RoomId = Room.RoomID,
                                    GuestID = Guest.GuestID,
-                                   status = $"{Guest.GuestStatus}"
+                                   Status = $"{Guest.GuestStatus}"
                                    
 
                                };
@@ -47,15 +47,15 @@ namespace NOAKAY.DASHFORM
 
             foreach (var item in combinedList)
             {
-                if (item.status == "1")
+                if (item.Status == "1")
                 {
                     // Change GuestStatus if it is 1
-                    item.status = "Available"; // Example change to 3
+                    item.Status = "Available"; // Example change to 3
                 }
-                else if (item.status == "0")
+                else if (item.Status == "0")
                 {
                     // Change GuestStatus if it is 2
-                    item.status = "Occupied"; // Example change to 3
+                    item.Status = "Occupied"; // Example change to 3
                 }
                 // Add more conditions as needed
             }
@@ -66,6 +66,8 @@ namespace NOAKAY.DASHFORM
             roomGuestModelBindingSource.DataSource = combinedList;
 
         }
+
+        // == OLD CODE ==
         public void oldcode()
         {
             // Loading of database objects

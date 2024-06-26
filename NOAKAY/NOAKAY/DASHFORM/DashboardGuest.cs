@@ -22,6 +22,7 @@ namespace NOAKAY.DASHFORM
         public DashboardGuest()
         {
             InitializeComponent();
+            allGuests = new List<GuestRoomCategoryDTO>(); // initialize
         }
 
         // == BINDING THE DATA TO DATA GRID VIEW ==
@@ -59,6 +60,7 @@ namespace NOAKAY.DASHFORM
                                };
 
             var combinedList = combinedData.ToList();
+            allGuests = combinedList;
 
             foreach (var item in combinedList)
             {
@@ -82,13 +84,14 @@ namespace NOAKAY.DASHFORM
         }
         public void guestOnly()
         {
-            //deafult guest display
+            // default guest display
             dbContext = new Connection();
 
             // Ensure database is created
             dbContext.Database.EnsureCreated();
             this.dbContext.GuestModels.Load();
             guestRoomCategoryDTOBindingSource.DataSource = this.dbContext.GuestModels.Local.ToList();
+            allGuests = guestRoomCategoryDTOBindingSource.DataSource as List<GuestRoomCategoryDTO>; // i add this to bind the data to dgv
         }
 
         public void oldcode()
@@ -143,24 +146,19 @@ namespace NOAKAY.DASHFORM
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+     
             string searchTerm = txtSearch.Text.ToLower();
 
             // Filter the original list based on the search term
             var filteredGuests = allGuests.Where(g =>
                 g.LastName.ToLower().Contains(searchTerm) ||
-                g.Email.ToLower().Contains(searchTerm) ||
-                g.FirstName.ToLower().Contains(searchTerm) ||
-                g.MiddleName.ToLower().Contains(searchTerm) ||
-                g.Suffix.ToLower().Contains(searchTerm) ||
-                g.Address.ToLower().Contains(searchTerm) ||
-                g.Contact.ToLower().Contains(searchTerm) ||
-                g.RoomNum.ToString().Contains(searchTerm) ||
-                g.RoomID.ToString().Contains(searchTerm) ||
-                g.CategoryName.ToLower().Contains(searchTerm)
+                g.FirstName.ToLower().Contains(searchTerm)
+            
             ).ToList();
 
             // Update the BindingSource with the filtered list
             guestModelBindingSource.DataSource = filteredGuests;
+            dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
 
             // Refresh the DataGridView to reflect the changes
             dgvGuestList.Refresh();
@@ -168,8 +166,8 @@ namespace NOAKAY.DASHFORM
 
         private void comboSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //combo box update;
-            List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)guestRoomCategoryDTOBindingSource.DataSource;
+            // combo box update;
+            List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)allGuests; // allGuest
             List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
             var num = 0;
 
@@ -193,7 +191,7 @@ namespace NOAKAY.DASHFORM
                     }
                 }
             }
-            if (comboSearchStatus.SelectedIndex == 1)
+            if (comboSearchStatus.SelectedIndex == 2)
             {
                 filter = list;
             }

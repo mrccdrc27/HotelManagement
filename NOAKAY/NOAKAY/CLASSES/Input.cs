@@ -36,62 +36,62 @@ namespace SQLCONNECTION
             modelBuilder.Entity<PersonModel>().HasKey(p => p.AccountID);
             modelBuilder.Entity<GuestModel>().HasKey(p => p.GuestID);
 
-            //one active guest per room, roomnum > guestnum
-            int x = 0;
-            int guestnum = 10;
-            int roomnum = 20;
-            int categorynum = roomnum / 4;
-            //if it is not working change the numbers
-            //Generate Categories
+            ////one active guest per room, roomnum > guestnum
+            //int x = 0;
+            //int guestnum = 10;
+            //int roomnum = 20;
+            //int categorynum = roomnum / 4;
+            ////if it is not working change the numbers
+            ////Generate Categories
 
-            var categories = new List<CategoryModel>();
-            for (int i = 0; i < categorynum; i++)
-            {
-                categories.Add(new CategoryModel
-                {
-                    CategoryID = i + 1,
-                    CategoryName = $"Tier{i + 1}"
-                });
-            }
-            modelBuilder.Entity<CategoryModel>().HasData(categories.ToArray());
+            //var categories = new List<CategoryModel>();
+            //for (int i = 0; i < categorynum; i++)
+            //{
+            //    categories.Add(new CategoryModel
+            //    {
+            //        CategoryID = i + 1,
+            //        CategoryName = $"Tier{i + 1}"
+            //    });
+            //}
+            //modelBuilder.Entity<CategoryModel>().HasData(categories.ToArray());
 
-            //Generate Rooms
+            ////Generate Rooms
 
-            var room = new List<RoomModel>();
-            for (int i = 0; i < roomnum; i++)
-            {
-                if (i % categorynum == 0)
-                {
-                    x += 1;
-                }
-                room.Add(new RoomModel
-                {
-                    RoomID = i + 1,
-                    RoomNum = (i + 1),
-                    CategoryId = (x)
-                });
-            }
-            modelBuilder.Entity<RoomModel>().HasData(room.ToArray());
+            //var room = new List<RoomModel>();
+            //for (int i = 0; i < roomnum; i++)
+            //{
+            //    if (i % categorynum == 0)
+            //    {
+            //        x += 1;
+            //    }
+            //    room.Add(new RoomModel
+            //    {
+            //        RoomID = i + 1,
+            //        RoomNum = (i + 1),
+            //        CategoryId = (x)
+            //    });
+            //}
+            //modelBuilder.Entity<RoomModel>().HasData(room.ToArray());
 
-            //Generate guest
-            var rnd = new Random();
+            ////Generate guest
+            //var rnd = new Random();
 
-            var guests = new List<GuestModel>();
-            for (int i = 0; i < guestnum; i++)
-            {
-                guests.Add(new GuestModel
-                {
-                    GuestStatus = 1,
-                    GuestID = i + 1,
-                    FirstName = "first" + i,
-                    LastName = "last" + i,
-                    RoomID = i + 1,
-                    CheckIn = DateTime.Now,
-                    CheckOut = DateTime.Now,
-                    Contact = $"{0}{9}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}",
-                });
-            }
-            modelBuilder.Entity<GuestModel>().HasData(guests.ToArray());
+            //var guests = new List<GuestModel>();
+            //for (int i = 0; i < guestnum; i++)
+            //{
+            //    guests.Add(new GuestModel
+            //    {
+            //        GuestStatus = 1,
+            //        GuestID = i + 1,
+            //        FirstName = "first" + i,
+            //        LastName = "last" + i,
+            //        RoomID = i + 1,
+            //        CheckIn = DateTime.Now,
+            //        CheckOut = DateTime.Now,
+            //        Contact = $"{0}{9}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}",
+            //    });
+            //}
+            //modelBuilder.Entity<GuestModel>().HasData(guests.ToArray());
         }
 
     }

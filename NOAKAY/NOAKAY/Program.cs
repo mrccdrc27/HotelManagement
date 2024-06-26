@@ -14,12 +14,9 @@ namespace NOAKAY
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            var connection = new Connection();
-            connection.Database.EnsureDeleted();
-            connection.Database.EnsureCreated();
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new DashboardMain());
+            Application.Run(new LoginForm());
         }
     }
 }
