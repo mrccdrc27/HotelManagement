@@ -18,7 +18,7 @@ namespace NOAKAY.CLASSES.Joined_Tables
         public string Suffix { get; set; }
         public string Email { get; set; }
         public string Contact { get; set; }
-        public string GuestStatus { get; set; }
+        public string? GuestStatus { get; set; }
         public int RoomID { get; set; }
         public int RoomNum { get; set; }
         public string CategoryName { get; set; }
