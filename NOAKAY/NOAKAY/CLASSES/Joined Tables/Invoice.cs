@@ -15,6 +15,7 @@ namespace NOAKAY.CLASSES.Joined_Tables
         public DateTime? checkIn { get; set; }
         public DateTime? checkOut { get; set; }
         public int? price { get; set; }
+        public string? status { get; set; } // nilagay ko lang
 
     }
 }

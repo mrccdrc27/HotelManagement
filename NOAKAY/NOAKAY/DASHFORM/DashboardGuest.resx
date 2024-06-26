@@ -147,9 +147,6 @@
   <metadata name="CheckOut.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Update.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="guestRoomCategoryDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>252, 17</value>
   </metadata>
@@ -163,7 +160,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAA7
-        pwAAO6cBjWDmBQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADNvSURBVHhe7d0J
+        owAAO6MBcp1hFwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADNvSURBVHhe7d0J
         2G9jvf/xe+9t3GbJGG1TOA1ISBOlgVNSKk36G06pE5WUUNFRlCTSQGig6RSSQzqVRiV1UklISpkazGQe
         +39uv7U997Oez/M8v3mtda/357pe+9r7e51zZX/v4bn377eG8K9//QsAALSMLQIAgLzZIgAAyJstAm2h
         zJEVZH3ZSraXHeUV8lrZXd4ob5F3yIHyPjlMDpWD5QDZV/aWPWU3eY28XF4sz5enyNqyjPvvAIBxs0Wg

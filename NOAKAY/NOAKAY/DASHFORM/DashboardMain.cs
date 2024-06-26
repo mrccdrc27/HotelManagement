@@ -70,7 +70,7 @@ namespace NOAKAY.DASHFORM
             btnRoom.BackColor = Color.FromArgb(82, 121, 111);
             loadform(new DashboardRoom());
 
-        }
+        } 
 
         private void btnGuest_Click(object sender, EventArgs e)
         {
@@ -101,6 +101,7 @@ namespace NOAKAY.DASHFORM
         {
             ResetButtonColors();
             button1.BackColor = Color.FromArgb(82, 121, 111);
+            loadform(new ReservedString());
             // loadform(new DashboardBooking());
         }
 
@@ -108,6 +109,7 @@ namespace NOAKAY.DASHFORM
         {
             ResetButtonColors();
             button2.BackColor = Color.FromArgb(82, 121, 111);
+            loadform(new ReservedString1());
         }
     }
 }

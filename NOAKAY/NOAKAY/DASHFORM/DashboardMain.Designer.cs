@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMain));
             pnlNav = new Panel();
+            btnBook = new Button();
             button2 = new Button();
             button1 = new Button();
             btnOut = new Button();
-            btnBook = new Button();
             btnGuest = new Button();
             btnRoom = new Button();
             pnlProfile = new Panel();
@@ -54,10 +54,10 @@
             // pnlNav
             // 
             pnlNav.BackColor = Color.FromArgb(53, 79, 82);
+            pnlNav.Controls.Add(btnBook);
             pnlNav.Controls.Add(button2);
             pnlNav.Controls.Add(button1);
             pnlNav.Controls.Add(btnOut);
-            pnlNav.Controls.Add(btnBook);
             pnlNav.Controls.Add(btnGuest);
             pnlNav.Controls.Add(btnRoom);
             pnlNav.Controls.Add(pnlProfile);
@@ -67,6 +67,20 @@
             pnlNav.Name = "pnlNav";
             pnlNav.Size = new Size(250, 664);
             pnlNav.TabIndex = 0;
+            // 
+            // btnBook
+            // 
+            btnBook.Cursor = Cursors.Hand;
+            btnBook.FlatAppearance.BorderSize = 0;
+            btnBook.FlatStyle = FlatStyle.Flat;
+            btnBook.ForeColor = Color.FromArgb(246, 255, 248);
+            btnBook.Location = new Point(0, 198);
+            btnBook.Name = "btnBook";
+            btnBook.Size = new Size(247, 61);
+            btnBook.TabIndex = 3;
+            btnBook.Text = "Booking List";
+            btnBook.UseVisualStyleBackColor = true;
+            btnBook.Click += btnBook_Click;
             // 
             // button2
             // 
@@ -112,27 +126,13 @@
             btnOut.UseVisualStyleBackColor = false;
             btnOut.Click += btnOut_Click;
             // 
-            // btnBook
-            // 
-            btnBook.Cursor = Cursors.Hand;
-            btnBook.FlatAppearance.BorderSize = 0;
-            btnBook.FlatStyle = FlatStyle.Flat;
-            btnBook.ForeColor = Color.FromArgb(246, 255, 248);
-            btnBook.Location = new Point(3, 265);
-            btnBook.Name = "btnBook";
-            btnBook.Size = new Size(247, 61);
-            btnBook.TabIndex = 3;
-            btnBook.Text = "Book List";
-            btnBook.UseVisualStyleBackColor = true;
-            btnBook.Click += btnBook_Click;
-            // 
             // btnGuest
             // 
             btnGuest.Cursor = Cursors.Hand;
             btnGuest.FlatAppearance.BorderSize = 0;
             btnGuest.FlatStyle = FlatStyle.Flat;
             btnGuest.ForeColor = Color.FromArgb(246, 255, 248);
-            btnGuest.Location = new Point(3, 198);
+            btnGuest.Location = new Point(3, 265);
             btnGuest.Name = "btnGuest";
             btnGuest.Size = new Size(247, 61);
             btnGuest.TabIndex = 2;

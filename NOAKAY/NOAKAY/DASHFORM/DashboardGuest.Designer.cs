@@ -44,6 +44,7 @@
             guestRoomCategoryDTOBindingSource1 = new BindingSource(components);
             guestModelBindingSource = new BindingSource(components);
             comboSearchStatus = new ComboBox();
+            pictureBox1 = new PictureBox();
             RoomID = new DataGridViewTextBoxColumn();
             RoomNum = new DataGridViewTextBoxColumn();
             LastName = new DataGridViewTextBoxColumn();
@@ -54,8 +55,6 @@
             CategoryName = new DataGridViewTextBoxColumn();
             CheckIn = new DataGridViewTextBoxColumn();
             CheckOut = new DataGridViewTextBoxColumn();
-            Update = new DataGridViewTextBoxColumn();
-            pictureBox1 = new PictureBox();
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).BeginInit();
@@ -145,7 +144,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvGuestList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvGuestList.ColumnHeadersHeight = 22;
-            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Email, Contact, GuestStatus, CategoryName, CheckIn, CheckOut, Update });
+            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Email, Contact, GuestStatus, CategoryName, CheckIn, CheckOut });
             dgvGuestList.DataSource = guestRoomCategoryDTOBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -208,93 +207,6 @@
             comboSearchStatus.TabIndex = 7;
             comboSearchStatus.SelectedIndexChanged += comboSearchStatus_SelectedIndexChanged;
             // 
-            // RoomID
-            // 
-            RoomID.DataPropertyName = "RoomID";
-            RoomID.HeaderText = "RoomID";
-            RoomID.MinimumWidth = 6;
-            RoomID.Name = "RoomID";
-            RoomID.ReadOnly = true;
-            // 
-            // RoomNum
-            // 
-            RoomNum.DataPropertyName = "RoomNum";
-            RoomNum.HeaderText = "RoomNum";
-            RoomNum.MinimumWidth = 6;
-            RoomNum.Name = "RoomNum";
-            RoomNum.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            LastName.DataPropertyName = "LastName";
-            LastName.HeaderText = "LastName";
-            LastName.MinimumWidth = 6;
-            LastName.Name = "LastName";
-            LastName.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            FirstName.DataPropertyName = "FirstName";
-            FirstName.HeaderText = "FirstName";
-            FirstName.MinimumWidth = 6;
-            FirstName.Name = "FirstName";
-            FirstName.ReadOnly = true;
-            // 
-            // Email
-            // 
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.ReadOnly = true;
-            // 
-            // Contact
-            // 
-            Contact.DataPropertyName = "Contact";
-            Contact.HeaderText = "Contact";
-            Contact.MinimumWidth = 6;
-            Contact.Name = "Contact";
-            Contact.ReadOnly = true;
-            // 
-            // GuestStatus
-            // 
-            GuestStatus.DataPropertyName = "GuestStatus";
-            GuestStatus.HeaderText = "GuestStatus";
-            GuestStatus.MinimumWidth = 6;
-            GuestStatus.Name = "GuestStatus";
-            GuestStatus.ReadOnly = true;
-            // 
-            // CategoryName
-            // 
-            CategoryName.DataPropertyName = "CategoryName";
-            CategoryName.HeaderText = "CategoryName";
-            CategoryName.MinimumWidth = 6;
-            CategoryName.Name = "CategoryName";
-            CategoryName.ReadOnly = true;
-            // 
-            // CheckIn
-            // 
-            CheckIn.DataPropertyName = "CheckIn";
-            CheckIn.HeaderText = "CheckIn";
-            CheckIn.MinimumWidth = 6;
-            CheckIn.Name = "CheckIn";
-            CheckIn.ReadOnly = true;
-            // 
-            // CheckOut
-            // 
-            CheckOut.DataPropertyName = "CheckOut";
-            CheckOut.HeaderText = "CheckOut";
-            CheckOut.MinimumWidth = 6;
-            CheckOut.Name = "CheckOut";
-            CheckOut.ReadOnly = true;
-            // 
-            // Update
-            // 
-            Update.HeaderText = "Update";
-            Update.MinimumWidth = 6;
-            Update.Name = "Update";
-            Update.ReadOnly = true;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -304,6 +216,96 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
+            // 
+            // RoomID
+            // 
+            RoomID.DataPropertyName = "RoomID";
+            RoomID.FillWeight = 23.41778F;
+            RoomID.HeaderText = "RoomID";
+            RoomID.MinimumWidth = 6;
+            RoomID.Name = "RoomID";
+            RoomID.ReadOnly = true;
+            // 
+            // RoomNum
+            // 
+            RoomNum.DataPropertyName = "RoomNum";
+            RoomNum.FillWeight = 23.41778F;
+            RoomNum.HeaderText = "RoomNum";
+            RoomNum.MinimumWidth = 6;
+            RoomNum.Name = "RoomNum";
+            RoomNum.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            LastName.DataPropertyName = "LastName";
+            LastName.FillWeight = 23.41778F;
+            LastName.HeaderText = "LastName";
+            LastName.MinimumWidth = 6;
+            LastName.Name = "LastName";
+            LastName.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            FirstName.DataPropertyName = "FirstName";
+            FirstName.FillWeight = 23.41778F;
+            FirstName.HeaderText = "FirstName";
+            FirstName.MinimumWidth = 6;
+            FirstName.Name = "FirstName";
+            FirstName.ReadOnly = true;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.FillWeight = 23.41778F;
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 6;
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            // 
+            // Contact
+            // 
+            Contact.DataPropertyName = "Contact";
+            Contact.FillWeight = 23.41778F;
+            Contact.HeaderText = "Contact";
+            Contact.MinimumWidth = 6;
+            Contact.Name = "Contact";
+            Contact.ReadOnly = true;
+            // 
+            // GuestStatus
+            // 
+            GuestStatus.DataPropertyName = "GuestStatus";
+            GuestStatus.FillWeight = 23.41778F;
+            GuestStatus.HeaderText = "GuestStatus";
+            GuestStatus.MinimumWidth = 6;
+            GuestStatus.Name = "GuestStatus";
+            GuestStatus.ReadOnly = true;
+            // 
+            // CategoryName
+            // 
+            CategoryName.DataPropertyName = "CategoryName";
+            CategoryName.FillWeight = 23.41778F;
+            CategoryName.HeaderText = "CategoryName";
+            CategoryName.MinimumWidth = 6;
+            CategoryName.Name = "CategoryName";
+            CategoryName.ReadOnly = true;
+            // 
+            // CheckIn
+            // 
+            CheckIn.DataPropertyName = "CheckIn";
+            CheckIn.FillWeight = 23.41778F;
+            CheckIn.HeaderText = "CheckIn";
+            CheckIn.MinimumWidth = 6;
+            CheckIn.Name = "CheckIn";
+            CheckIn.ReadOnly = true;
+            // 
+            // CheckOut
+            // 
+            CheckOut.DataPropertyName = "CheckOut";
+            CheckOut.FillWeight = 23.41778F;
+            CheckOut.HeaderText = "CheckOut";
+            CheckOut.MinimumWidth = 6;
+            CheckOut.Name = "CheckOut";
+            CheckOut.ReadOnly = true;
             // 
             // DashboardGuest
             // 
@@ -342,6 +344,7 @@
         private ComboBox comboSearchStatus;
         private BindingSource guestRoomCategoryDTOBindingSource;
         private BindingSource guestRoomCategoryDTOBindingSource1;
+        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn RoomID;
         private DataGridViewTextBoxColumn RoomNum;
         private DataGridViewTextBoxColumn LastName;
@@ -352,7 +355,5 @@
         private DataGridViewTextBoxColumn CategoryName;
         private DataGridViewTextBoxColumn CheckIn;
         private DataGridViewTextBoxColumn CheckOut;
-        private DataGridViewTextBoxColumn Update;
-        private PictureBox pictureBox1;
     }
 }

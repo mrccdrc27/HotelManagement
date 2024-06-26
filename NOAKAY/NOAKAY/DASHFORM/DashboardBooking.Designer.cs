@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             btnSearch = new Button();
             entryUsername = new Guna.UI2.WinForms.Guna2TextBox();
             pnlGuestList = new Panel();
             dgvInvoiceList = new Guna.UI2.WinForms.Guna2DataGridView();
+            invoiceBindingSource = new BindingSource(components);
+            btnAdd = new Button();
             guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            status = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             checkInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             checkOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            invoiceBindingSource = new BindingSource(components);
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInvoiceList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)invoiceBindingSource).BeginInit();
@@ -58,7 +60,7 @@
             label1.ForeColor = Color.FromArgb(55, 58, 64);
             label1.Location = new Point(24, 27);
             label1.Name = "label1";
-            label1.Size = new Size(97, 19);
+            label1.Size = new Size(125, 23);
             label1.TabIndex = 3;
             label1.Text = "Booking List";
             // 
@@ -79,7 +81,7 @@
             // entryUsername
             // 
             entryUsername.BackColor = Color.FromArgb(204, 227, 222);
-            entryUsername.CustomizableEdges = customizableEdges3;
+            entryUsername.CustomizableEdges = customizableEdges1;
             entryUsername.DefaultText = "";
             entryUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -96,7 +98,7 @@
             entryUsername.PasswordChar = '\0';
             entryUsername.PlaceholderText = "";
             entryUsername.SelectedText = "";
-            entryUsername.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            entryUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
             entryUsername.Size = new Size(298, 35);
             entryUsername.TabIndex = 5;
             // 
@@ -116,36 +118,35 @@
             dgvInvoiceList.AllowUserToDeleteRows = false;
             dgvInvoiceList.AllowUserToResizeColumns = false;
             dgvInvoiceList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dgvInvoiceList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgvInvoiceList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvInvoiceList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvInvoiceList.AutoGenerateColumns = false;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvInvoiceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvInvoiceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvInvoiceList.ColumnHeadersHeight = 22;
-            dgvInvoiceList.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn, roomNameDataGridViewTextBoxColumn, checkInDataGridViewTextBoxColumn, checkOutDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn });
+            dgvInvoiceList.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, status, fullNameDataGridViewTextBoxColumn, roomNameDataGridViewTextBoxColumn, checkInDataGridViewTextBoxColumn, checkOutDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn });
             dgvInvoiceList.DataSource = invoiceBindingSource;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvInvoiceList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvInvoiceList.DefaultCellStyle = dataGridViewCellStyle3;
             dgvInvoiceList.GridColor = Color.FromArgb(231, 229, 255);
             dgvInvoiceList.Location = new Point(1, 2);
             dgvInvoiceList.Name = "dgvInvoiceList";
             dgvInvoiceList.ReadOnly = true;
             dgvInvoiceList.RowHeadersVisible = false;
             dgvInvoiceList.RowHeadersWidth = 51;
-            dgvInvoiceList.RowTemplate.Height = 29;
             dgvInvoiceList.Size = new Size(1064, 545);
             dgvInvoiceList.TabIndex = 1;
             dgvInvoiceList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -170,17 +171,47 @@
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
+            // invoiceBindingSource
+            // 
+            invoiceBindingSource.DataSource = typeof(CLASSES.Joined_Tables.Invoice);
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.BackColor = Color.FromArgb(107, 144, 128);
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.FromArgb(246, 255, 248);
+            btnAdd.Location = new Point(942, 59);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(151, 52);
+            btnAdd.TabIndex = 8;
+            btnAdd.Text = "Add a Booking";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
             // guestIDDataGridViewTextBoxColumn
             // 
             guestIDDataGridViewTextBoxColumn.DataPropertyName = "guestID";
             guestIDDataGridViewTextBoxColumn.HeaderText = "guestID";
+            guestIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
             guestIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // status
+            // 
+            status.DataPropertyName = "status";
+            status.HeaderText = "status";
+            status.MinimumWidth = 6;
+            status.Name = "status";
+            status.ReadOnly = true;
             // 
             // fullNameDataGridViewTextBoxColumn
             // 
             fullNameDataGridViewTextBoxColumn.DataPropertyName = "fullName";
             fullNameDataGridViewTextBoxColumn.HeaderText = "fullName";
+            fullNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
             fullNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -188,6 +219,7 @@
             // 
             roomNameDataGridViewTextBoxColumn.DataPropertyName = "roomName";
             roomNameDataGridViewTextBoxColumn.HeaderText = "roomName";
+            roomNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             roomNameDataGridViewTextBoxColumn.Name = "roomNameDataGridViewTextBoxColumn";
             roomNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -195,6 +227,7 @@
             // 
             checkInDataGridViewTextBoxColumn.DataPropertyName = "checkIn";
             checkInDataGridViewTextBoxColumn.HeaderText = "checkIn";
+            checkInDataGridViewTextBoxColumn.MinimumWidth = 6;
             checkInDataGridViewTextBoxColumn.Name = "checkInDataGridViewTextBoxColumn";
             checkInDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -202,6 +235,7 @@
             // 
             checkOutDataGridViewTextBoxColumn.DataPropertyName = "checkOut";
             checkOutDataGridViewTextBoxColumn.HeaderText = "checkOut";
+            checkOutDataGridViewTextBoxColumn.MinimumWidth = 6;
             checkOutDataGridViewTextBoxColumn.Name = "checkOutDataGridViewTextBoxColumn";
             checkOutDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -209,19 +243,17 @@
             // 
             priceDataGridViewTextBoxColumn.DataPropertyName = "price";
             priceDataGridViewTextBoxColumn.HeaderText = "price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 6;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // invoiceBindingSource
-            // 
-            invoiceBindingSource.DataSource = typeof(CLASSES.Joined_Tables.Invoice);
-            // 
             // DashboardBooking
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 255, 248);
             ClientSize = new Size(1119, 738);
+            Controls.Add(btnAdd);
             Controls.Add(pnlGuestList);
             Controls.Add(btnSearch);
             Controls.Add(entryUsername);
@@ -244,12 +276,14 @@
         private Guna.UI2.WinForms.Guna2TextBox entryUsername;
         private Panel pnlGuestList;
         private Guna.UI2.WinForms.Guna2DataGridView dgvInvoiceList;
+        private BindingSource invoiceBindingSource;
+        private Button btnAdd;
         private DataGridViewTextBoxColumn guestIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn status;
         private DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roomNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn checkInDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn checkOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private BindingSource invoiceBindingSource;
     }
 }

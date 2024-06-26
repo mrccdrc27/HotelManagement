@@ -21,7 +21,24 @@ namespace NOAKAY.CLASSES
         public string? Suffix { get; set; }
         public string? Email { get; set; }
         public string? Contact { get; set; }
+        public int? BookingStatus { get; set; } // bago rin
+        [NotMapped] // Not mapped to database
+        public string BookingStatusDisplay
+        {
+            get
+            {
+                if (BookingStatus.HasValue)
+                {
+                    return BookingStatus == 0 ? "Pending" :
+                           BookingStatus == 1 ? "Paid" :
+                           BookingStatus == 2 ? "Cancelled" :
+                           "Unknown"; // Handle any other values if needed
+                }
+                return "Unknown"; // Default value if GuestStatus is null
+            }
+        }
         public int? GuestStatus { get; set; }
+
         // Additional read-only property for display purposes
         [NotMapped] // Not mapped to database
         public string GuestStatusDisplay
