@@ -38,6 +38,7 @@ namespace NOAKAY.DASHFORM
             int roomid = (int)comboRoomNType.SelectedIndex + 1;
             //  int roomid = comboRoomID.SelectedIndex +1;
             int bookingstatus = comboBookingStatus.SelectedIndex; // 0 or 1
+            int gueststatus = comboGuestStatus.SelectedIndex;
             DateTime checkout = dtpCheckOut.Value;
             DateTime checkin = dtpCheckIn.Value;
 
@@ -64,6 +65,7 @@ namespace NOAKAY.DASHFORM
                 Email = email,
                 RoomID = roomid,
                 BookingStatus = bookingstatus,
+                GuestStatus = gueststatus,
                 CheckIn = checkin,
                 CheckOut = checkout
 

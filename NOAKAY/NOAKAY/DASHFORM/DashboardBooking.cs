@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,12 +23,20 @@ namespace NOAKAY.DASHFORM
         {
             InitializeComponent();
             //Loadinvoce();
-            LoadBooking();
+            //LoadBooking();
+            // LoadData(); // filter only guest that has 0 or 1 status, 2 means they are in booking list
 
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            // newcode();
+            loadData(); // filter booking list
 
-        public void LoadBooking()
+        }
+
+        public void loadData()
         {
             this.dbContext = new Connection();
             var combinedData = from Guest in dbContext.GuestModels
@@ -36,79 +45,82 @@ namespace NOAKAY.DASHFORM
                                //Initial Join of Guest and Room
                                join Category in dbContext.CategoryModels
                                on Room.CategoryId equals Category.CategoryID
-                               select new Invoice
+                               select new Invoice // inner join
                                {
                                    fullName = $"{Guest.FirstName} {Guest.MiddleName} {Guest.LastName} {Guest.Suffix}",
                                    guestID = Guest.GuestID,
                                    checkIn = Guest.CheckIn,
                                    checkOut = Guest.CheckOut,
-                                   status =$"{Guest.BookingStatus}",
-                                   price = ((Guest.CheckOut.Value).Day - (Guest.CheckIn.Value).Day) * Category.basePrice,
+                                   gueststatus = $"{Guest.GuestStatus}",
+                                   status = $"{Guest.BookingStatus}", // added
+                                   price = CalculateTotalPrice(Guest.CheckIn, Guest.CheckOut, Category.basePrice),
                                    roomName = Room.RoomNum,
                                };
 
             var combinedList = combinedData.ToList();
-            allGuests = combinedList;
+            // allGuests = combinedList;
+            List<Invoice> filter = new List<Invoice>();
 
             foreach (var item in combinedList)
             {
-
-                if (item.status == "0")
+                if (item.gueststatus == "2" && item.status == "0")
                 {
-                    // Change GuestStatus if it is 1
-                    item.status = "Pending"; // Example change to 3
+                    item.status = "Pending";
+                    filter.Add(item);
                 }
-                else if (item.status == "1")
+                else if (item.gueststatus == "2" && item.status == "1")
                 {
-                    // Change GuestStatus if it is 2
-                    item.status = "Paid"; // Example change to 3
+                    item.status = "Paid";
+                    filter.Add(item);
                 }
-                else if (item.status == "2")
+                else if (item.gueststatus == "2" && item.status == "2")
                 {
-                    // Change GuestStatus if it is 2
-                    item.status = "Cancel"; // Example change to 3
+                    item.status = "Cancelled";
+                    filter.Add(item);
                 }
-                // Add more conditions as needed
-
             }
 
+            dgvInvoiceList.DataSource = filter;
+            allGuests = filter;
 
-            this.dbContext.Database.CloseConnection();
+        } // LoadData
 
-           invoiceBindingSource.DataSource = combinedList;
-
-        } // LoadBooking
-
-        public void Loadinvoce()
+        private static decimal CalculateTotalPrice(DateTime? checkIn, DateTime? checkOut, decimal basePrice)
         {
-
-            this.dbContext = new Connection();
-
-            var combinedData = from Guest in dbContext.GuestModels
-                               join Room in dbContext.RoomModels
-                               on Guest.RoomID equals Room.RoomID
-                               //Initial Join of Guest and Room
-                               join Category in dbContext.CategoryModels
-                               on Room.CategoryId equals Category.CategoryID
-                               select new Invoice
-                               {
-                                   fullName = $"{Guest.FirstName} {Guest.MiddleName} {Guest.LastName} {Guest.Suffix}",
-                                   guestID = Guest.GuestID,
-                                   checkIn = Guest.CheckIn,
-                                   checkOut = Guest.CheckOut,
-                                   price = ((Guest.CheckOut.Value).Day - (Guest.CheckIn.Value).Day) * Category.basePrice,
-                                   roomName = Room.RoomNum,
-                               };
-            var combinedList = combinedData.ToList();
-
-            //dgvInvoiceList.DataSource = combinedList;
-            invoiceBindingSource.DataSource = combinedList;
+            if (checkIn.HasValue && checkOut.HasValue)
+            {
+                TimeSpan totalDuration = checkOut.Value - checkIn.Value;
+                int totalDays = totalDuration.Days;
+                return totalDays * basePrice;
+            }
+            return 0; // Handle the case where either check-in or check-out date is null
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             new InsertBooking().Show();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.ToLower();
+
+            // Filter the original list based on the search term
+            var filteredGuests = allGuests.Where(g =>
+                g.fullName.ToLower().Contains(searchTerm)
+
+            ).ToList();
+
+            // Update the BindingSource with the filtered list
+            invoiceBindingSource.DataSource = filteredGuests;
+            dgvInvoiceList.DataSource = invoiceBindingSource; // i add this to bind the data to dgv
+
+            // Refresh the DataGridView to reflect the changes
+            dgvInvoiceList.Refresh();
+        }
+        
+
+
     }
 
 

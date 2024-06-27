@@ -16,7 +16,7 @@ namespace NOAKAY.DASHFORM
         public DashboardMain()
         {
             InitializeComponent();
-            loadform(new DashboardRoom());
+            loadform(new DashboardAnalytics());
         }
 
         private void picExit_Click(object sender, EventArgs e)
@@ -64,14 +64,15 @@ namespace NOAKAY.DASHFORM
             f.Show();
         }
 
+
         private void btnRoom_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
             btnRoom.BackColor = Color.FromArgb(82, 121, 111);
             loadform(new DashboardRoom());
 
-        } 
-
+        }
+         
         private void btnGuest_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
@@ -86,29 +87,39 @@ namespace NOAKAY.DASHFORM
             loadform(new DashboardBooking());
         }
 
+
+
         private void ResetButtonColors()
         {
             // Reset all buttons to default background color
+            btnDashBoard.BackColor = Color.FromArgb(53, 79, 82);
             btnRoom.BackColor = Color.FromArgb(53, 79, 82);
             btnGuest.BackColor = Color.FromArgb(53, 79, 82);
             btnBook.BackColor = Color.FromArgb(53, 79, 82);
-            button1.BackColor = Color.FromArgb(53, 79, 82);
-            button2.BackColor = Color.FromArgb(53, 79, 82);
+            btnHouseKeeping.BackColor = Color.FromArgb(53, 79, 82);
+            btnReport.BackColor = Color.FromArgb(53, 79, 82);
+
             // Add more buttons as needed
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDashBoard_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
-            button1.BackColor = Color.FromArgb(82, 121, 111);
-            loadform(new ReservedString());
-            // loadform(new DashboardBooking());
+            btnDashBoard.BackColor = Color.FromArgb(82, 121, 111);
+            loadform(new DashboardAnalytics());
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnHouseKeeping_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
-            button2.BackColor = Color.FromArgb(82, 121, 111);
+            btnHouseKeeping.BackColor = Color.FromArgb(82, 121, 111);
+            loadform(new ReservedString());
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ResetButtonColors();
+            btnReport.BackColor = Color.FromArgb(82, 121, 111);
             loadform(new ReservedString1());
         }
     }

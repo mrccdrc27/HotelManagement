@@ -36,11 +36,9 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             btnSearch = new Button();
-            entryUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             pnlGuestList = new Panel();
             dgvInvoiceList = new Guna.UI2.WinForms.Guna2DataGridView();
-            invoiceBindingSource = new BindingSource(components);
-            btnAdd = new Button();
             guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@
             checkInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             checkOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            invoiceBindingSource = new BindingSource(components);
+            btnAdd = new Button();
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInvoiceList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)invoiceBindingSource).BeginInit();
@@ -78,29 +78,30 @@
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
             // 
-            // entryUsername
+            // txtSearch
             // 
-            entryUsername.BackColor = Color.FromArgb(204, 227, 222);
-            entryUsername.CustomizableEdges = customizableEdges1;
-            entryUsername.DefaultText = "";
-            entryUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            entryUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            entryUsername.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            entryUsername.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            entryUsername.FillColor = Color.FromArgb(204, 227, 222);
-            entryUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryUsername.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            entryUsername.ForeColor = Color.FromArgb(55, 58, 64);
-            entryUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryUsername.Location = new Point(24, 76);
-            entryUsername.Margin = new Padding(3, 4, 3, 4);
-            entryUsername.Name = "entryUsername";
-            entryUsername.PasswordChar = '\0';
-            entryUsername.PlaceholderText = "";
-            entryUsername.SelectedText = "";
-            entryUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            entryUsername.Size = new Size(298, 35);
-            entryUsername.TabIndex = 5;
+            txtSearch.BackColor = Color.FromArgb(204, 227, 222);
+            txtSearch.CustomizableEdges = customizableEdges1;
+            txtSearch.DefaultText = "";
+            txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSearch.FillColor = Color.FromArgb(204, 227, 222);
+            txtSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSearch.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.FromArgb(55, 58, 64);
+            txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSearch.Location = new Point(24, 76);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtSearch.Size = new Size(298, 35);
+            txtSearch.TabIndex = 5;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // pnlGuestList
             // 
@@ -171,26 +172,6 @@
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // invoiceBindingSource
-            // 
-            invoiceBindingSource.DataSource = typeof(CLASSES.Joined_Tables.Invoice);
-            // 
-            // btnAdd
-            // 
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.BackColor = Color.FromArgb(107, 144, 128);
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.FromArgb(246, 255, 248);
-            btnAdd.Location = new Point(942, 59);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(151, 52);
-            btnAdd.TabIndex = 8;
-            btnAdd.Text = "Add a Booking";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
             // guestIDDataGridViewTextBoxColumn
             // 
             guestIDDataGridViewTextBoxColumn.DataPropertyName = "guestID";
@@ -247,6 +228,26 @@
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // invoiceBindingSource
+            // 
+            invoiceBindingSource.DataSource = typeof(CLASSES.Joined_Tables.Invoice);
+            // 
+            // btnAdd
+            // 
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.BackColor = Color.FromArgb(107, 144, 128);
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.FromArgb(246, 255, 248);
+            btnAdd.Location = new Point(942, 59);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(151, 52);
+            btnAdd.TabIndex = 8;
+            btnAdd.Text = "Add a Booking";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
             // DashboardBooking
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -256,7 +257,7 @@
             Controls.Add(btnAdd);
             Controls.Add(pnlGuestList);
             Controls.Add(btnSearch);
-            Controls.Add(entryUsername);
+            Controls.Add(txtSearch);
             Controls.Add(label1);
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
@@ -273,7 +274,7 @@
 
         private Label label1;
         private Button btnSearch;
-        private Guna.UI2.WinForms.Guna2TextBox entryUsername;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Panel pnlGuestList;
         private Guna.UI2.WinForms.Guna2DataGridView dgvInvoiceList;
         private BindingSource invoiceBindingSource;

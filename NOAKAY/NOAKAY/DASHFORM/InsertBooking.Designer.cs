@@ -30,20 +30,20 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertBooking));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label13 = new Label();
             label12 = new Label();
             comboBookingStatus = new ComboBox();
@@ -71,6 +71,8 @@
             entryFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             label1 = new Label();
             entryLastName = new Guna.UI2.WinForms.Guna2TextBox();
+            label9 = new Label();
+            comboGuestStatus = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picExit).BeginInit();
@@ -100,7 +102,7 @@
             // 
             comboBookingStatus.BackColor = Color.FromArgb(204, 227, 222);
             comboBookingStatus.FormattingEnabled = true;
-            comboBookingStatus.Items.AddRange(new object[] { "Pending", "Paid" });
+            comboBookingStatus.Items.AddRange(new object[] { "Pending", "Paid", "Cancelled" });
             comboBookingStatus.Location = new Point(29, 298);
             comboBookingStatus.Name = "comboBookingStatus";
             comboBookingStatus.Size = new Size(188, 28);
@@ -110,7 +112,7 @@
             // 
             label11.AutoSize = true;
             label11.ForeColor = Color.FromArgb(55, 58, 64);
-            label11.Location = new Point(556, 264);
+            label11.Location = new Point(565, 367);
             label11.Name = "label11";
             label11.Size = new Size(89, 20);
             label11.TabIndex = 51;
@@ -118,7 +120,7 @@
             // 
             // dtpCheckOut
             // 
-            dtpCheckOut.Location = new Point(556, 296);
+            dtpCheckOut.Location = new Point(565, 399);
             dtpCheckOut.Name = "dtpCheckOut";
             dtpCheckOut.Size = new Size(250, 26);
             dtpCheckOut.TabIndex = 50;
@@ -127,7 +129,7 @@
             // 
             label10.AutoSize = true;
             label10.ForeColor = Color.FromArgb(55, 58, 64);
-            label10.Location = new Point(272, 264);
+            label10.Location = new Point(281, 367);
             label10.Name = "label10";
             label10.Size = new Size(76, 20);
             label10.TabIndex = 49;
@@ -135,7 +137,7 @@
             // 
             // dtpCheckIn
             // 
-            dtpCheckIn.Location = new Point(272, 296);
+            dtpCheckIn.Location = new Point(281, 399);
             dtpCheckIn.Name = "dtpCheckIn";
             dtpCheckIn.Size = new Size(250, 26);
             dtpCheckIn.TabIndex = 48;
@@ -212,7 +214,7 @@
             // entryEmail
             // 
             entryEmail.BackColor = Color.FromArgb(204, 227, 222);
-            entryEmail.CustomizableEdges = customizableEdges1;
+            entryEmail.CustomizableEdges = customizableEdges15;
             entryEmail.DefaultText = "";
             entryEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -229,7 +231,7 @@
             entryEmail.PasswordChar = '\0';
             entryEmail.PlaceholderText = "";
             entryEmail.SelectedText = "";
-            entryEmail.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            entryEmail.ShadowDecoration.CustomizableEdges = customizableEdges16;
             entryEmail.Size = new Size(214, 35);
             entryEmail.TabIndex = 43;
             // 
@@ -246,7 +248,7 @@
             // entryContact
             // 
             entryContact.BackColor = Color.FromArgb(204, 227, 222);
-            entryContact.CustomizableEdges = customizableEdges3;
+            entryContact.CustomizableEdges = customizableEdges17;
             entryContact.DefaultText = "";
             entryContact.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryContact.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -263,7 +265,7 @@
             entryContact.PasswordChar = '\0';
             entryContact.PlaceholderText = "";
             entryContact.SelectedText = "";
-            entryContact.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            entryContact.ShadowDecoration.CustomizableEdges = customizableEdges18;
             entryContact.Size = new Size(167, 35);
             entryContact.TabIndex = 41;
             // 
@@ -280,7 +282,7 @@
             // entryAddress
             // 
             entryAddress.BackColor = Color.FromArgb(204, 227, 222);
-            entryAddress.CustomizableEdges = customizableEdges5;
+            entryAddress.CustomizableEdges = customizableEdges19;
             entryAddress.DefaultText = "";
             entryAddress.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryAddress.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -297,7 +299,7 @@
             entryAddress.PasswordChar = '\0';
             entryAddress.PlaceholderText = "";
             entryAddress.SelectedText = "";
-            entryAddress.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            entryAddress.ShadowDecoration.CustomizableEdges = customizableEdges20;
             entryAddress.Size = new Size(296, 35);
             entryAddress.TabIndex = 39;
             // 
@@ -314,7 +316,7 @@
             // entrySuffix
             // 
             entrySuffix.BackColor = Color.FromArgb(204, 227, 222);
-            entrySuffix.CustomizableEdges = customizableEdges7;
+            entrySuffix.CustomizableEdges = customizableEdges21;
             entrySuffix.DefaultText = "";
             entrySuffix.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entrySuffix.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -331,7 +333,7 @@
             entrySuffix.PasswordChar = '\0';
             entrySuffix.PlaceholderText = "";
             entrySuffix.SelectedText = "";
-            entrySuffix.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            entrySuffix.ShadowDecoration.CustomizableEdges = customizableEdges22;
             entrySuffix.Size = new Size(61, 35);
             entrySuffix.TabIndex = 37;
             // 
@@ -348,7 +350,7 @@
             // entryMiddleName
             // 
             entryMiddleName.BackColor = Color.FromArgb(204, 227, 222);
-            entryMiddleName.CustomizableEdges = customizableEdges9;
+            entryMiddleName.CustomizableEdges = customizableEdges23;
             entryMiddleName.DefaultText = "";
             entryMiddleName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryMiddleName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -365,7 +367,7 @@
             entryMiddleName.PasswordChar = '\0';
             entryMiddleName.PlaceholderText = "";
             entryMiddleName.SelectedText = "";
-            entryMiddleName.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            entryMiddleName.ShadowDecoration.CustomizableEdges = customizableEdges24;
             entryMiddleName.Size = new Size(199, 35);
             entryMiddleName.TabIndex = 35;
             // 
@@ -382,7 +384,7 @@
             // entryFirstName
             // 
             entryFirstName.BackColor = Color.FromArgb(204, 227, 222);
-            entryFirstName.CustomizableEdges = customizableEdges11;
+            entryFirstName.CustomizableEdges = customizableEdges25;
             entryFirstName.DefaultText = "";
             entryFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryFirstName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -399,7 +401,7 @@
             entryFirstName.PasswordChar = '\0';
             entryFirstName.PlaceholderText = "";
             entryFirstName.SelectedText = "";
-            entryFirstName.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            entryFirstName.ShadowDecoration.CustomizableEdges = customizableEdges26;
             entryFirstName.Size = new Size(198, 35);
             entryFirstName.TabIndex = 33;
             // 
@@ -416,7 +418,7 @@
             // entryLastName
             // 
             entryLastName.BackColor = Color.FromArgb(204, 227, 222);
-            entryLastName.CustomizableEdges = customizableEdges13;
+            entryLastName.CustomizableEdges = customizableEdges27;
             entryLastName.DefaultText = "";
             entryLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryLastName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -433,15 +435,37 @@
             entryLastName.PasswordChar = '\0';
             entryLastName.PlaceholderText = "";
             entryLastName.SelectedText = "";
-            entryLastName.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            entryLastName.ShadowDecoration.CustomizableEdges = customizableEdges28;
             entryLastName.Size = new Size(188, 35);
             entryLastName.TabIndex = 31;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.FromArgb(55, 58, 64);
+            label9.Location = new Point(287, 264);
+            label9.Name = "label9";
+            label9.Size = new Size(98, 20);
+            label9.TabIndex = 57;
+            label9.Text = "Guest Status";
+            // 
+            // comboGuestStatus
+            // 
+            comboGuestStatus.BackColor = Color.FromArgb(204, 227, 222);
+            comboGuestStatus.FormattingEnabled = true;
+            comboGuestStatus.Items.AddRange(new object[] { "Check In", "Check Out", "Pending" });
+            comboGuestStatus.Location = new Point(287, 298);
+            comboGuestStatus.Name = "comboGuestStatus";
+            comboGuestStatus.Size = new Size(188, 28);
+            comboGuestStatus.TabIndex = 56;
             // 
             // InsertBooking
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1119, 738);
+            Controls.Add(label9);
+            Controls.Add(comboGuestStatus);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(comboBookingStatus);
@@ -508,5 +532,7 @@
         private Guna.UI2.WinForms.Guna2TextBox entryFirstName;
         private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox entryLastName;
+        private Label label9;
+        private ComboBox comboGuestStatus;
     }
 }

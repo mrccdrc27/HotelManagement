@@ -79,7 +79,7 @@ namespace NOAKAY.DASHFORM
             // Save changes to the database
             dbContext?.SaveChanges();
 
-            MessageBox.Show("Succesful guest booking!");
+            MessageBox.Show("Succesful guest listing!");
             this.Close();
         }
 

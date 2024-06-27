@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMain));
             pnlNav = new Panel();
+            btnDashBoard = new Button();
             btnBook = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnReport = new Button();
+            btnHouseKeeping = new Button();
             btnOut = new Button();
             btnGuest = new Button();
             btnRoom = new Button();
@@ -54,9 +55,10 @@
             // pnlNav
             // 
             pnlNav.BackColor = Color.FromArgb(53, 79, 82);
+            pnlNav.Controls.Add(btnDashBoard);
             pnlNav.Controls.Add(btnBook);
-            pnlNav.Controls.Add(button2);
-            pnlNav.Controls.Add(button1);
+            pnlNav.Controls.Add(btnReport);
+            pnlNav.Controls.Add(btnHouseKeeping);
             pnlNav.Controls.Add(btnOut);
             pnlNav.Controls.Add(btnGuest);
             pnlNav.Controls.Add(btnRoom);
@@ -68,13 +70,27 @@
             pnlNav.Size = new Size(250, 664);
             pnlNav.TabIndex = 0;
             // 
+            // btnDashBoard
+            // 
+            btnDashBoard.Cursor = Cursors.Hand;
+            btnDashBoard.FlatAppearance.BorderSize = 0;
+            btnDashBoard.FlatStyle = FlatStyle.Flat;
+            btnDashBoard.ForeColor = Color.FromArgb(246, 255, 248);
+            btnDashBoard.Location = new Point(0, 131);
+            btnDashBoard.Name = "btnDashBoard";
+            btnDashBoard.Size = new Size(247, 61);
+            btnDashBoard.TabIndex = 7;
+            btnDashBoard.Text = "Dashboard";
+            btnDashBoard.UseVisualStyleBackColor = true;
+            btnDashBoard.Click += btnDashBoard_Click;
+            // 
             // btnBook
             // 
             btnBook.Cursor = Cursors.Hand;
             btnBook.FlatAppearance.BorderSize = 0;
             btnBook.FlatStyle = FlatStyle.Flat;
             btnBook.ForeColor = Color.FromArgb(246, 255, 248);
-            btnBook.Location = new Point(0, 198);
+            btnBook.Location = new Point(3, 265);
             btnBook.Name = "btnBook";
             btnBook.Size = new Size(247, 61);
             btnBook.TabIndex = 3;
@@ -82,33 +98,33 @@
             btnBook.UseVisualStyleBackColor = true;
             btnBook.Click += btnBook_Click;
             // 
-            // button2
+            // btnReport
             // 
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.FromArgb(246, 255, 248);
-            button2.Location = new Point(3, 399);
-            button2.Name = "button2";
-            button2.Size = new Size(247, 61);
-            button2.TabIndex = 6;
-            button2.Text = "Reserved String";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnReport.Cursor = Cursors.Hand;
+            btnReport.FlatAppearance.BorderSize = 0;
+            btnReport.FlatStyle = FlatStyle.Flat;
+            btnReport.ForeColor = Color.FromArgb(246, 255, 248);
+            btnReport.Location = new Point(0, 470);
+            btnReport.Name = "btnReport";
+            btnReport.Size = new Size(247, 61);
+            btnReport.TabIndex = 6;
+            btnReport.Text = "Reports";
+            btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
             // 
-            // button1
+            // btnHouseKeeping
             // 
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.FromArgb(246, 255, 248);
-            button1.Location = new Point(0, 332);
-            button1.Name = "button1";
-            button1.Size = new Size(247, 61);
-            button1.TabIndex = 5;
-            button1.Text = "Reserved String";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnHouseKeeping.Cursor = Cursors.Hand;
+            btnHouseKeeping.FlatAppearance.BorderSize = 0;
+            btnHouseKeeping.FlatStyle = FlatStyle.Flat;
+            btnHouseKeeping.ForeColor = Color.FromArgb(246, 255, 248);
+            btnHouseKeeping.Location = new Point(3, 403);
+            btnHouseKeeping.Name = "btnHouseKeeping";
+            btnHouseKeeping.Size = new Size(247, 61);
+            btnHouseKeeping.TabIndex = 5;
+            btnHouseKeeping.Text = "House Keeping";
+            btnHouseKeeping.UseVisualStyleBackColor = true;
+            btnHouseKeeping.Click += btnHouseKeeping_Click;
             // 
             // btnOut
             // 
@@ -132,7 +148,7 @@
             btnGuest.FlatAppearance.BorderSize = 0;
             btnGuest.FlatStyle = FlatStyle.Flat;
             btnGuest.ForeColor = Color.FromArgb(246, 255, 248);
-            btnGuest.Location = new Point(3, 265);
+            btnGuest.Location = new Point(0, 332);
             btnGuest.Name = "btnGuest";
             btnGuest.Size = new Size(247, 61);
             btnGuest.TabIndex = 2;
@@ -147,7 +163,7 @@
             btnRoom.FlatAppearance.BorderSize = 0;
             btnRoom.FlatStyle = FlatStyle.Flat;
             btnRoom.ForeColor = Color.FromArgb(246, 255, 248);
-            btnRoom.Location = new Point(3, 131);
+            btnRoom.Location = new Point(0, 198);
             btnRoom.Name = "btnRoom";
             btnRoom.RightToLeft = RightToLeft.No;
             btnRoom.Size = new Size(247, 61);
@@ -272,7 +288,8 @@
         private PictureBox picMaximize;
         private PictureBox picExit;
         private PictureBox pictureBox1;
-        private Button button2;
-        private Button button1;
+        private Button btnReport;
+        private Button btnHouseKeeping;
+        private Button btnDashBoard;
     }
 }

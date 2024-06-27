@@ -29,8 +29,119 @@ namespace NOAKAY.DASHFORM
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            newcode();
+            // newcode();
+            loadGuest(); // filter only guest that has 0 or 1 status, 2 means they are in booking list
 
+        }
+
+        public void loadGuest()
+        {
+            this.dbContext = new Connection();
+            var combinedData = from Guest in dbContext.GuestModels
+                               join Room in dbContext.RoomModels
+                               on Guest.RoomID equals Room.RoomID
+                               //Initial Join of Guest and Room
+                               join Category in dbContext.CategoryModels
+                               on Room.CategoryId equals Category.CategoryID
+                               select new GuestRoomCategoryDTO
+                               {
+                                   //IF Error, Data Must Be nulled, GO back and input data properly
+                                   RoomID = Room.RoomID,
+                                   GuestID = Guest.GuestID,
+                                   RoomNum = Room.RoomNum,
+                                   LastName = Guest.LastName!,
+                                   FirstName = Guest.FirstName!,
+                                   Contact = Guest.Contact!,
+                                   CheckIn = (DateTime)Guest.CheckIn!,
+                                   CheckOut = (DateTime)Guest.CheckIn!,
+                                   CategoryName = Category.CategoryName!,
+                                   GuestStatus = $"{Guest.GuestStatus}",
+                                   Email = Guest.Email!
+
+                               };
+
+            var combinedList = combinedData.ToList();
+            // allGuests = combinedList;
+            List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
+
+            foreach (var item in combinedList)
+            {
+
+                if (item.GuestStatus == "0" )
+                {
+                    item.GuestStatus = "Check In";
+                    filter.Add(item);
+                }
+                else if (item.GuestStatus == "1")
+                {
+                    item.GuestStatus = "Check Out";
+                    filter.Add(item);
+                }           
+            }
+
+            dgvGuestList.DataSource = filter;
+            allGuests = filter;
+
+        } // loadGuest
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            new InsertGuest().Show();
+        }
+
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            string searchTerm = txtSearch.Text.ToLower();
+
+            // Filter the original list based on the search term
+            var filteredGuests = allGuests.Where(g =>
+                g.LastName.ToLower().Contains(searchTerm) ||
+                g.FirstName.ToLower().Contains(searchTerm)
+
+            ).ToList();
+
+            // Update the BindingSource with the filtered list
+            guestModelBindingSource.DataSource = filteredGuests;
+            dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
+
+            // Refresh the DataGridView to reflect the changes
+            dgvGuestList.Refresh();
+        }
+
+        private void comboSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // combo box update;
+            List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)allGuests; // allGuest
+            List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
+            var num = 0;
+
+            if (comboSearchStatus.SelectedIndex == 0)
+            {
+                foreach (var item in list)
+                {
+                    if (item.GuestStatus == "Check In")
+                    {
+                        filter.Add(item);
+                    }
+                }
+            }
+            if (comboSearchStatus.SelectedIndex == 1)
+            {
+                foreach (var item in list)
+                {
+                    if (item.GuestStatus == "Check Out")
+                    {
+                        filter.Add(item);
+                    }
+                }
+            }
+            if (comboSearchStatus.SelectedIndex == 2)
+            {
+                filter = list;
+            }
+            dgvGuestList.DataSource = filter;
         }
 
         public void newcode()
@@ -141,65 +252,7 @@ namespace NOAKAY.DASHFORM
 
         // == BINDING THE DATA TO DATA GRID VIEW ==
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            new InsertGuest().Show();
-        }
-
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-     
-            string searchTerm = txtSearch.Text.ToLower();
-
-            // Filter the original list based on the search term
-            var filteredGuests = allGuests.Where(g =>
-                g.LastName.ToLower().Contains(searchTerm) ||
-                g.FirstName.ToLower().Contains(searchTerm)
-            
-            ).ToList();
-
-            // Update the BindingSource with the filtered list
-            guestModelBindingSource.DataSource = filteredGuests;
-            dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
-
-            // Refresh the DataGridView to reflect the changes
-            dgvGuestList.Refresh();
-        }
-
-        private void comboSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // combo box update;
-            List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)allGuests; // allGuest
-            List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
-            var num = 0;
-
-            if(comboSearchStatus.SelectedIndex == 0)
-            {
-                foreach (var item in list)
-                {
-                    if (item.GuestStatus == "Check In")
-                    {
-                        filter.Add(item);
-                    }
-                }
-            }
-            if (comboSearchStatus.SelectedIndex == 1)
-            {
-                foreach (var item in list)
-                {
-                    if (item.GuestStatus == "Check Out")
-                    {
-                        filter.Add(item);
-                    }
-                }
-            }
-            if (comboSearchStatus.SelectedIndex == 2)
-            {
-                filter = list;
-            }
-            dgvGuestList.DataSource = filter;
-        }
+       
 
         private void dgvGuestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
