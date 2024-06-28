@@ -15,7 +15,7 @@ namespace NOAKAY.DASHFORM
         public DashboardAnalytics()
         {
             InitializeComponent();
-           // dbContext = new Connection(); // Initialize your DbContext or connection
+            // dbContext = new Connection(); // Initialize your DbContext or connection
             loadData();
         }
 
@@ -23,6 +23,10 @@ namespace NOAKAY.DASHFORM
         {
             int activeGuestCount = 0;
             int activeBookingCount = 0;
+            int availableRooms = 0;
+            int standardCount = 0;
+            int deluxeCount = 0;
+            int suiteCount = 0;
 
             this.dbContext = new Connection();
             var combinedData = from Guest in dbContext.GuestModels
@@ -48,18 +52,39 @@ namespace NOAKAY.DASHFORM
             {
                 if (item.gueststatus == "0")
                 {
-                    activeGuestCount++;
+                    if (item.roomName > 100 && item.roomName < 106)
+                    {
+                        standardCount++;
+                        activeGuestCount++;
+                    }
+                    else if (item.roomName > 105 && item.roomName < 111)
+                    {
+                        deluxeCount++;
+                        activeGuestCount++;
+                    }
+                    else
+                    {
+                        suiteCount++;
+                        activeGuestCount++;
+                    }                 
                 }
                 if (item.status == "0")
                 {
                     activeBookingCount++;
-                }
-            }
 
-            // Update labels with counts
-            lblRoomNo.Text = "15"; // Example value, replace with actual room count logic
-            lblGuestNo.Text = activeGuestCount.ToString();
-            lblBookingNo.Text = activeBookingCount.ToString();
+                }
+
+                // Update labels with counts
+                lblRoomNo.Text = "15"; // Example value, replace with actual room count logic
+                lblGuestNo.Text = activeGuestCount.ToString();
+                lblBookingNo.Text = activeBookingCount.ToString();
+                lblOccupiedRooms.Text = activeGuestCount.ToString();
+                availableRooms = 15 - activeGuestCount;
+                lblAvailableRooms.Text = availableRooms.ToString();
+                lblStandard.Text = standardCount.ToString();
+                lblDeluxe.Text = deluxeCount.ToString();
+                lblSuite.Text = suiteCount.ToString();
+            } // loadData
         }
     }
 }

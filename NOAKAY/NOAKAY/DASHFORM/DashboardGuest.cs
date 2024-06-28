@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using NOAKAY.CLASSES;
 using NOAKAY.CLASSES.Joined_Tables;
 using SQLCONNECTION;
+using NOAKAY.DASHFORM;
 
 namespace NOAKAY.DASHFORM
 {
@@ -22,7 +23,6 @@ namespace NOAKAY.DASHFORM
         public DashboardGuest()
         {
             InitializeComponent();
-            // allGuests = new List<GuestRoomCategoryDTO>(); // initialize
         }
 
         // == BINDING THE DATA TO DATA GRID VIEW ==
@@ -51,6 +51,9 @@ namespace NOAKAY.DASHFORM
                                    RoomNum = Room.RoomNum,
                                    LastName = Guest.LastName!,
                                    FirstName = Guest.FirstName!,
+                                   MiddleName = Guest.MiddleName!, // new
+                                   Suffix = Guest.Suffix!, // new
+                                   Address = Guest.Address!, 
                                    Contact = Guest.Contact!,
                                    CheckIn = (DateTime)Guest.CheckIn!,
                                    CheckOut = (DateTime)Guest.CheckIn!,
@@ -107,6 +110,7 @@ namespace NOAKAY.DASHFORM
             dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
 
             // Refresh the DataGridView to reflect the changes
+            dgvGuestList.DataSource = filteredGuests;
             dgvGuestList.Refresh();
         }
 
@@ -115,7 +119,7 @@ namespace NOAKAY.DASHFORM
             // combo box update;
             List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)allGuests; // allGuest
             List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
-            var num = 0;
+            // var num = 0;
 
             if (comboSearchStatus.SelectedIndex == 0)
             {
@@ -143,120 +147,77 @@ namespace NOAKAY.DASHFORM
             }
             dgvGuestList.DataSource = filter;
         }
+        //public void guestOnly()
+        //{
+        //    // default guest display
+        //    dbContext = new Connection();
 
-        public void newcode()
-        {
-            this.dbContext = new Connection();
+        //    // Ensure database is created
+        //    dbContext.Database.EnsureCreated();
+        //    this.dbContext.GuestModels.Load();
+        //    guestRoomCategoryDTOBindingSource.DataSource = this.dbContext.GuestModels.Local.ToList();
+        //    allGuests = guestRoomCategoryDTOBindingSource.DataSource as List<GuestRoomCategoryDTO>; // i add this to bind the data to dgv
+        //}
 
-            var combinedData = from Guest in dbContext.GuestModels
-                               join Room in dbContext.RoomModels
-                               on Guest.RoomID equals Room.RoomID
-                               //Initial Join of Guest and Room
-                               join Category in dbContext.CategoryModels
-                               on Room.CategoryId equals Category.CategoryID
-                               select new GuestRoomCategoryDTO
-                               {
-                                   //IF Error, Data Must Be nulled, GO back and input data properly
-                                   RoomID = Room.RoomID,
-                                   GuestID = Guest.GuestID,
-                                   RoomNum = Room.RoomNum,
-                                   LastName = Guest.LastName!,
-                                   FirstName = Guest.FirstName!,
-                                   Contact = Guest.Contact!,
-                                   CheckIn = (DateTime)Guest.CheckIn!,
-                                   CheckOut = (DateTime)Guest.CheckIn!,
-                                   CategoryName = Category.CategoryName!,
-                                   GuestStatus = $"{Guest.GuestStatus}",
-                                   Email = Guest.Email!
-
-                               };
-
-            var combinedList = combinedData.ToList();
-            allGuests = combinedList;
-
-            foreach (var item in combinedList)
-            {
-
-                if (item.GuestStatus == "1")
-                {
-                    // Change GuestStatus if it is 1
-                    item.GuestStatus = "Check Out"; // Example change to 3
-                }
-                else if (item.GuestStatus == "0")
-                {
-                    // Change GuestStatus if it is 2
-                    item.GuestStatus = "Check In"; // Example change to 3
-                }
-                // Add more conditions as needed
-
-            }
-
-
-            this.dbContext.Database.CloseConnection();
-
-            guestRoomCategoryDTOBindingSource.DataSource = combinedList;
-        }
-        public void guestOnly()
-        {
-            // default guest display
-            dbContext = new Connection();
-
-            // Ensure database is created
-            dbContext.Database.EnsureCreated();
-            this.dbContext.GuestModels.Load();
-            guestRoomCategoryDTOBindingSource.DataSource = this.dbContext.GuestModels.Local.ToList();
-            allGuests = guestRoomCategoryDTOBindingSource.DataSource as List<GuestRoomCategoryDTO>; // i add this to bind the data to dgv
-        }
-
-        public void oldcode()
-        {
-            // Loading of database objects
-            dbContext = new Connection();
-
-            // Ensure database is created
-            dbContext.Database.EnsureCreated();
-
-            string sqlQuery = @"
-                Select GuestModels.GuestID
-                    , GuestModels.LastName
-                    , GuestModels.FirstName
-                    , Guestmodels.middlename
-                    , guestmodels.suffix
-                    , guestmodels.address
-                    , guestmodels.contact
-                    , guestmodels.email
-                    , CASE GuestModels.GuestStatus
-                        WHEN 0 THEN 'Check In'
-                        WHEN 1 THEN 'Check Out'
-                        ELSE 'Unknown'
-                      END AS GuestStatus
-                    , guestmodels.checkin
-                    , guestmodels.checkout
-                    , guestmodels.roomid
-                    , roommodels.roomnum
-                    , categorymodels.categoryid
-                    , categorymodels.categoryname
-                FROM GuestModels
-                INNER JOIN RoomModels ON GuestModels.RoomID = RoomModels.RoomID
-                INNER JOIN CategoryModels ON RoomModels.CategoryID = CategoryModels.CategoryID;";
-
-            // Execute the query and map the results to DTO
-            //allGuests = dbContext.RoomModels.FromSqlRaw(sqlQuery).ToList();
-
-            // Bind data to BindingSource
-            guestModelBindingSource.DataSource = allGuests;
-
-            // Set DataSource of DataGridView to BindingSource
-            dgvGuestList.DataSource = guestModelBindingSource.DataSource;
-        }
-
-        // == BINDING THE DATA TO DATA GRID VIEW ==
-
-       
 
         private void dgvGuestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvGuestList.Columns["Update"].Index)
+            {
+                // Get the data source of the DataGridView
+                List<GuestRoomCategoryDTO> dataSource = dgvGuestList.DataSource as List<GuestRoomCategoryDTO>;
 
+                if (dataSource != null)
+                {
+                    // Retrieve data from the original data source based on the row index
+                    GuestRoomCategoryDTO selectedGuest = dataSource[e.RowIndex];
+
+                    // Extract the necessary data
+                    int guestId = selectedGuest.GuestID;
+                    int roomId = selectedGuest.RoomID;
+                    string lastName = selectedGuest.LastName;
+                    string firstName = selectedGuest.FirstName;
+                    string middleName = selectedGuest.MiddleName;
+                    string suffix = selectedGuest.Suffix;
+                    string email = selectedGuest.Email;
+                    string contact = selectedGuest.Contact;
+                    string address = selectedGuest.Address;
+                    DateTime checkIn = selectedGuest.CheckIn;
+                    DateTime checkOut = selectedGuest.CheckOut;
+                    string guestStatus = selectedGuest.GuestStatus;
+                    int guestStatusIndex;
+                    if (guestStatus == "Check In")
+                    {
+                        guestStatusIndex = 0;
+                    }
+                    else if (guestStatus == "Check Out")
+                    {
+                        guestStatusIndex = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR");
+                        // Handle unexpected values (set to a default value or show an error message)
+                        guestStatusIndex = 1; // Invalid index, ensure combo box can handle this
+                    }
+                    //int guestStatusIndex = guestStatus == "1" ? 1 : 0;
+                    // int guestStatus = Convert.ToInt32(selectedGuest.GuestStatus);
+
+                    // Create an instance of the UpdateGuestInfo form
+                    UpdateGuestInfo updateForm = new UpdateGuestInfo();
+
+                    // Pass data to the UpdateGuestInfo form using LoadGuestInfo method
+                    updateForm.LoadGuestInfo(guestId, lastName, firstName, middleName, suffix, address, contact, email, guestStatusIndex, checkIn, checkOut, roomId);
+
+                    // Show the update form
+                    updateForm.Show();
+
+                    // After update form is closed, refresh the DataGridView if needed
+                    dgvGuestList.Refresh(); // Or update specific row if you know which one changed
+                }
+            }
         }
+
     }
 }
+

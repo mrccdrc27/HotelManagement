@@ -55,6 +55,7 @@
             CategoryName = new DataGridViewTextBoxColumn();
             CheckIn = new DataGridViewTextBoxColumn();
             CheckOut = new DataGridViewTextBoxColumn();
+            Update = new DataGridViewButtonColumn();
             pnlGuestList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).BeginInit();
@@ -133,7 +134,6 @@
             dgvGuestList.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             dgvGuestList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvGuestList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvGuestList.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
@@ -144,7 +144,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvGuestList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvGuestList.ColumnHeadersHeight = 22;
-            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Email, Contact, GuestStatus, CategoryName, CheckIn, CheckOut });
+            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Email, Contact, GuestStatus, CategoryName, CheckIn, CheckOut, Update });
             dgvGuestList.DataSource = guestRoomCategoryDTOBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -154,13 +154,14 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvGuestList.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvGuestList.Dock = DockStyle.Fill;
             dgvGuestList.GridColor = Color.FromArgb(231, 229, 255);
-            dgvGuestList.Location = new Point(0, 3);
+            dgvGuestList.Location = new Point(0, 0);
             dgvGuestList.Name = "dgvGuestList";
             dgvGuestList.ReadOnly = true;
             dgvGuestList.RowHeadersVisible = false;
             dgvGuestList.RowHeadersWidth = 51;
-            dgvGuestList.Size = new Size(1064, 545);
+            dgvGuestList.Size = new Size(1067, 548);
             dgvGuestList.TabIndex = 0;
             dgvGuestList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvGuestList.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -307,6 +308,18 @@
             CheckOut.Name = "CheckOut";
             CheckOut.ReadOnly = true;
             // 
+            // Update
+            // 
+            Update.DataPropertyName = "Update";
+            Update.FillWeight = 20F;
+            Update.HeaderText = "Update";
+            Update.MinimumWidth = 2;
+            Update.Name = "Update";
+            Update.ReadOnly = true;
+            Update.Text = "Update";
+            Update.ToolTipText = "Update";
+            Update.UseColumnTextForButtonValue = true;
+            // 
             // DashboardGuest
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -355,5 +368,6 @@
         private DataGridViewTextBoxColumn CategoryName;
         private DataGridViewTextBoxColumn CheckIn;
         private DataGridViewTextBoxColumn CheckOut;
+        private DataGridViewButtonColumn Update;
     }
 }

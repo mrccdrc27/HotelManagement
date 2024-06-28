@@ -44,6 +44,7 @@ namespace NOAKAY.DASHFORM
             int gueststatus = comboGuestStatus.SelectedIndex; // 0 or 1
             DateTime checkout = dtpCheckOut.Value;
             DateTime checkin = dtpCheckIn.Value;
+         
 
             // Check if the room is already occupied
             bool isRoomOccupied = dbContext.GuestModels.Any(g => g.RoomID == roomid && g.GuestStatus == 0);
