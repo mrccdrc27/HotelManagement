@@ -29,6 +29,17 @@ namespace NOAKAY.DASHFORM
             // Ensure database is created
             dbContext.Database.EnsureCreated();
 
+            var occupiedRoom = from Room in dbContext.RoomModels                               // Initial Join of Guest and Room
+                               select new RoomGuestModel
+                               {
+                                   // IF Error, Data Must Be nulled, GO back and input data properly
+                                   RoomId = Room.RoomID,
+                                   GuestID = 0,
+                                   Status = $"0"
+
+
+                               };
+
             var combinedData = from Guest in dbContext.GuestModels
                                join Room in dbContext.RoomModels
                                on Guest.RoomID equals Room.RoomID
@@ -42,17 +53,18 @@ namespace NOAKAY.DASHFORM
                                    
 
                                };
+            var unionlist = combinedData.ToList().Union(occupiedRoom.ToList());
 
-            var combinedList = combinedData.ToList();
+            //var combinedList = combinedData.ToList();
 
-            foreach (var item in combinedList)
+            foreach (var item in unionlist)
             {
-                if (item.Status == "1")
+                if (item.Status == "0")
                 {
                     // Change GuestStatus if it is 1
                     item.Status = "Available"; // Example change to 3
                 }
-                else if (item.Status == "0")
+                else if (item.Status == "1")
                 {
                     // Change GuestStatus if it is 2
                     item.Status = "Occupied"; // Example change to 3
@@ -63,7 +75,7 @@ namespace NOAKAY.DASHFORM
 
             this.dbContext.Database.CloseConnection();
 
-            roomGuestModelBindingSource.DataSource = combinedList;
+            roomGuestModelBindingSource.DataSource = unionlist;
 
         }
 
