@@ -96,7 +96,7 @@ namespace NOAKAY.DASHFORM
             btnRoom.BackColor = Color.FromArgb(53, 79, 82);
             btnGuest.BackColor = Color.FromArgb(53, 79, 82);
             btnBook.BackColor = Color.FromArgb(53, 79, 82);
-            btnHouseKeeping.BackColor = Color.FromArgb(53, 79, 82);
+            btnRoomInfo.BackColor = Color.FromArgb(53, 79, 82);
             btnReport.BackColor = Color.FromArgb(53, 79, 82);
 
             // Add more buttons as needed
@@ -112,8 +112,8 @@ namespace NOAKAY.DASHFORM
         private void btnHouseKeeping_Click(object sender, EventArgs e)
         {
             ResetButtonColors();
-            btnHouseKeeping.BackColor = Color.FromArgb(82, 121, 111);
-            loadform(new ReservedString());
+            btnRoomInfo.BackColor = Color.FromArgb(82, 121, 111);
+            loadform(new RoomInfo());
         }
 
         private void btnReport_Click(object sender, EventArgs e)

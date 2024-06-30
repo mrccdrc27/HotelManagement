@@ -16,9 +16,21 @@ namespace NOAKAY.DASHFORM
         {
             InitializeComponent();
             // dbContext = new Connection(); // Initialize your DbContext or connection
+            initialData();
             loadData();
         }
-
+        private void initialData()
+        {
+            lblRoomNo.Text = "15"; // Example value, replace with actual room count logic
+            lblGuestNo.Text = "0";
+            lblBookingNo.Text = "0";
+            lblOccupiedRooms.Text = "0";
+            
+            lblAvailableRooms.Text = "0";
+            lblStandard.Text = "0";
+            lblDeluxe.Text = "0";
+            lblSuite.Text = "0";
+        }
         private void loadData()
         {
             int activeGuestCount = 0;

@@ -90,11 +90,12 @@ namespace NOAKAY.DASHFORM
             if (checkIn.HasValue && checkOut.HasValue)
             {
                 TimeSpan totalDuration = checkOut.Value - checkIn.Value;
-                int totalDays = totalDuration.Days;
+                int totalDays = totalDuration.Days + 1; // Include the check-out day
                 return totalDays * basePrice;
             }
             return 0; // Handle the case where either check-in or check-out date is null
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {

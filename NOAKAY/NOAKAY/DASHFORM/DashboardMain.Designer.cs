@@ -33,7 +33,7 @@
             btnDashBoard = new Button();
             btnBook = new Button();
             btnReport = new Button();
-            btnHouseKeeping = new Button();
+            btnRoomInfo = new Button();
             btnOut = new Button();
             btnGuest = new Button();
             btnRoom = new Button();
@@ -58,7 +58,7 @@
             pnlNav.Controls.Add(btnDashBoard);
             pnlNav.Controls.Add(btnBook);
             pnlNav.Controls.Add(btnReport);
-            pnlNav.Controls.Add(btnHouseKeeping);
+            pnlNav.Controls.Add(btnRoomInfo);
             pnlNav.Controls.Add(btnOut);
             pnlNav.Controls.Add(btnGuest);
             pnlNav.Controls.Add(btnRoom);
@@ -112,19 +112,19 @@
             btnReport.UseVisualStyleBackColor = true;
             btnReport.Click += btnReport_Click;
             // 
-            // btnHouseKeeping
+            // btnRoomInfo
             // 
-            btnHouseKeeping.Cursor = Cursors.Hand;
-            btnHouseKeeping.FlatAppearance.BorderSize = 0;
-            btnHouseKeeping.FlatStyle = FlatStyle.Flat;
-            btnHouseKeeping.ForeColor = Color.FromArgb(246, 255, 248);
-            btnHouseKeeping.Location = new Point(3, 403);
-            btnHouseKeeping.Name = "btnHouseKeeping";
-            btnHouseKeeping.Size = new Size(247, 61);
-            btnHouseKeeping.TabIndex = 5;
-            btnHouseKeeping.Text = "House Keeping";
-            btnHouseKeeping.UseVisualStyleBackColor = true;
-            btnHouseKeeping.Click += btnHouseKeeping_Click;
+            btnRoomInfo.Cursor = Cursors.Hand;
+            btnRoomInfo.FlatAppearance.BorderSize = 0;
+            btnRoomInfo.FlatStyle = FlatStyle.Flat;
+            btnRoomInfo.ForeColor = Color.FromArgb(246, 255, 248);
+            btnRoomInfo.Location = new Point(3, 403);
+            btnRoomInfo.Name = "btnRoomInfo";
+            btnRoomInfo.Size = new Size(247, 61);
+            btnRoomInfo.TabIndex = 5;
+            btnRoomInfo.Text = "Room Information";
+            btnRoomInfo.UseVisualStyleBackColor = true;
+            btnRoomInfo.Click += btnHouseKeeping_Click;
             // 
             // btnOut
             // 
@@ -289,7 +289,7 @@
         private PictureBox picExit;
         private PictureBox pictureBox1;
         private Button btnReport;
-        private Button btnHouseKeeping;
+        private Button btnRoomInfo;
         private Button btnDashBoard;
     }
 }

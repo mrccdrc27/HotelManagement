@@ -56,7 +56,7 @@ namespace NOAKAY.DASHFORM
                                    Address = Guest.Address!, 
                                    Contact = Guest.Contact!,
                                    CheckIn = (DateTime)Guest.CheckIn!,
-                                   CheckOut = (DateTime)Guest.CheckIn!,
+                                   CheckOut = (DateTime)Guest.CheckOut!,
                                    CategoryName = Category.CategoryName!,
                                    GuestStatus = $"{Guest.GuestStatus}",
                                    Email = Guest.Email!
@@ -200,10 +200,7 @@ namespace NOAKAY.DASHFORM
                         // Handle unexpected values (set to a default value or show an error message)
                         guestStatusIndex = 1; // Invalid index, ensure combo box can handle this
                     }
-                    //int guestStatusIndex = guestStatus == "1" ? 1 : 0;
-                    // int guestStatus = Convert.ToInt32(selectedGuest.GuestStatus);
 
-                    // Create an instance of the UpdateGuestInfo form
                     UpdateGuestInfo updateForm = new UpdateGuestInfo();
 
                     // Pass data to the UpdateGuestInfo form using LoadGuestInfo method
