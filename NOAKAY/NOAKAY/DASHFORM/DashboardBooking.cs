@@ -91,7 +91,7 @@ namespace NOAKAY.DASHFORM
                 TimeSpan totalDuration = checkOut.Value.Date.AddDays(1) - checkIn.Value.Date; // Corrected calculation
                 decimal totalDays = (decimal)totalDuration.TotalDays; // Use TotalDays to get fractional days
 
-                MessageBox.Show($"{totalDays * basePrice}");
+                //MessageBox.Show($"{totalDays * basePrice}");
 
                 return totalDays * basePrice;
             }

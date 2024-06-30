@@ -71,9 +71,11 @@
             comboGuestStatus = new ComboBox();
             comboRoomNType = new ComboBox();
             label13 = new Label();
+            roomCategoryDTOBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)picExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             SuspendLayout();
             // 
             // entryLastName
@@ -106,7 +108,7 @@
             label1.ForeColor = Color.FromArgb(55, 58, 64);
             label1.Location = new Point(29, 81);
             label1.Name = "label1";
-            label1.Size = new Size(85, 20);
+            label1.Size = new Size(71, 17);
             label1.TabIndex = 5;
             label1.Text = "Last Name";
             // 
@@ -116,7 +118,7 @@
             label2.ForeColor = Color.FromArgb(55, 58, 64);
             label2.Location = new Point(252, 81);
             label2.Name = "label2";
-            label2.Size = new Size(83, 20);
+            label2.Size = new Size(70, 17);
             label2.TabIndex = 7;
             label2.Text = "First Name";
             // 
@@ -150,7 +152,7 @@
             label3.ForeColor = Color.FromArgb(55, 58, 64);
             label3.Location = new Point(482, 81);
             label3.Name = "label3";
-            label3.Size = new Size(108, 20);
+            label3.Size = new Size(88, 17);
             label3.TabIndex = 9;
             label3.Text = "Middle Name";
             // 
@@ -184,7 +186,7 @@
             label4.ForeColor = Color.FromArgb(55, 58, 64);
             label4.Location = new Point(709, 81);
             label4.Name = "label4";
-            label4.Size = new Size(45, 20);
+            label4.Size = new Size(39, 17);
             label4.TabIndex = 11;
             label4.Text = "Suffix";
             // 
@@ -218,7 +220,7 @@
             label5.ForeColor = Color.FromArgb(55, 58, 64);
             label5.Location = new Point(29, 170);
             label5.Name = "label5";
-            label5.Size = new Size(67, 20);
+            label5.Size = new Size(55, 17);
             label5.TabIndex = 13;
             label5.Text = "Address";
             // 
@@ -252,7 +254,7 @@
             label6.ForeColor = Color.FromArgb(55, 58, 64);
             label6.Location = new Point(355, 170);
             label6.Name = "label6";
-            label6.Size = new Size(95, 20);
+            label6.Size = new Size(78, 17);
             label6.TabIndex = 15;
             label6.Text = "Contact No";
             // 
@@ -286,7 +288,7 @@
             label7.ForeColor = Color.FromArgb(55, 58, 64);
             label7.Location = new Point(556, 170);
             label7.Name = "label7";
-            label7.Size = new Size(46, 20);
+            label7.Size = new Size(39, 17);
             label7.TabIndex = 17;
             label7.Text = "Email";
             // 
@@ -321,7 +323,7 @@
             label8.ForeColor = Color.FromArgb(55, 58, 64);
             label8.Location = new Point(29, 40);
             label8.Name = "label8";
-            label8.Size = new Size(129, 23);
+            label8.Size = new Size(103, 19);
             label8.TabIndex = 18;
             label8.Text = "Add a guest";
             // 
@@ -367,7 +369,7 @@
             // 
             dtpCheckIn.Location = new Point(272, 294);
             dtpCheckIn.Name = "dtpCheckIn";
-            dtpCheckIn.Size = new Size(250, 26);
+            dtpCheckIn.Size = new Size(250, 22);
             dtpCheckIn.TabIndex = 23;
             // 
             // label10
@@ -376,7 +378,7 @@
             label10.ForeColor = Color.FromArgb(55, 58, 64);
             label10.Location = new Point(272, 262);
             label10.Name = "label10";
-            label10.Size = new Size(76, 20);
+            label10.Size = new Size(59, 17);
             label10.TabIndex = 24;
             label10.Text = "Check In";
             // 
@@ -386,7 +388,7 @@
             label11.ForeColor = Color.FromArgb(55, 58, 64);
             label11.Location = new Point(556, 262);
             label11.Name = "label11";
-            label11.Size = new Size(89, 20);
+            label11.Size = new Size(71, 17);
             label11.TabIndex = 26;
             label11.Text = "Check Out";
             // 
@@ -394,7 +396,7 @@
             // 
             dtpCheckOut.Location = new Point(556, 294);
             dtpCheckOut.Name = "dtpCheckOut";
-            dtpCheckOut.Size = new Size(250, 26);
+            dtpCheckOut.Size = new Size(250, 22);
             dtpCheckOut.TabIndex = 25;
             // 
             // label12
@@ -403,7 +405,7 @@
             label12.ForeColor = Color.FromArgb(55, 58, 64);
             label12.Location = new Point(29, 262);
             label12.Name = "label12";
-            label12.Size = new Size(98, 20);
+            label12.Size = new Size(83, 17);
             label12.TabIndex = 28;
             label12.Text = "Guest Status";
             // 
@@ -414,19 +416,20 @@
             comboGuestStatus.Items.AddRange(new object[] { "Check In", "Check Out" });
             comboGuestStatus.Location = new Point(29, 296);
             comboGuestStatus.Name = "comboGuestStatus";
-            comboGuestStatus.Size = new Size(188, 28);
+            comboGuestStatus.Size = new Size(188, 25);
             comboGuestStatus.TabIndex = 27;
             comboGuestStatus.SelectedIndexChanged += comboGuestStatus_SelectedIndexChanged;
             // 
             // comboRoomNType
             // 
             comboRoomNType.BackColor = Color.FromArgb(204, 227, 222);
+            comboRoomNType.DataSource = roomCategoryDTOBindingSource;
             comboRoomNType.FormattingEnabled = true;
-            comboRoomNType.Items.AddRange(new object[] { "1 (Standard)", "2 (Standard)", "3 (Standard)", "4 (Standard)", "5 (Standard)", "6 (Deluxe)", "7 (Deluxe)", "8 (Deluxe)", "9 (Deluxe)", "10 (Deluxe)", "11 (Suite)", "12 (Suite)", "13 (Suite)", "14 (Suite)", "15 (Suite)" });
             comboRoomNType.Location = new Point(29, 393);
             comboRoomNType.Name = "comboRoomNType";
-            comboRoomNType.Size = new Size(188, 28);
+            comboRoomNType.Size = new Size(188, 25);
             comboRoomNType.TabIndex = 29;
+            comboRoomNType.SelectedIndexChanged += comboRoomNType_SelectedIndexChanged;
             // 
             // label13
             // 
@@ -434,13 +437,17 @@
             label13.ForeColor = Color.FromArgb(55, 58, 64);
             label13.Location = new Point(29, 361);
             label13.Name = "label13";
-            label13.Size = new Size(150, 20);
+            label13.Size = new Size(121, 17);
             label13.TabIndex = 30;
             label13.Text = "Room No. and Type";
             // 
+            // roomCategoryDTOBindingSource
+            // 
+            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
+            // 
             // InsertGuest
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1119, 738);
@@ -478,6 +485,7 @@
             ((System.ComponentModel.ISupportInitialize)picExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -511,5 +519,6 @@
         private ComboBox comboGuestStatus;
         private ComboBox comboRoomNType;
         private Label label13;
+        private BindingSource roomCategoryDTOBindingSource;
     }
 }

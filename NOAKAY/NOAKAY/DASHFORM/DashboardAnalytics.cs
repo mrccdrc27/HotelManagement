@@ -21,14 +21,15 @@ namespace NOAKAY.DASHFORM
 
         private void loadData()
         {
+            this.dbContext = new Connection();
             int activeGuestCount = 0;
             int activeBookingCount = 0;
             int availableRooms = 0;
             int standardCount = 0;
             int deluxeCount = 0;
             int suiteCount = 0;
+            int roomCount = this.dbContext.RoomModels.Count(); // added room count
 
-            this.dbContext = new Connection();
             var combinedData = from Guest in dbContext.GuestModels
                                join Room in dbContext.RoomModels
                                on Guest.RoomID equals Room.RoomID
@@ -46,7 +47,7 @@ namespace NOAKAY.DASHFORM
                                    roomName = Room.RoomNum,
                                };
             allGuests = combinedData.ToList();
-
+            
             // Calculate counts
             foreach (var item in allGuests)
             {
@@ -66,25 +67,31 @@ namespace NOAKAY.DASHFORM
                     {
                         suiteCount++;
                         activeGuestCount++;
-                    }                 
+                    }
                 }
                 if (item.status == "0")
                 {
                     activeBookingCount++;
 
                 }
-
+                
                 // Update labels with counts
                 lblRoomNo.Text = "15"; // Example value, replace with actual room count logic
                 lblGuestNo.Text = activeGuestCount.ToString();
                 lblBookingNo.Text = activeBookingCount.ToString();
                 lblOccupiedRooms.Text = activeGuestCount.ToString();
-                availableRooms = 15 - activeGuestCount;
+                availableRooms = roomCount - activeGuestCount;
                 lblAvailableRooms.Text = availableRooms.ToString();
                 lblStandard.Text = standardCount.ToString();
                 lblDeluxe.Text = deluxeCount.ToString();
                 lblSuite.Text = suiteCount.ToString();
+                lblRoomNo.Text = roomCount.ToString(); // added room data to label
             } // loadData
+        }
+
+        private void lblRoomNo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

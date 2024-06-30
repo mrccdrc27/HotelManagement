@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NOAKAY.CLASSES;
 using SQLCONNECTION;
 using NOAKAY.CLASSES.Joined_Tables;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace NOAKAY.DASHFORM
 {
@@ -20,23 +21,27 @@ namespace NOAKAY.DASHFORM
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            newcode();
+            //newcode();
+            comboBox1.SelectedIndex = 0;
+            CurrentFilter(newcode());
+
         }
-        public void newcode()
+        public List<RoomGuestModel> newcode()
         {
             dbContext = new Connection();
 
             // Ensure database is created
             dbContext.Database.EnsureCreated();
 
-            var occupiedRoom = from Room in dbContext.RoomModels                               // Initial Join of Guest and Room
+            var occupiedRoom = from Room in dbContext.RoomModels // Initial Join of Guest and Room
                                select new RoomGuestModel
                                {
                                    // IF Error, Data Must Be nulled, GO back and input data properly
                                    RoomId = Room.RoomID,
                                    GuestID = 0,
-                                   Status = $"0"
-
+                                   Status = "0",
+                                   CheckIn = null,
+                                   CheckOut = null,
 
                                };
 
@@ -49,11 +54,12 @@ namespace NOAKAY.DASHFORM
                                    // IF Error, Data Must Be nulled, GO back and input data properly
                                    RoomId = Room.RoomID,
                                    GuestID = Guest.GuestID,
-                                   Status = $"{Guest.GuestStatus}"
-                                   
-
+                                   Status = $"{Guest.GuestStatus}",
+                                   CheckIn = Guest.CheckIn,
+                                   CheckOut = Guest.CheckOut
                                };
             var unionlist = combinedData.ToList().Union(occupiedRoom.ToList());
+
 
             //var combinedList = combinedData.ToList();
 
@@ -64,7 +70,7 @@ namespace NOAKAY.DASHFORM
                     // Change GuestStatus if it is 1
                     item.Status = "Available"; // Example change to 3
                 }
-                else if (item.Status == "1")
+                else if (item.Status == "1" || item.Status == "2")
                 {
                     // Change GuestStatus if it is 2
                     item.Status = "Occupied"; // Example change to 3
@@ -76,7 +82,48 @@ namespace NOAKAY.DASHFORM
             this.dbContext.Database.CloseConnection();
 
             roomGuestModelBindingSource.DataSource = unionlist;
+            return unionlist.ToList();
 
+        }
+
+        public void CurrentFilter(List<RoomGuestModel> roomGuest)
+        {
+            List<RoomGuestModel> printlist = new List<RoomGuestModel>();
+            List<int> roomlist = new List<int>();
+            foreach (var item in roomGuest)
+            {
+                if ((item.CheckIn >= DateTime.Now && item.CheckOut >= DateTime.Now) || (item.CheckIn <= DateTime.Now && item.CheckOut <= DateTime.Now))
+                {
+                    printlist.Add(item);
+                    roomlist.Add(item.RoomId);
+                }
+                if (!roomlist.Contains(item.RoomId))
+                {
+                    printlist.Add(item);
+                }
+            }
+            roomGuestModelBindingSource.DataSource = printlist.ToList();
+        }
+
+        public void TimespanFilter(List<RoomGuestModel> roomGuest, DateTime Start, DateTime End)
+        {
+            List<RoomGuestModel> printlist = new List<RoomGuestModel>();
+
+            List<int> roomlist = new List<int>();
+            foreach (var item in roomGuest)
+            {
+                if ((Start <= item.CheckIn && item.CheckOut <= End))
+                {
+                    printlist.Add(item);
+                    roomlist.Add(item.RoomId);
+                }
+                if ((!roomlist.Contains(item.RoomId)) && (item.GuestID == 0))
+                {
+                    roomlist.Add(item.RoomId);
+                    printlist.Add(item);
+                }
+            }
+            roomGuestModelBindingSource.DataSource = printlist.ToList();
         }
 
         // == OLD CODE ==
@@ -120,6 +167,23 @@ namespace NOAKAY.DASHFORM
         private void DashboardRoom_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                CurrentFilter(newcode());
+            }
+            if (comboBox1.SelectedIndex == 1)
+            {
+                TimespanFilter(newcode(), dateTimePicker1.Value, dateTimePicker2.Value);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TimespanFilter(newcode(), dateTimePicker1.Value, dateTimePicker2.Value);
         }
     }
 }
