@@ -53,7 +53,7 @@ namespace NOAKAY.DASHFORM
                                    checkOut = Guest.CheckOut,
                                    gueststatus = $"{Guest.GuestStatus}",
                                    status = $"{Guest.BookingStatus}", // added
-                                   price = CalculateTotalPrice(Guest.CheckIn, Guest.CheckOut, Category.basePrice),
+                                   price = CalculateTotalPrice(Guest.CheckIn, Guest.CheckOut, Category.basePrice), // 28 30 1000
                                    roomName = Room.RoomNum,
                                };
 
@@ -79,13 +79,12 @@ namespace NOAKAY.DASHFORM
                     filter.Add(item);
                 }
             }
-
+         
             dgvInvoiceList.DataSource = filter;
             allGuests = filter;
 
         } // LoadData
-
-        private static decimal CalculateTotalPrice(DateTime? checkIn, DateTime? checkOut, decimal basePrice)
+        private static decimal CalculateTotalPrice(DateTime? checkIn, DateTime? checkOut, int basePrice)
         {
             if (checkIn.HasValue && checkOut.HasValue)
             {

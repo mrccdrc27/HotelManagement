@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SQLCONNECTION;
 using NOAKAY.CLASSES;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using NOAKAY.CLASSES.Joined_Tables;
 
 namespace NOAKAY.DASHFORM
 {
@@ -20,6 +21,29 @@ namespace NOAKAY.DASHFORM
         public InsertGuest()
         {
             InitializeComponent();
+            Comboload(loadcombo());
+        }
+
+        public List<RoomCategoryDTO> loadcombo()
+        {
+            var dbContext = new Connection();
+            dbContext.RoomModels.Load();
+            var occupiedRoom = from Room in dbContext.RoomModels
+                               join Category in dbContext.CategoryModels
+                               on Room.CategoryId equals Category.CategoryID
+                               select new RoomCategoryDTO
+                               {
+                                   //Change Data Format when displaying
+                                   CategoryName = $"Room: {Room.RoomID}: {Category.CategoryName}"
+                               };
+
+            return occupiedRoom.ToList();
+        }
+
+        public void Comboload(List<RoomCategoryDTO> combolist)
+        {
+            comboRoomNType.DataSource = combolist;
+            comboRoomNType.DisplayMember = "CategoryName";
         }
 
         private void picExit_Click(object sender, EventArgs e)
@@ -44,7 +68,7 @@ namespace NOAKAY.DASHFORM
             int gueststatus = comboGuestStatus.SelectedIndex; // 0 or 1
             DateTime checkout = dtpCheckOut.Value;
             DateTime checkin = dtpCheckIn.Value;
-         
+
 
             // Check if the room is already occupied
             bool isRoomOccupied = dbContext.GuestModels.Any(g => g.RoomID == roomid && g.GuestStatus == 0);
@@ -85,6 +109,11 @@ namespace NOAKAY.DASHFORM
         }
 
         private void comboGuestStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboRoomNType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

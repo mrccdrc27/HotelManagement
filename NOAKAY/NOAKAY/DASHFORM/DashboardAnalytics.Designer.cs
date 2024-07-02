@@ -30,6 +30,13 @@
         {
             panel1 = new Panel();
             panel2 = new Panel();
+            lblSuite = new Label();
+            lblDeluxe = new Label();
+            lblStandard = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
             lblOccupiedRooms = new Label();
             lblAvailableRooms = new Label();
             label9 = new Label();
@@ -49,13 +56,6 @@
             panel3 = new Panel();
             lblRoomNo = new Label();
             label1 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            lblStandard = new Label();
-            lblDeluxe = new Label();
-            lblSuite = new Label();
             panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
@@ -97,13 +97,84 @@
             panel2.Size = new Size(1119, 691);
             panel2.TabIndex = 1;
             // 
+            // lblSuite
+            // 
+            lblSuite.AutoSize = true;
+            lblSuite.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSuite.Location = new Point(148, 467);
+            lblSuite.Name = "lblSuite";
+            lblSuite.Size = new Size(41, 19);
+            lblSuite.TabIndex = 13;
+            lblSuite.Text = "0000";
+            // 
+            // lblDeluxe
+            // 
+            lblDeluxe.AutoSize = true;
+            lblDeluxe.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDeluxe.Location = new Point(148, 435);
+            lblDeluxe.Name = "lblDeluxe";
+            lblDeluxe.Size = new Size(41, 19);
+            lblDeluxe.TabIndex = 12;
+            lblDeluxe.Text = "0000";
+            // 
+            // lblStandard
+            // 
+            lblStandard.AutoSize = true;
+            lblStandard.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblStandard.Location = new Point(148, 402);
+            lblStandard.Name = "lblStandard";
+            lblStandard.Size = new Size(41, 19);
+            lblStandard.TabIndex = 11;
+            lblStandard.Text = "0000";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(40, 467);
+            label13.Name = "label13";
+            label13.Size = new Size(46, 19);
+            label13.TabIndex = 10;
+            label13.Text = "Suite:";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(40, 435);
+            label12.Name = "label12";
+            label12.Size = new Size(60, 19);
+            label12.TabIndex = 9;
+            label12.Text = "Deluxe:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(40, 402);
+            label11.Name = "label11";
+            label11.Size = new Size(78, 19);
+            label11.TabIndex = 8;
+            label11.Text = "Standard:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.FromArgb(55, 58, 64);
+            label10.Location = new Point(40, 353);
+            label10.Name = "label10";
+            label10.Size = new Size(130, 19);
+            label10.TabIndex = 7;
+            label10.Text = "Room Category";
+            // 
             // lblOccupiedRooms
             // 
             lblOccupiedRooms.AutoSize = true;
             lblOccupiedRooms.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblOccupiedRooms.Location = new Point(218, 285);
             lblOccupiedRooms.Name = "lblOccupiedRooms";
-            lblOccupiedRooms.Size = new Size(46, 21);
+            lblOccupiedRooms.Size = new Size(41, 19);
             lblOccupiedRooms.TabIndex = 6;
             lblOccupiedRooms.Text = "0000";
             // 
@@ -113,7 +184,7 @@
             lblAvailableRooms.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAvailableRooms.Location = new Point(218, 249);
             lblAvailableRooms.Name = "lblAvailableRooms";
-            lblAvailableRooms.Size = new Size(46, 21);
+            lblAvailableRooms.Size = new Size(41, 19);
             lblAvailableRooms.TabIndex = 5;
             lblAvailableRooms.Text = "0000";
             // 
@@ -123,7 +194,7 @@
             label9.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(40, 285);
             label9.Name = "label9";
-            label9.Size = new Size(159, 21);
+            label9.Size = new Size(133, 19);
             label9.TabIndex = 4;
             label9.Text = "Occupied Rooms:";
             // 
@@ -134,7 +205,7 @@
             label5.ForeColor = Color.FromArgb(55, 58, 64);
             label5.Location = new Point(40, 208);
             label5.Name = "label5";
-            label5.Size = new Size(181, 23);
+            label5.Size = new Size(145, 19);
             label5.TabIndex = 3;
             label5.Text = "Room Availability";
             // 
@@ -145,7 +216,7 @@
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(25, 194);
             label3.Name = "label3";
-            label3.Size = new Size(141, 23);
+            label3.Size = new Size(108, 19);
             label3.TabIndex = 2;
             label3.Text = "No. of Rooms";
             // 
@@ -155,7 +226,7 @@
             label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(40, 249);
             label2.Name = "label2";
-            label2.Size = new Size(154, 21);
+            label2.Size = new Size(127, 19);
             label2.TabIndex = 1;
             label2.Text = "Available Rooms:";
             // 
@@ -209,7 +280,7 @@
             label8.ForeColor = SystemColors.ControlLightLight;
             label8.Location = new Point(15, 22);
             label8.Name = "label8";
-            label8.Size = new Size(158, 23);
+            label8.Size = new Size(125, 19);
             label8.TabIndex = 1;
             label8.Text = "Reserved String";
             // 
@@ -244,7 +315,7 @@
             label6.ForeColor = SystemColors.ControlLightLight;
             label6.Location = new Point(15, 22);
             label6.Name = "label6";
-            label6.Size = new Size(168, 23);
+            label6.Size = new Size(131, 19);
             label6.TabIndex = 1;
             label6.Text = "Active Bookings";
             // 
@@ -279,7 +350,7 @@
             label4.ForeColor = SystemColors.ControlLightLight;
             label4.Location = new Point(15, 22);
             label4.Name = "label4";
-            label4.Size = new Size(136, 23);
+            label4.Size = new Size(105, 19);
             label4.TabIndex = 1;
             label4.Text = "Active Guest";
             // 
@@ -306,6 +377,7 @@
             lblRoomNo.TabIndex = 1;
             lblRoomNo.Text = "0000";
             lblRoomNo.TextAlign = ContentAlignment.MiddleRight;
+            lblRoomNo.Click += lblRoomNo_Click;
             // 
             // label1
             // 
@@ -314,84 +386,13 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(15, 22);
             label1.Name = "label1";
-            label1.Size = new Size(141, 23);
+            label1.Size = new Size(108, 19);
             label1.TabIndex = 1;
             label1.Text = "No. of Rooms";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(55, 58, 64);
-            label10.Location = new Point(40, 353);
-            label10.Name = "label10";
-            label10.Size = new Size(165, 23);
-            label10.TabIndex = 7;
-            label10.Text = "Room Category";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(40, 402);
-            label11.Name = "label11";
-            label11.Size = new Size(93, 21);
-            label11.TabIndex = 8;
-            label11.Text = "Standard:";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(40, 435);
-            label12.Name = "label12";
-            label12.Size = new Size(71, 21);
-            label12.TabIndex = 9;
-            label12.Text = "Deluxe:";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(40, 467);
-            label13.Name = "label13";
-            label13.Size = new Size(54, 21);
-            label13.TabIndex = 10;
-            label13.Text = "Suite:";
-            // 
-            // lblStandard
-            // 
-            lblStandard.AutoSize = true;
-            lblStandard.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblStandard.Location = new Point(148, 402);
-            lblStandard.Name = "lblStandard";
-            lblStandard.Size = new Size(46, 21);
-            lblStandard.TabIndex = 11;
-            lblStandard.Text = "0000";
-            // 
-            // lblDeluxe
-            // 
-            lblDeluxe.AutoSize = true;
-            lblDeluxe.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDeluxe.Location = new Point(148, 435);
-            lblDeluxe.Name = "lblDeluxe";
-            lblDeluxe.Size = new Size(46, 21);
-            lblDeluxe.TabIndex = 12;
-            lblDeluxe.Text = "0000";
-            // 
-            // lblSuite
-            // 
-            lblSuite.AutoSize = true;
-            lblSuite.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSuite.Location = new Point(148, 467);
-            lblSuite.Name = "lblSuite";
-            lblSuite.Size = new Size(46, 21);
-            lblSuite.TabIndex = 13;
-            lblSuite.Text = "0000";
-            // 
             // DashboardAnalytics
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 255, 248);
             ClientSize = new Size(1119, 738);
