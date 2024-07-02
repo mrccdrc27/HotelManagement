@@ -25,11 +25,11 @@ namespace NOAKAY.AUTH
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            new SignupForm().Show();
-            this.Hide();
-        }
+        //private void label3_Click(object sender, EventArgs e)
+        //{
+        //    new SignupForm().Show();
+        //    this.Hide();
+        //}
 
         private void picExit_Click(object sender, EventArgs e)
         {

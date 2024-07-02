@@ -36,7 +36,7 @@ namespace NOAKAY.DASHFORM
 
         }
 
-        public void loadData()
+        public void loadData() 
         {
             this.dbContext = new Connection();
             var combinedData = from Guest in dbContext.GuestModels

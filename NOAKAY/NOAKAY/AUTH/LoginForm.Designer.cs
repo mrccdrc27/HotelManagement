@@ -38,7 +38,6 @@
             label5 = new Label();
             pictureBox1 = new PictureBox();
             label4 = new Label();
-            label3 = new Label();
             btnEnter = new Button();
             CheckBoxPassword = new CheckBox();
             label2 = new Label();
@@ -73,7 +72,6 @@
             panel3.Controls.Add(label5);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(label3);
             panel3.Controls.Add(btnEnter);
             panel3.Controls.Add(CheckBoxPassword);
             panel3.Controls.Add(label2);
@@ -117,18 +115,6 @@
             label4.Size = new Size(113, 16);
             label4.TabIndex = 7;
             label4.Text = "Forgot Password";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Cursor = Cursors.Hand;
-            label3.ForeColor = Color.FromArgb(202, 103, 2);
-            label3.Location = new Point(90, 479);
-            label3.Name = "label3";
-            label3.Size = new Size(250, 20);
-            label3.TabIndex = 6;
-            label3.Text = "Need an account? Register Here";
-            label3.Click += label3_Click;
             // 
             // btnEnter
             // 
@@ -306,7 +292,6 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2TextBox entryPassword;
         private CheckBox CheckBoxPassword;
-        private Label label3;
         private Button btnEnter;
         private PictureBox pictureBox1;
         private Label label4;

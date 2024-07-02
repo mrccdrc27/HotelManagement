@@ -14,7 +14,7 @@ namespace NOAKAY.CLASSES.Joined_Tables
         public int? roomName { get; set; }
         public DateTime? checkIn { get; set; }
         public DateTime? checkOut { get; set; }
-        public decimal? price { get; set; }
+        public decimal? price { get; set; } // initial price 
         public string? status { get; set; } // nilagay ko lang
         public string? gueststatus { get; set; } // nilagay ko lang
 
