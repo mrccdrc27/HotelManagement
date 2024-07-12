@@ -1,5 +1,6 @@
 using NOAKAY.AUTH;
 using NOAKAY.DASHFORM;
+using QuestPDF.Infrastructure;
 using SQLCONNECTION;
 
 namespace NOAKAY
@@ -16,6 +17,7 @@ namespace NOAKAY
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            QuestPDF.Settings.License = LicenseType.Community;
             Application.Run(new LoginForm());
         }
     }

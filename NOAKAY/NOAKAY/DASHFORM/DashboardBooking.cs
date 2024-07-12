@@ -36,7 +36,7 @@ namespace NOAKAY.DASHFORM
 
         }
 
-        public void loadData() 
+        public void loadData()
         {
             this.dbContext = new Connection();
             var combinedData = from Guest in dbContext.GuestModels
@@ -79,7 +79,7 @@ namespace NOAKAY.DASHFORM
                     filter.Add(item);
                 }
             }
-         
+
             dgvInvoiceList.DataSource = filter;
             allGuests = filter;
 
@@ -118,9 +118,11 @@ namespace NOAKAY.DASHFORM
             // Refresh the DataGridView to reflect the changes
             dgvInvoiceList.Refresh();
         }
-        
 
+        private void dgvInvoiceList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 
 

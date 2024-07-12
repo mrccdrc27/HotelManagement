@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel3 = new Panel();
             label5 = new Label();
@@ -48,6 +48,7 @@
             pictureBox2 = new PictureBox();
             picExit = new PictureBox();
             picMinimize = new PictureBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -69,6 +70,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(246, 255, 248);
+            panel3.Controls.Add(label3);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
@@ -157,7 +159,7 @@
             // entryPassword
             // 
             entryPassword.BackColor = Color.FromArgb(204, 227, 222);
-            entryPassword.CustomizableEdges = customizableEdges1;
+            entryPassword.CustomizableEdges = customizableEdges5;
             entryPassword.DefaultText = "";
             entryPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -174,7 +176,7 @@
             entryPassword.PasswordChar = '\0';
             entryPassword.PlaceholderText = "";
             entryPassword.SelectedText = "";
-            entryPassword.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            entryPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
             entryPassword.Size = new Size(298, 46);
             entryPassword.TabIndex = 2;
             // 
@@ -193,7 +195,7 @@
             // entryUsername
             // 
             entryUsername.BackColor = Color.FromArgb(204, 227, 222);
-            entryUsername.CustomizableEdges = customizableEdges3;
+            entryUsername.CustomizableEdges = customizableEdges7;
             entryUsername.DefaultText = "";
             entryUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             entryUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -210,7 +212,7 @@
             entryUsername.PasswordChar = '\0';
             entryUsername.PlaceholderText = "";
             entryUsername.SelectedText = "";
-            entryUsername.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            entryUsername.ShadowDecoration.CustomizableEdges = customizableEdges8;
             entryUsername.Size = new Size(298, 46);
             entryUsername.TabIndex = 0;
             // 
@@ -256,6 +258,18 @@
             picMinimize.TabStop = false;
             picMinimize.Click += picMinimize_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(55, 58, 64);
+            label3.Location = new Point(153, 475);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 19);
+            label3.TabIndex = 10;
+            label3.Text = "Create account";
+            label3.Click += label3_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -299,5 +313,6 @@
         private PictureBox pictureBox2;
         private PictureBox picExit;
         private PictureBox picMinimize;
+        private Label label3;
     }
 }

@@ -15,22 +15,19 @@ using NOAKAY.DASHFORM;
 
 namespace NOAKAY.DASHFORM
 {
-    public partial class DashboardGuest : Form
+    public partial class DashboardBilling : Form
     {
         private Connection dbContext;
         private List<GuestRoomCategoryDTO> allGuests; // To store the original list of guests
-
-        public DashboardGuest()
+        public DashboardBilling()
         {
             InitializeComponent();
         }
 
-        // == BINDING THE DATA TO DATA GRID VIEW ==
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            // newcode();
-            loadGuest(); // filter only guest that has 0 or 1 status, 2 means they are in booking list
+            loadGuest();
 
         }
 
@@ -53,13 +50,12 @@ namespace NOAKAY.DASHFORM
                                    FirstName = Guest.FirstName!,
                                    MiddleName = Guest.MiddleName!, // new
                                    Suffix = Guest.Suffix!, // new
-                                   Address = Guest.Address!, 
+                                   Address = Guest.Address!,
                                    Contact = Guest.Contact!,
                                    CheckIn = (DateTime)Guest.CheckIn!,
                                    CheckOut = (DateTime)Guest.CheckOut!,
                                    CategoryName = Category.CategoryName!,
                                    GuestStatus = $"{Guest.GuestStatus}",
-                                   Status = $"{Guest.BookingStatus}",
                                    Email = Guest.Email!
 
                                };
@@ -67,13 +63,13 @@ namespace NOAKAY.DASHFORM
             var combinedList = combinedData.ToList();
             // allGuests = combinedList;
             List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
-
             foreach (var item in combinedList)
             {
 
                 if (item.GuestStatus == "0")
                 {
                     item.GuestStatus = "Check In";
+
                     filter.Add(item);
                 }
                 else if (item.GuestStatus == "1")
@@ -81,23 +77,26 @@ namespace NOAKAY.DASHFORM
                     item.GuestStatus = "Check Out";
                     filter.Add(item);
                 }
-
-            } 
+                else
+                {
+                    item.GuestStatus = "Pending";
+                    filter.Add(item);
+                }
+            }
 
             dgvGuestList.DataSource = filter;
             allGuests = filter;
 
+
         } // loadGuest
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
-            new InsertGuest().Show();
-        }
 
+        }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
             string searchTerm = txtSearch.Text.ToLower();
 
             // Filter the original list based on the search term
@@ -108,55 +107,19 @@ namespace NOAKAY.DASHFORM
             ).ToList();
 
             // Update the BindingSource with the filtered list
-            guestModelBindingSource.DataSource = filteredGuests;
-            dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
+            //   guestModelBindingSource.DataSource = filteredGuests;
+            //   dgvGuestList.DataSource = guestModelBindingSource; // i add this to bind the data to dgv
 
             // Refresh the DataGridView to reflect the changes
             dgvGuestList.DataSource = filteredGuests;
             dgvGuestList.Refresh();
         }
 
-        private void comboSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // combo box update;
-            List<GuestRoomCategoryDTO> list = (List<GuestRoomCategoryDTO>)allGuests; // allGuest
-            List<GuestRoomCategoryDTO> filter = new List<GuestRoomCategoryDTO>();
-            // var num = 0;
-
-            if (comboSearchStatus.SelectedIndex == 0)
-            {
-                foreach (var item in list)
-                {
-                    if (item.GuestStatus == "Check In")
-                    {
-                        filter.Add(item);
-                    }
-                }
-            }
-            if (comboSearchStatus.SelectedIndex == 1)
-            {
-                foreach (var item in list)
-                {
-                    if (item.GuestStatus == "Check Out")
-                    {
-                        filter.Add(item);
-                    }
-                }
-            }
-            if (comboSearchStatus.SelectedIndex == 2)
-            {
-                filter = list;
-            }
-            dgvGuestList.DataSource = filter;
-        }
-    
         private void dgvGuestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvGuestList.Columns["Update"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvGuestList.Columns["Payment"].Index)
             {
-                // Get the data source of the DataGridView
                 List<GuestRoomCategoryDTO> dataSource = dgvGuestList.DataSource as List<GuestRoomCategoryDTO>;
-
                 if (dataSource != null)
                 {
                     // Retrieve data from the original data source based on the row index
@@ -190,8 +153,7 @@ namespace NOAKAY.DASHFORM
                         // Handle unexpected values (set to a default value or show an error message)
                         guestStatusIndex = 1; // Invalid index, ensure combo box can handle this
                     }
-
-                    UpdateGuestInfo updateForm = new UpdateGuestInfo();
+                    InsertBillingInfo updateForm = new InsertBillingInfo();
 
                     // Pass data to the UpdateGuestInfo form using LoadGuestInfo method
                     updateForm.LoadGuestInfo(guestId, lastName, firstName, middleName, suffix, address, contact, email, guestStatusIndex, checkIn, checkOut, roomId);
@@ -201,10 +163,19 @@ namespace NOAKAY.DASHFORM
 
                     // After update form is closed, refresh the DataGridView if needed
                     dgvGuestList.Refresh(); // Or update specific row if you know which one changed
-                }
-            }
+
+                } // if
+            } // if
+        } // cell content
+
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            GenerateInvoice();
         }
 
+        public void GenerateInvoice()
+        {
+
+        } // GenerateInvoice
     }
 }
-

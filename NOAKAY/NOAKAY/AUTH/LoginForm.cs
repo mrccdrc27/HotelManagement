@@ -88,5 +88,11 @@ namespace NOAKAY.AUTH
                 MessageBox.Show($"An error occurred: {ex.Message}");
             } // catch
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            new SignupForm().Show();
+            this.Hide();
+        }
     }
 }

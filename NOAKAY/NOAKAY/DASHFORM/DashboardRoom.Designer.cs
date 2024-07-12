@@ -40,6 +40,11 @@
             RoomId = new DataGridViewTextBoxColumn();
             GuestID = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
+            roomIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            checkOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomGuestModelBindingSource = new BindingSource(components);
             roomCategoryDTOBindingSource = new BindingSource(components);
             roomModelBindingSource = new BindingSource(components);
@@ -49,11 +54,6 @@
             dateTimePicker2 = new DateTimePicker();
             label3 = new Label();
             label4 = new Label();
-            roomIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            guestIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            checkInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            checkOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRoomList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomGuestModelBindingSource).BeginInit();
@@ -67,7 +67,7 @@
             pnlOverview.BackColor = Color.FromArgb(204, 227, 222);
             pnlOverview.Location = new Point(30, 61);
             pnlOverview.Name = "pnlOverview";
-            pnlOverview.Size = new Size(874, 190);
+            pnlOverview.Size = new Size(1058, 190);
             pnlOverview.TabIndex = 0;
             // 
             // label1
@@ -77,7 +77,7 @@
             label1.ForeColor = Color.FromArgb(55, 58, 64);
             label1.Location = new Point(30, 27);
             label1.Name = "label1";
-            label1.Size = new Size(82, 19);
+            label1.Size = new Size(102, 23);
             label1.TabIndex = 1;
             label1.Text = "Overview";
             // 
@@ -88,7 +88,7 @@
             label2.ForeColor = Color.FromArgb(55, 58, 64);
             label2.Location = new Point(30, 283);
             label2.Name = "label2";
-            label2.Size = new Size(79, 19);
+            label2.Size = new Size(102, 23);
             label2.TabIndex = 2;
             label2.Text = "Room List";
             // 
@@ -136,7 +136,6 @@
             dgvRoomList.ReadOnly = true;
             dgvRoomList.RowHeadersVisible = false;
             dgvRoomList.RowHeadersWidth = 51;
-            dgvRoomList.RowTemplate.Height = 29;
             dgvRoomList.Size = new Size(1058, 388);
             dgvRoomList.TabIndex = 1;
             dgvRoomList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -185,6 +184,46 @@
             Status.Name = "Status";
             Status.ReadOnly = true;
             // 
+            // roomIdDataGridViewTextBoxColumn
+            // 
+            roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
+            roomIdDataGridViewTextBoxColumn.HeaderText = "RoomId";
+            roomIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
+            roomIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // guestIDDataGridViewTextBoxColumn
+            // 
+            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
+            guestIDDataGridViewTextBoxColumn.HeaderText = "GuestID";
+            guestIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
+            guestIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // checkInDataGridViewTextBoxColumn
+            // 
+            checkInDataGridViewTextBoxColumn.DataPropertyName = "CheckIn";
+            checkInDataGridViewTextBoxColumn.HeaderText = "CheckIn";
+            checkInDataGridViewTextBoxColumn.MinimumWidth = 6;
+            checkInDataGridViewTextBoxColumn.Name = "checkInDataGridViewTextBoxColumn";
+            checkInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // checkOutDataGridViewTextBoxColumn
+            // 
+            checkOutDataGridViewTextBoxColumn.DataPropertyName = "CheckOut";
+            checkOutDataGridViewTextBoxColumn.HeaderText = "CheckOut";
+            checkOutDataGridViewTextBoxColumn.MinimumWidth = 6;
+            checkOutDataGridViewTextBoxColumn.Name = "checkOutDataGridViewTextBoxColumn";
+            checkOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // roomGuestModelBindingSource
             // 
             roomGuestModelBindingSource.DataSource = typeof(CLASSES.RoomGuestModel);
@@ -205,7 +244,7 @@
             btnUpdateRStatus.FlatStyle = FlatStyle.Flat;
             btnUpdateRStatus.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdateRStatus.ForeColor = Color.FromArgb(246, 255, 248);
-            btnUpdateRStatus.Location = new Point(937, 61);
+            btnUpdateRStatus.Location = new Point(937, 276);
             btnUpdateRStatus.Name = "btnUpdateRStatus";
             btnUpdateRStatus.Size = new Size(151, 33);
             btnUpdateRStatus.TabIndex = 21;
@@ -217,85 +256,50 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Current", "Between" });
-            comboBox1.Location = new Point(555, 281);
+            comboBox1.Location = new Point(578, 281);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 25);
+            comboBox1.Size = new Size(121, 28);
             comboBox1.TabIndex = 22;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(120, 284);
+            dateTimePicker1.Location = new Point(138, 283);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 22);
+            dateTimePicker1.Size = new Size(200, 26);
             dateTimePicker1.TabIndex = 23;
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(336, 284);
+            dateTimePicker2.Location = new Point(357, 284);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 22);
+            dateTimePicker2.Size = new Size(200, 26);
             dateTimePicker2.TabIndex = 24;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(120, 264);
+            label3.Location = new Point(138, 260);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(59, 17);
+            label3.Size = new Size(76, 20);
             label3.TabIndex = 25;
             label3.Text = "Check In";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(336, 264);
+            label4.Location = new Point(357, 260);
             label4.Name = "label4";
-            label4.Size = new Size(71, 17);
+            label4.Size = new Size(89, 20);
             label4.TabIndex = 26;
             label4.Text = "Check Out";
             // 
-            // roomIdDataGridViewTextBoxColumn
-            // 
-            roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
-            roomIdDataGridViewTextBoxColumn.HeaderText = "RoomId";
-            roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
-            roomIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // guestIDDataGridViewTextBoxColumn
-            // 
-            guestIDDataGridViewTextBoxColumn.DataPropertyName = "GuestID";
-            guestIDDataGridViewTextBoxColumn.HeaderText = "GuestID";
-            guestIDDataGridViewTextBoxColumn.Name = "guestIDDataGridViewTextBoxColumn";
-            guestIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // checkInDataGridViewTextBoxColumn
-            // 
-            checkInDataGridViewTextBoxColumn.DataPropertyName = "CheckIn";
-            checkInDataGridViewTextBoxColumn.HeaderText = "CheckIn";
-            checkInDataGridViewTextBoxColumn.Name = "checkInDataGridViewTextBoxColumn";
-            checkInDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // checkOutDataGridViewTextBoxColumn
-            // 
-            checkOutDataGridViewTextBoxColumn.DataPropertyName = "CheckOut";
-            checkOutDataGridViewTextBoxColumn.HeaderText = "CheckOut";
-            checkOutDataGridViewTextBoxColumn.Name = "checkOutDataGridViewTextBoxColumn";
-            checkOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // button1
             // 
-            button1.Location = new Point(694, 283);
+            button1.Location = new Point(719, 281);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(75, 30);
             button1.TabIndex = 27;
             button1.Text = "Filter";
             button1.UseVisualStyleBackColor = true;
@@ -303,7 +307,7 @@
             // 
             // DashboardRoom
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 255, 248);
             ClientSize = new Size(1119, 738);

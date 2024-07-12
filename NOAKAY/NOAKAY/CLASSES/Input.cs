@@ -31,7 +31,7 @@ namespace SQLCONNECTION
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlite("Data Source = NOAKAY_HOTEL.db"); // connection string and to use sqlite
 
-        
+        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PersonModel>().HasKey(p => p.AccountID);
@@ -99,7 +99,7 @@ namespace SQLCONNECTION
             }
             modelBuilder.Entity<GuestModel>().HasData(guests.ToArray());
         }
-
-    }
+        */
+    } // connection
 
 }

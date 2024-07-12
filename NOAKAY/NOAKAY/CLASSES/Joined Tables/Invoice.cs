@@ -10,6 +10,7 @@ namespace NOAKAY.CLASSES.Joined_Tables
     public class Invoice
     {
         public int guestID { get; set; }
+        public int categoryID { get; set; }
         public string? fullName { get; set; }
         public int? roomName { get; set; }
         public DateTime? checkIn { get; set; }
@@ -17,6 +18,7 @@ namespace NOAKAY.CLASSES.Joined_Tables
         public decimal? price { get; set; } // initial price 
         public string? status { get; set; } // nilagay ko lang
         public string? gueststatus { get; set; } // nilagay ko lang
+       
 
     }
 }

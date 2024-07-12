@@ -1,6 +1,6 @@
 ﻿namespace NOAKAY.DASHFORM
 {
-    partial class InsertBooking
+    partial class InsertBillingInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertBooking));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertBillingInfo));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -45,15 +45,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label13 = new Label();
+            comboRoomNType = new ComboBox();
+            roomCategoryDTOBindingSource = new BindingSource(components);
             label12 = new Label();
-            comboBookingStatus = new ComboBox();
+            comboGuestStatus = new ComboBox();
             label11 = new Label();
             dtpCheckOut = new DateTimePicker();
             label10 = new Label();
             dtpCheckIn = new DateTimePicker();
             guestsBindingSource = new BindingSource(components);
             roomModelBindingSource = new BindingSource(components);
-            comboRoomNType = new ComboBox();
             btnAdd = new Button();
             picExit = new PictureBox();
             label8 = new Label();
@@ -71,50 +72,63 @@
             entryFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             label1 = new Label();
             entryLastName = new Guna.UI2.WinForms.Guna2TextBox();
+            comboPayMethod = new ComboBox();
             label9 = new Label();
-            comboGuestStatus = new ComboBox();
-            roomCategoryDTOBindingSource = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picExit).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.ForeColor = Color.FromArgb(55, 58, 64);
-            label13.Location = new Point(29, 365);
+            label13.Location = new Point(31, 360);
             label13.Name = "label13";
             label13.Size = new Size(150, 20);
             label13.TabIndex = 55;
             label13.Text = "Room No. and Type";
             // 
+            // comboRoomNType
+            // 
+            comboRoomNType.BackColor = Color.FromArgb(204, 227, 222);
+            comboRoomNType.DataSource = roomCategoryDTOBindingSource;
+            comboRoomNType.FormattingEnabled = true;
+            comboRoomNType.Location = new Point(31, 392);
+            comboRoomNType.Name = "comboRoomNType";
+            comboRoomNType.Size = new Size(188, 28);
+            comboRoomNType.TabIndex = 54;
+            // 
+            // roomCategoryDTOBindingSource
+            // 
+            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
+            // 
             // label12
             // 
             label12.AutoSize = true;
             label12.ForeColor = Color.FromArgb(55, 58, 64);
-            label12.Location = new Point(29, 264);
+            label12.Location = new Point(31, 261);
             label12.Name = "label12";
-            label12.Size = new Size(114, 20);
+            label12.Size = new Size(98, 20);
             label12.TabIndex = 53;
-            label12.Text = "Booking Status";
+            label12.Text = "Guest Status";
             // 
-            // comboBookingStatus
+            // comboGuestStatus
             // 
-            comboBookingStatus.BackColor = Color.FromArgb(204, 227, 222);
-            comboBookingStatus.FormattingEnabled = true;
-            comboBookingStatus.Items.AddRange(new object[] { "Pending", "Paid", "Cancelled" });
-            comboBookingStatus.Location = new Point(29, 298);
-            comboBookingStatus.Name = "comboBookingStatus";
-            comboBookingStatus.Size = new Size(188, 28);
-            comboBookingStatus.TabIndex = 52;
+            comboGuestStatus.BackColor = Color.FromArgb(204, 227, 222);
+            comboGuestStatus.FormattingEnabled = true;
+            comboGuestStatus.Items.AddRange(new object[] { "Check In", "Check Out" });
+            comboGuestStatus.Location = new Point(31, 295);
+            comboGuestStatus.Name = "comboGuestStatus";
+            comboGuestStatus.Size = new Size(188, 28);
+            comboGuestStatus.TabIndex = 52;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.ForeColor = Color.FromArgb(55, 58, 64);
-            label11.Location = new Point(565, 367);
+            label11.Location = new Point(558, 261);
             label11.Name = "label11";
             label11.Size = new Size(89, 20);
             label11.TabIndex = 51;
@@ -122,7 +136,7 @@
             // 
             // dtpCheckOut
             // 
-            dtpCheckOut.Location = new Point(565, 399);
+            dtpCheckOut.Location = new Point(558, 293);
             dtpCheckOut.Name = "dtpCheckOut";
             dtpCheckOut.Size = new Size(250, 26);
             dtpCheckOut.TabIndex = 50;
@@ -131,7 +145,7 @@
             // 
             label10.AutoSize = true;
             label10.ForeColor = Color.FromArgb(55, 58, 64);
-            label10.Location = new Point(281, 367);
+            label10.Location = new Point(274, 261);
             label10.Name = "label10";
             label10.Size = new Size(76, 20);
             label10.TabIndex = 49;
@@ -139,7 +153,7 @@
             // 
             // dtpCheckIn
             // 
-            dtpCheckIn.Location = new Point(281, 399);
+            dtpCheckIn.Location = new Point(274, 293);
             dtpCheckIn.Name = "dtpCheckIn";
             dtpCheckIn.Size = new Size(250, 26);
             dtpCheckIn.TabIndex = 48;
@@ -153,16 +167,6 @@
             // 
             roomModelBindingSource.DataSource = typeof(CLASSES.RoomModel);
             // 
-            // comboRoomNType
-            // 
-            comboRoomNType.BackColor = Color.FromArgb(204, 227, 222);
-            comboRoomNType.DataSource = roomCategoryDTOBindingSource;
-            comboRoomNType.FormattingEnabled = true;
-            comboRoomNType.Location = new Point(29, 397);
-            comboRoomNType.Name = "comboRoomNType";
-            comboRoomNType.Size = new Size(188, 28);
-            comboRoomNType.TabIndex = 54;
-            // 
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Right;
@@ -171,11 +175,11 @@
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.FromArgb(246, 255, 248);
-            btnAdd.Location = new Point(921, 640);
+            btnAdd.Location = new Point(923, 639);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(151, 52);
             btnAdd.TabIndex = 47;
-            btnAdd.Text = "Add a booking";
+            btnAdd.Text = "Add a guest";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -184,7 +188,7 @@
             picExit.Anchor = AnchorStyles.Right;
             picExit.Cursor = Cursors.Hand;
             picExit.Image = (Image)resources.GetObject("picExit.Image");
-            picExit.Location = new Point(1080, 12);
+            picExit.Location = new Point(1082, 11);
             picExit.Name = "picExit";
             picExit.Size = new Size(27, 26);
             picExit.SizeMode = PictureBoxSizeMode.Zoom;
@@ -197,17 +201,17 @@
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(55, 58, 64);
-            label8.Location = new Point(29, 40);
+            label8.Location = new Point(31, 39);
             label8.Name = "label8";
-            label8.Size = new Size(187, 23);
+            label8.Size = new Size(159, 23);
             label8.TabIndex = 45;
-            label8.Text = "Adding a booking";
+            label8.Text = "Guest's Invoice";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.FromArgb(55, 58, 64);
-            label7.Location = new Point(556, 172);
+            label7.Location = new Point(558, 169);
             label7.Name = "label7";
             label7.Size = new Size(46, 20);
             label7.TabIndex = 44;
@@ -227,7 +231,7 @@
             entryEmail.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryEmail.ForeColor = Color.FromArgb(55, 58, 64);
             entryEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryEmail.Location = new Point(556, 196);
+            entryEmail.Location = new Point(558, 193);
             entryEmail.Margin = new Padding(3, 4, 3, 4);
             entryEmail.Name = "entryEmail";
             entryEmail.PasswordChar = '\0';
@@ -241,7 +245,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = Color.FromArgb(55, 58, 64);
-            label6.Location = new Point(355, 172);
+            label6.Location = new Point(357, 169);
             label6.Name = "label6";
             label6.Size = new Size(95, 20);
             label6.TabIndex = 42;
@@ -261,7 +265,7 @@
             entryContact.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryContact.ForeColor = Color.FromArgb(55, 58, 64);
             entryContact.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryContact.Location = new Point(355, 196);
+            entryContact.Location = new Point(357, 193);
             entryContact.Margin = new Padding(3, 4, 3, 4);
             entryContact.Name = "entryContact";
             entryContact.PasswordChar = '\0';
@@ -275,7 +279,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.FromArgb(55, 58, 64);
-            label5.Location = new Point(29, 172);
+            label5.Location = new Point(31, 169);
             label5.Name = "label5";
             label5.Size = new Size(67, 20);
             label5.TabIndex = 40;
@@ -295,7 +299,7 @@
             entryAddress.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryAddress.ForeColor = Color.FromArgb(55, 58, 64);
             entryAddress.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryAddress.Location = new Point(29, 196);
+            entryAddress.Location = new Point(31, 193);
             entryAddress.Margin = new Padding(3, 4, 3, 4);
             entryAddress.Name = "entryAddress";
             entryAddress.PasswordChar = '\0';
@@ -309,7 +313,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.FromArgb(55, 58, 64);
-            label4.Location = new Point(700, 81);
+            label4.Location = new Point(711, 80);
             label4.Name = "label4";
             label4.Size = new Size(45, 20);
             label4.TabIndex = 38;
@@ -329,7 +333,7 @@
             entrySuffix.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entrySuffix.ForeColor = Color.FromArgb(55, 58, 64);
             entrySuffix.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entrySuffix.Location = new Point(700, 105);
+            entrySuffix.Location = new Point(711, 104);
             entrySuffix.Margin = new Padding(3, 4, 3, 4);
             entrySuffix.Name = "entrySuffix";
             entrySuffix.PasswordChar = '\0';
@@ -343,7 +347,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(55, 58, 64);
-            label3.Location = new Point(473, 81);
+            label3.Location = new Point(484, 80);
             label3.Name = "label3";
             label3.Size = new Size(108, 20);
             label3.TabIndex = 36;
@@ -363,7 +367,7 @@
             entryMiddleName.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryMiddleName.ForeColor = Color.FromArgb(55, 58, 64);
             entryMiddleName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryMiddleName.Location = new Point(473, 105);
+            entryMiddleName.Location = new Point(484, 104);
             entryMiddleName.Margin = new Padding(3, 4, 3, 4);
             entryMiddleName.Name = "entryMiddleName";
             entryMiddleName.PasswordChar = '\0';
@@ -377,7 +381,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(55, 58, 64);
-            label2.Location = new Point(243, 81);
+            label2.Location = new Point(254, 80);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
             label2.TabIndex = 34;
@@ -397,7 +401,7 @@
             entryFirstName.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryFirstName.ForeColor = Color.FromArgb(55, 58, 64);
             entryFirstName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryFirstName.Location = new Point(243, 105);
+            entryFirstName.Location = new Point(254, 104);
             entryFirstName.Margin = new Padding(3, 4, 3, 4);
             entryFirstName.Name = "entryFirstName";
             entryFirstName.PasswordChar = '\0';
@@ -411,7 +415,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.FromArgb(55, 58, 64);
-            label1.Location = new Point(29, 81);
+            label1.Location = new Point(31, 80);
             label1.Name = "label1";
             label1.Size = new Size(85, 20);
             label1.TabIndex = 32;
@@ -431,7 +435,7 @@
             entryLastName.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             entryLastName.ForeColor = Color.FromArgb(55, 58, 64);
             entryLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            entryLastName.Location = new Point(29, 105);
+            entryLastName.Location = new Point(31, 104);
             entryLastName.Margin = new Padding(3, 4, 3, 4);
             entryLastName.Name = "entryLastName";
             entryLastName.PasswordChar = '\0';
@@ -441,45 +445,41 @@
             entryLastName.Size = new Size(188, 35);
             entryLastName.TabIndex = 31;
             // 
+            // comboPayMethod
+            // 
+            comboPayMethod.BackColor = Color.FromArgb(204, 227, 222);
+            comboPayMethod.DataSource = roomCategoryDTOBindingSource;
+            comboPayMethod.FormattingEnabled = true;
+            comboPayMethod.Location = new Point(274, 392);
+            comboPayMethod.Name = "comboPayMethod";
+            comboPayMethod.Size = new Size(188, 28);
+            comboPayMethod.TabIndex = 56;
+            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.FromArgb(55, 58, 64);
-            label9.Location = new Point(287, 264);
+            label9.Location = new Point(274, 360);
             label9.Name = "label9";
-            label9.Size = new Size(98, 20);
+            label9.Size = new Size(136, 20);
             label9.TabIndex = 57;
-            label9.Text = "Guest Status";
+            label9.Text = "Payment Method";
             // 
-            // comboGuestStatus
-            // 
-            comboGuestStatus.BackColor = Color.FromArgb(204, 227, 222);
-            comboGuestStatus.FormattingEnabled = true;
-            comboGuestStatus.Items.AddRange(new object[] { "Check In", "Check Out", "Pending" });
-            comboGuestStatus.Location = new Point(287, 298);
-            comboGuestStatus.Name = "comboGuestStatus";
-            comboGuestStatus.Size = new Size(188, 28);
-            comboGuestStatus.TabIndex = 56;
-            // 
-            // roomCategoryDTOBindingSource
-            // 
-            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
-            // 
-            // InsertBooking
+            // InsertBillingInfo
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1119, 738);
             Controls.Add(label9);
-            Controls.Add(comboGuestStatus);
+            Controls.Add(comboPayMethod);
             Controls.Add(label13);
+            Controls.Add(comboRoomNType);
             Controls.Add(label12);
-            Controls.Add(comboBookingStatus);
+            Controls.Add(comboGuestStatus);
             Controls.Add(label11);
             Controls.Add(dtpCheckOut);
             Controls.Add(label10);
             Controls.Add(dtpCheckIn);
-            Controls.Add(comboRoomNType);
             Controls.Add(btnAdd);
             Controls.Add(picExit);
             Controls.Add(label8);
@@ -499,13 +499,13 @@
             Controls.Add(entryLastName);
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "InsertBooking";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "InsertBooking";
+            Name = "InsertBillingInfo";
+            StartPosition = FormStartPosition.WindowsDefaultBounds;
+            Text = "InsertBillingInfo";
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)picExit).EndInit();
-            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -513,15 +513,16 @@
         #endregion
 
         private Label label13;
+        private ComboBox comboRoomNType;
+        private BindingSource roomCategoryDTOBindingSource;
         private Label label12;
-        private ComboBox comboBookingStatus;
+        private ComboBox comboGuestStatus;
         private Label label11;
         private DateTimePicker dtpCheckOut;
         private Label label10;
         private DateTimePicker dtpCheckIn;
         private BindingSource guestsBindingSource;
         private BindingSource roomModelBindingSource;
-        private ComboBox comboRoomNType;
         private Button btnAdd;
         private PictureBox picExit;
         private Label label8;
@@ -539,8 +540,7 @@
         private Guna.UI2.WinForms.Guna2TextBox entryFirstName;
         private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox entryLastName;
+        private ComboBox comboPayMethod;
         private Label label9;
-        private ComboBox comboGuestStatus;
-        private BindingSource roomCategoryDTOBindingSource;
     }
 }

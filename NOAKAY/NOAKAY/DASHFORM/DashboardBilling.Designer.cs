@@ -1,6 +1,6 @@
 ﻿namespace NOAKAY.DASHFORM
 {
-    partial class DashboardGuest
+    partial class DashboardBilling
     {
         /// <summary>
         /// Required designer variable.
@@ -34,46 +34,40 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardGuest));
-            label1 = new Label();
+            label8 = new Label();
             txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            btnAdd = new Button();
-            pnlGuestList = new Panel();
+            guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            btnSearch = new Button();
+            panel1 = new Panel();
             dgvGuestList = new Guna.UI2.WinForms.Guna2DataGridView();
             guestRoomCategoryDTOBindingSource = new BindingSource(components);
-            guestRoomCategoryDTOBindingSource1 = new BindingSource(components);
-            guestModelBindingSource = new BindingSource(components);
-            comboSearchStatus = new ComboBox();
-            pictureBox1 = new PictureBox();
-            RoomID = new DataGridViewTextBoxColumn();
-            RoomNum = new DataGridViewTextBoxColumn();
-            LastName = new DataGridViewTextBoxColumn();
+            btnPrintInvoice = new Button();
+            btnBilling = new Button();
+            GuestID = new DataGridViewTextBoxColumn();
             FirstName = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Contact = new DataGridViewTextBoxColumn();
-            GuestStatus = new DataGridViewTextBoxColumn();
+            LastName = new DataGridViewTextBoxColumn();
+            RoomNum = new DataGridViewTextBoxColumn();
             CategoryName = new DataGridViewTextBoxColumn();
+            GuestStatus = new DataGridViewTextBoxColumn();
             CheckIn = new DataGridViewTextBoxColumn();
             CheckOut = new DataGridViewTextBoxColumn();
-            Update = new DataGridViewButtonColumn();
-            pnlGuestList.SuspendLayout();
+            Payment = new DataGridViewButtonColumn();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // label8
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(55, 58, 64);
-            label1.Location = new Point(24, 27);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 23);
-            label1.TabIndex = 2;
-            label1.Text = "Guest List";
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(55, 58, 64);
+            label8.Location = new Point(21, 24);
+            label8.Name = "label8";
+            label8.Size = new Size(190, 23);
+            label8.TabIndex = 47;
+            label8.Text = "Billing and Invoice";
+            label8.Click += label8_Click;
             // 
             // txtSearch
             // 
@@ -89,7 +83,7 @@
             txtSearch.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.ForeColor = Color.FromArgb(55, 58, 64);
             txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSearch.Location = new Point(24, 76);
+            txtSearch.Location = new Point(21, 71);
             txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
             txtSearch.PasswordChar = '\0';
@@ -97,34 +91,47 @@
             txtSearch.SelectedText = "";
             txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtSearch.Size = new Size(298, 35);
-            txtSearch.TabIndex = 3;
+            txtSearch.TabIndex = 48;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
-            // btnAdd
+            // guna2ContextMenuStrip1
             // 
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.BackColor = Color.FromArgb(107, 144, 128);
-            btnAdd.FlatAppearance.BorderSize = 0;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.FromArgb(246, 255, 248);
-            btnAdd.Location = new Point(944, 59);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(151, 52);
-            btnAdd.TabIndex = 5;
-            btnAdd.Text = "Add a guest";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
+            guna2ContextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            guna2ContextMenuStrip1.RenderStyle.ArrowColor = Color.FromArgb(151, 143, 255);
+            guna2ContextMenuStrip1.RenderStyle.BorderColor = Color.Gainsboro;
+            guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = Color.White;
+            guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = Color.FromArgb(100, 88, 255);
+            guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White;
+            guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro;
+            guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            guna2ContextMenuStrip1.Size = new Size(61, 4);
             // 
-            // pnlGuestList
+            // btnSearch
             // 
-            pnlGuestList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlGuestList.BackColor = Color.FromArgb(204, 227, 222);
-            pnlGuestList.Controls.Add(dgvGuestList);
-            pnlGuestList.Location = new Point(28, 161);
-            pnlGuestList.Name = "pnlGuestList";
-            pnlGuestList.Size = new Size(1067, 548);
-            pnlGuestList.TabIndex = 6;
+            btnSearch.BackColor = Color.FromArgb(0, 18, 25);
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.FromArgb(246, 255, 248);
+            btnSearch.Location = new Point(350, 77);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 50;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.FromArgb(128, 255, 128);
+            panel1.Controls.Add(dgvGuestList);
+            panel1.Location = new Point(21, 136);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1071, 122);
+            panel1.TabIndex = 51;
             // 
             // dgvGuestList
             // 
@@ -143,8 +150,8 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvGuestList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvGuestList.ColumnHeadersHeight = 22;
-            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { RoomID, RoomNum, LastName, FirstName, Email, Contact, GuestStatus, CategoryName, CheckIn, CheckOut, Update });
+            dgvGuestList.ColumnHeadersHeight = 40;
+            dgvGuestList.Columns.AddRange(new DataGridViewColumn[] { GuestID, FirstName, LastName, RoomNum, CategoryName, GuestStatus, CheckIn, CheckOut, Payment });
             dgvGuestList.DataSource = guestRoomCategoryDTOBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -161,7 +168,7 @@
             dgvGuestList.ReadOnly = true;
             dgvGuestList.RowHeadersVisible = false;
             dgvGuestList.RowHeadersWidth = 51;
-            dgvGuestList.Size = new Size(1067, 548);
+            dgvGuestList.Size = new Size(1071, 122);
             dgvGuestList.TabIndex = 0;
             dgvGuestList.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvGuestList.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -175,7 +182,7 @@
             dgvGuestList.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dgvGuestList.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvGuestList.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvGuestList.ThemeStyle.HeaderStyle.Height = 22;
+            dgvGuestList.ThemeStyle.HeaderStyle.Height = 40;
             dgvGuestList.ThemeStyle.ReadOnly = true;
             dgvGuestList.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvGuestList.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -190,110 +197,87 @@
             // 
             guestRoomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.GuestRoomCategoryDTO);
             // 
-            // guestRoomCategoryDTOBindingSource1
+            // btnPrintInvoice
             // 
-            guestRoomCategoryDTOBindingSource1.DataSource = typeof(CLASSES.Joined_Tables.GuestRoomCategoryDTO);
+            btnPrintInvoice.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnPrintInvoice.BackColor = Color.FromArgb(107, 144, 128);
+            btnPrintInvoice.FlatAppearance.BorderSize = 0;
+            btnPrintInvoice.FlatStyle = FlatStyle.Flat;
+            btnPrintInvoice.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPrintInvoice.ForeColor = Color.FromArgb(246, 255, 248);
+            btnPrintInvoice.Location = new Point(941, 287);
+            btnPrintInvoice.Name = "btnPrintInvoice";
+            btnPrintInvoice.Size = new Size(151, 52);
+            btnPrintInvoice.TabIndex = 52;
+            btnPrintInvoice.Text = "Print Invoice";
+            btnPrintInvoice.UseVisualStyleBackColor = false;
+            btnPrintInvoice.Click += btnPrintInvoice_Click;
             // 
-            // guestModelBindingSource
+            // btnBilling
             // 
-            guestModelBindingSource.DataSource = typeof(CLASSES.GuestModel);
+            btnBilling.BackColor = Color.ForestGreen;
+            btnBilling.FlatAppearance.BorderSize = 0;
+            btnBilling.FlatStyle = FlatStyle.Flat;
+            btnBilling.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBilling.ForeColor = Color.FromArgb(246, 255, 248);
+            btnBilling.Location = new Point(21, 287);
+            btnBilling.Name = "btnBilling";
+            btnBilling.Size = new Size(151, 52);
+            btnBilling.TabIndex = 53;
+            btnBilling.Text = "Proceed to Billing";
+            btnBilling.UseVisualStyleBackColor = false;
             // 
-            // comboSearchStatus
+            // GuestID
             // 
-            comboSearchStatus.BackColor = Color.FromArgb(204, 227, 222);
-            comboSearchStatus.Items.AddRange(new object[] { "Check In", "Check Out", "All" });
-            comboSearchStatus.Location = new Point(412, 83);
-            comboSearchStatus.Name = "comboSearchStatus";
-            comboSearchStatus.Size = new Size(188, 28);
-            comboSearchStatus.TabIndex = 7;
-            comboSearchStatus.SelectedIndexChanged += comboSearchStatus_SelectedIndexChanged;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(328, 76);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(24, 19);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
-            // 
-            // RoomID
-            // 
-            RoomID.DataPropertyName = "RoomID";
-            RoomID.FillWeight = 23.41778F;
-            RoomID.HeaderText = "RoomID";
-            RoomID.MinimumWidth = 6;
-            RoomID.Name = "RoomID";
-            RoomID.ReadOnly = true;
-            // 
-            // RoomNum
-            // 
-            RoomNum.DataPropertyName = "RoomNum";
-            RoomNum.FillWeight = 23.41778F;
-            RoomNum.HeaderText = "RoomNum";
-            RoomNum.MinimumWidth = 6;
-            RoomNum.Name = "RoomNum";
-            RoomNum.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            LastName.DataPropertyName = "LastName";
-            LastName.FillWeight = 23.41778F;
-            LastName.HeaderText = "LastName";
-            LastName.MinimumWidth = 6;
-            LastName.Name = "LastName";
-            LastName.ReadOnly = true;
+            GuestID.DataPropertyName = "GuestID";
+            GuestID.HeaderText = "GuestID";
+            GuestID.MinimumWidth = 6;
+            GuestID.Name = "GuestID";
+            GuestID.ReadOnly = true;
             // 
             // FirstName
             // 
             FirstName.DataPropertyName = "FirstName";
-            FirstName.FillWeight = 23.41778F;
             FirstName.HeaderText = "FirstName";
             FirstName.MinimumWidth = 6;
             FirstName.Name = "FirstName";
             FirstName.ReadOnly = true;
             // 
-            // Email
+            // LastName
             // 
-            Email.DataPropertyName = "Email";
-            Email.FillWeight = 23.41778F;
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.ReadOnly = true;
+            LastName.DataPropertyName = "LastName";
+            LastName.HeaderText = "LastName";
+            LastName.MinimumWidth = 6;
+            LastName.Name = "LastName";
+            LastName.ReadOnly = true;
             // 
-            // Contact
+            // RoomNum
             // 
-            Contact.DataPropertyName = "Contact";
-            Contact.FillWeight = 23.41778F;
-            Contact.HeaderText = "Contact";
-            Contact.MinimumWidth = 6;
-            Contact.Name = "Contact";
-            Contact.ReadOnly = true;
-            // 
-            // GuestStatus
-            // 
-            GuestStatus.DataPropertyName = "GuestStatus";
-            GuestStatus.FillWeight = 23.41778F;
-            GuestStatus.HeaderText = "GuestStatus";
-            GuestStatus.MinimumWidth = 6;
-            GuestStatus.Name = "GuestStatus";
-            GuestStatus.ReadOnly = true;
+            RoomNum.DataPropertyName = "RoomNum";
+            RoomNum.HeaderText = "RoomNum";
+            RoomNum.MinimumWidth = 6;
+            RoomNum.Name = "RoomNum";
+            RoomNum.ReadOnly = true;
             // 
             // CategoryName
             // 
             CategoryName.DataPropertyName = "CategoryName";
-            CategoryName.FillWeight = 23.41778F;
             CategoryName.HeaderText = "CategoryName";
             CategoryName.MinimumWidth = 6;
             CategoryName.Name = "CategoryName";
             CategoryName.ReadOnly = true;
             // 
+            // GuestStatus
+            // 
+            GuestStatus.DataPropertyName = "GuestStatus";
+            GuestStatus.HeaderText = "GuestStatus";
+            GuestStatus.MinimumWidth = 6;
+            GuestStatus.Name = "GuestStatus";
+            GuestStatus.ReadOnly = true;
+            // 
             // CheckIn
             // 
             CheckIn.DataPropertyName = "CheckIn";
-            CheckIn.FillWeight = 23.41778F;
             CheckIn.HeaderText = "CheckIn";
             CheckIn.MinimumWidth = 6;
             CheckIn.Name = "CheckIn";
@@ -302,73 +286,65 @@
             // CheckOut
             // 
             CheckOut.DataPropertyName = "CheckOut";
-            CheckOut.FillWeight = 23.41778F;
             CheckOut.HeaderText = "CheckOut";
             CheckOut.MinimumWidth = 6;
             CheckOut.Name = "CheckOut";
             CheckOut.ReadOnly = true;
             // 
-            // Update
+            // Payment
             // 
-            Update.DataPropertyName = "Update";
-            Update.FillWeight = 20F;
-            Update.FlatStyle = FlatStyle.Flat;
-            Update.HeaderText = "Update";
-            Update.MinimumWidth = 2;
-            Update.Name = "Update";
-            Update.ReadOnly = true;
-            Update.Text = "Update";
-            Update.ToolTipText = "Update";
-            Update.UseColumnTextForButtonValue = true;
+            Payment.FlatStyle = FlatStyle.Flat;
+            Payment.HeaderText = "Payment";
+            Payment.MinimumWidth = 6;
+            Payment.Name = "Payment";
+            Payment.ReadOnly = true;
+            Payment.Text = "Payment";
+            Payment.ToolTipText = "Payment";
+            Payment.UseColumnTextForButtonValue = true;
             // 
-            // DashboardGuest
+            // DashboardBilling
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(246, 255, 248);
             ClientSize = new Size(1119, 738);
-            Controls.Add(pictureBox1);
-            Controls.Add(comboSearchStatus);
-            Controls.Add(pnlGuestList);
-            Controls.Add(btnAdd);
+            Controls.Add(btnBilling);
+            Controls.Add(btnPrintInvoice);
+            Controls.Add(panel1);
+            Controls.Add(btnSearch);
             Controls.Add(txtSearch);
-            Controls.Add(label1);
+            Controls.Add(label8);
             Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "DashboardGuest";
-            Text = "DashboardGuest";
-            pnlGuestList.ResumeLayout(false);
+            Name = "DashboardBilling";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "ReservedString1";
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvGuestList).EndInit();
             ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)guestRoomCategoryDTOBindingSource1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)guestModelBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label label8;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private Button btnAdd;
-        private Panel pnlGuestList;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private Button btnSearch;
+        private Panel panel1;
+        private Button btnPrintInvoice;
         private Guna.UI2.WinForms.Guna2DataGridView dgvGuestList;
-        private BindingSource guestModelBindingSource;
-        private ComboBox comboSearchStatus;
+        private Button btnBilling;
         private BindingSource guestRoomCategoryDTOBindingSource;
-        private BindingSource guestRoomCategoryDTOBindingSource1;
-        private PictureBox pictureBox1;
-        private DataGridViewTextBoxColumn RoomID;
-        private DataGridViewTextBoxColumn RoomNum;
-        private DataGridViewTextBoxColumn LastName;
+        private DataGridViewTextBoxColumn GuestID;
         private DataGridViewTextBoxColumn FirstName;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Contact;
-        private DataGridViewTextBoxColumn GuestStatus;
+        private DataGridViewTextBoxColumn LastName;
+        private DataGridViewTextBoxColumn RoomNum;
         private DataGridViewTextBoxColumn CategoryName;
+        private DataGridViewTextBoxColumn GuestStatus;
         private DataGridViewTextBoxColumn CheckIn;
         private DataGridViewTextBoxColumn CheckOut;
-        private DataGridViewButtonColumn Update;
+        private DataGridViewButtonColumn Payment;
     }
 }

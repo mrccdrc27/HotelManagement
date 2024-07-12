@@ -1,152 +1,248 @@
 ﻿//using System;
 //using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
 //using System.Linq;
-//using System.Security.Cryptography.X509Certificates;
-//using System.Text;
-//using System.Threading.Tasks;
 //using System.Windows.Forms;
-//using Microsoft.EntityFrameworkCore;
-//using NOAKAY.CLASSES;
+//using NOAKAY.CLASSES.Joined_Tables;
 //using SQLCONNECTION;
-
+//using NOAKAY.CLASSES;
+//using QuestPDF.Fluent;
+//using QuestPDF.Helpers;
+//using QuestPDF.Infrastructure;
 
 //namespace NOAKAY.DASHFORM
 //{
-//    public partial class DashboardGuest : Form
+//    public partial class DashboardGenerateRoomReport : Form
 //    {
-//        public Connection? dbContext;
-//        public DashboardGuest()
+//        private Connection dbContext;
+//        private List<Invoice> allInvoices; // To store the original list of invoices
+//        private List<Invoice> filteredInvoices; // To store the filtered list of invoices
+
+//        public DashboardGenerateRoomReport()
 //        {
 //            InitializeComponent();
-//            txtSearch.TextChanged += txtSearch_TextChanged;
 //        }
 
-//        // == BINDING THE DATA TO DATA GRID VIEW ==
-
-//        private List<GuestModel> allGuests; // Define this at the class level
 //        protected override void OnLoad(EventArgs e)
 //        {
 //            base.OnLoad(e);
+//            LoadAndDisplayData();
+//        }
 
-//            // Loading of database objects
+//        private void LoadAndDisplayData()
+//        {
+//            allInvoices = loadData1();
+//            filteredInvoices = new List<Invoice>(allInvoices); // Initialize with all invoices
+//            invoiceBindingSource.DataSource = filteredInvoices;
+//            dgvRoom.Refresh();
+//        }
+
+//        public List<Invoice> loadData1()
+//        {
 //            this.dbContext = new Connection();
-//            this.dbContext.Database.EnsureCreated();
+//            var combinedData = from Guest in dbContext.GuestModels
+//                               join Room in dbContext.RoomModels
+//                               on Guest.RoomID equals Room.RoomID
+//                               join Category in dbContext.CategoryModels
+//                               on Room.CategoryId equals Category.CategoryID
+//                               select new Invoice
+//                               {
+//                                   fullName = $"{Guest.FirstName} {Guest.MiddleName} {Guest.LastName} {Guest.Suffix}",
+//                                   guestID = Guest.GuestID,
+//                                   checkIn = Guest.CheckIn,
+//                                   checkOut = Guest.CheckOut,
+//                                   gueststatus = $"{Guest.GuestStatus}",
+//                                   status = $"{Guest.BookingStatus}",
+//                                   price = CalculateTotalPrice(Guest.CheckIn, Guest.CheckOut, Category.basePrice),
+//                                   roomName = Room.RoomNum,
+//                               };
 
-//            // Load all guests into a list
-//            this.allGuests = this.dbContext.GuestModels.FromSqlRaw("SELECT * FROM GuestModels").ToList();
+//            var combinedList = combinedData.ToList();
+//            List<Invoice> filter = new List<Invoice>();
 
-//            // Modify the data to include GuestStatusDisplay
-//            var guestsWithDisplay = this.allGuests.Select(g => new
+//            foreach (var item in combinedList)
 //            {
-//                g.GuestID,
-//                g.FirstName,
-//                g.LastName,
-//                g.Email,
-//                GuestStatus = g.GuestStatusDisplay,
-//                g.CheckIn,
-//                g.CheckOut,
-//                g.Contact,
-//                g.Address,
-//                g.RoomID
-
-//            }).ToList();
-
-//            // Bind data to BindingSource
-//            this.guestModelBindingSource.DataSource = guestsWithDisplay;
-
-//            // Set DataSource of DataGridView to BindingSource
-//            this.dgvGuestList.DataSource = this.guestModelBindingSource;
-//        }
-
-//        // == BINDING THE DATA TO DATA GRID VIEW ==
-
-
-
-//        private void btnAdd_Click(object sender, EventArgs e)
-//        {
-//            new InsertGuest().Show();
-//        }
-
-//        private void txtSearch_TextChanged(object sender, EventArgs e)
-//        {
-//            string searchTerm = txtSearch.Text.ToLower();
-
-//            // Filter the original list based on the search term
-//            var filteredGuests = allGuests.Where(g =>
-//                g.LastName.ToLower().Contains(searchTerm) ||
-//                g.Email.ToLower().Contains(searchTerm) ||
-//                g.FirstName.ToLower().Contains(searchTerm)
-//            // Add more conditions as needed for other properties
-//            ).Select(g => new
-//            {
-//                g.GuestID,
-//                g.FirstName,
-//                g.LastName,
-//                g.Email,
-//                GuestStatus = g.GuestStatusDisplay,
-//                g.CheckIn,
-//                g.CheckOut,
-//                g.Contact,
-//                g.Address,
-//                g.RoomID
-//            })
-//            .ToList();
-
-//            // Update the BindingSource with the filtered list
-//            guestModelBindingSource.DataSource = filteredGuests;
-
-//            // Refresh the DataGridView to reflect the changes
-//            dgvGuestList.Refresh();
-//        }
-
-//        private void comboSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
-//        {
-//            int selectedStatusIndex = comboSearchStatus.SelectedIndex;
-
-//            var filteredGuests = allGuests
-//                .Where(g =>
-//                 selectedStatusIndex == 2 || g.GuestStatus == selectedStatusIndex)
-//                .Select(g => new
+//                if (item.gueststatus == "0")
 //                {
-//                    g.GuestID,
-//                    g.FirstName,
-//                    g.LastName,
-//                    g.Email,
-//                    GuestStatus = g.GuestStatusDisplay,
-//                    g.CheckIn,
-//                    g.CheckOut,
-//                    g.Contact,
-//                    g.Address,
-//                    g.RoomID
-//                })
-//                .ToList();
+//                    item.gueststatus = "Check In";
+//                    filter.Add(item);
+//                }
+//                else if (item.gueststatus == "1")
+//                {
+//                    item.gueststatus = "Check Out";
+//                    filter.Add(item);
+//                }
+//            }
 
-//            // Update the BindingSource with the filtered list
-//            guestModelBindingSource.DataSource = filteredGuests;
+//            if (combinedList.Count == 0)
+//            {
+//                MessageBox.Show("No data loaded.");
+//            }
 
-//            // Refresh the DataGridView to reflect the changes
-//            dgvGuestList.Refresh();
+//            return filter.ToList();
 //        }
 
-//        //private void txtSearch_TextChanged(object sender, EventArgs e)
-//        //{
-//        //    string searchTerm = txtSearch.Text.ToLower();
+//        public void TimespanFilter(List<Invoice> roomGuest, DateTime Start, DateTime End)
+//        {
+//            filteredInvoices = new List<Invoice>();
+//            List<int> roomlist = new List<int>();
+//            int standardCount = 0;
+//            int deluxeCount = 0;
+//            int suiteCount = 0;
+//            float standardTotalRevenue = 0;
+//            float deluxeTotalRevenue = 0;
+//            float suiteTotalRevenue = 0;
+//            float totalRevenue = 0;
 
-//        //    // Prepare the SQL query with a WHERE clause to filter based on search term
-//        //    string sqlQuery = $"SELECT * FROM GuestModels WHERE LOWER(Name) LIKE '%{searchTerm}%' OR LOWER(Email) LIKE '%{searchTerm}%'";
+//            foreach (var item in roomGuest)
+//            {
+//                if ((Start <= item.checkIn && item.checkOut <= End))
+//                {
+//                    if (item.roomName > 100 && item.roomName < 106)
+//                    {
+//                        standardCount++;
+//                        standardTotalRevenue += (float)item.price;
+//                        filteredInvoices.Add(item);
+//                    }
+//                    else if (item.roomName > 105 && item.roomName < 111)
+//                    {
+//                        deluxeCount++;
+//                        deluxeTotalRevenue += (float)item.price;
+//                        filteredInvoices.Add(item);
+//                    }
+//                    else
+//                    {
+//                        suiteCount++;
+//                        suiteTotalRevenue += (float)item.price;
+//                        filteredInvoices.Add(item);
+//                    }
+//                    totalRevenue = standardCount + deluxeCount + suiteCount;
+//                }
+//            }
 
-//        //    // Execute raw SQL query and get the filtered guests
-//        //    var filteredGuests = this.dbContext.GuestModels.FromSqlRaw(sqlQuery).ToList();
+//            lblTotalStandard.Text = standardTotalRevenue.ToString();
+//            lblTotalDeluxe.Text = deluxeTotalRevenue.ToString();
+//            lblTotalSuite.Text = suiteTotalRevenue.ToString();
+//            lblTotal.Text = totalRevenue.ToString();
+//            invoiceBindingSource.DataSource = filteredInvoices;
+//            dgvRoom.Refresh();
+//        }
 
-//        //    // Update the BindingSource with the filtered list
-//        //    guestModelBindingSource.DataSource = filteredGuests;
+//        private static decimal CalculateTotalPrice(DateTime? checkIn, DateTime? checkOut, int basePrice)
+//        {
+//            if (checkIn.HasValue && checkOut.HasValue)
+//            {
+//                TimeSpan totalDuration = checkOut.Value - checkIn.Value;
+//                int totalDays = totalDuration.Days + 1; // Include the check-out day
+//                return totalDays * basePrice;
+//            }
+//            return 0; // Handle the case where either check-in or check-out date is null
+//        }
 
-//        //    // Refresh the DataGridView to reflect the changes
-//        //    dgvGuestList.Refresh();
-//        //}
+//        private void btnFilterRoom_Click(object sender, EventArgs e)
+//        {
+//            TimespanFilter(allInvoices, dtpStart.Value, dtpEnd.Value);
+//        }
 
+//        private void btnPrintRoomReport_Click(object sender, EventArgs e)
+//        {
+//            if (filteredInvoices == null || !filteredInvoices.Any())
+//            {
+//                MessageBox.Show("No data to generate the report.");
+//                return;
+//            }
+
+//            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+//            {
+//                saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+//                saveFileDialog.Title = "Save PDF File";
+//                saveFileDialog.FileName = "MonthlyRoomReport.pdf";
+
+//                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+//                {
+//                    var fileName = saveFileDialog.FileName;
+//                    var logoPath = "C:\\Users\\abc\\Desktop\\Design Component\\DRIVE\\logo.png";
+
+//                    Document.Create(document =>
+//                    {
+//                        document.Page(page =>
+//                        {
+//                            page.Size(PageSizes.A4);
+//                            page.Margin(1, Unit.Centimetre);
+//                            page.Header().Element(container =>
+//                            {
+//                                container.Row(row =>
+//                                {
+//                                    row.ConstantItem(100).Image(logoPath, ImageScaling.FitArea); // Logo on the left
+
+//                                    row.RelativeItem().AlignCenter().Column(column =>
+//                                    {
+//                                        column.Item().Text("NOAKAY\n Monthly Room Report")
+//                                              .FontFamily("Times New Roman")
+//                                              .Bold()
+//                                              .FontSize(24)
+//                                              .FontColor(Colors.Blue.Medium)
+//                                              .AlignCenter();
+//                                    });
+
+//                                    row.ConstantItem(100).AlignRight().Column(column =>
+//                                    {
+//                                        column.Item().Text($"Generated on: {DateTime.Now}")
+//                                              .FontFamily("Arial")
+//                                              .FontSize(12)
+//                                              .AlignRight();
+//                                    });
+//                                });
+//                            });
+//                            page.Content().Table(table =>
+//                            {
+//                                table.ColumnsDefinition(columns =>
+//                                {
+//                                    columns.RelativeColumn(); // Room Number
+//                                    columns.RelativeColumn(); // Guest Name
+//                                    columns.RelativeColumn(); // Check-In Date
+//                                    columns.RelativeColumn(); // Check-Out Date
+//                                    columns.RelativeColumn(); // Status
+//                                    columns.RelativeColumn(); // Status
+//                                });
+
+//                                table.Header(header =>
+//                                {
+//                                    header.Cell().Text("Room Number").Bold();
+//                                    header.Cell().Text("Guest Name").Bold();
+//                                    header.Cell().Text("Guest Status").Bold();
+//                                    header.Cell().Text("Check-In Date").Bold();
+//                                    header.Cell().Text("Check-Out Date").Bold();
+//                                    header.Cell().Text("Price").Bold();
+//                                });
+
+//                                foreach (var item in filteredInvoices)
+//                                {
+//                                    //table.Cell().Element(cell => cell.Text(item.roomName));
+//                                    //table.Cell().Element(cell => cell.Text(item.fullName));
+//                                    //table.Cell().Element(cell => cell.Text(item.gueststatus));
+//                                    //table.Cell().Element(cell => cell.Text(item.checkIn?.ToShortDateString() ?? string.Empty));
+//                                    //table.Cell().Element(cell => cell.Text(item.checkOut?.ToShortDateString() ?? string.Empty));
+//                                    //table.Cell().Element(cell => cell.Text(item.price.ToString()));
+
+//                                    table.Cell().Element(CellStyle).Text(item.roomName);
+//                                    table.Cell().Element(CellStyle).Text(item.fullName);
+//                                    table.Cell().Element(CellStyle).Text(item.gueststatus);
+//                                    table.Cell().Element(CellStyle).Text(item.checkIn?.ToShortDateString() ?? string.Empty);
+//                                    table.Cell().Element(CellStyle).Text(item.checkOut?.ToShortDateString() ?? string.Empty);
+//                                    table.Cell().Element(CellStyle).Text(item.price.ToString());
+//                                }
+//                            });
+//                        });
+//                    }).GeneratePdf(fileName);
+
+//                    MessageBox.Show($"PDF generated: {fileName}");
+//                } // if
+//            } // using 
+//        } // btnPrintRoomReport
+
+//        private IContainer CellStyle(IContainer container)
+//        {
+//            return container.Border(1).Padding(5);
+//        }
 //    }
 //}

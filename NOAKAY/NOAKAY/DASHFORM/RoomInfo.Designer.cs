@@ -35,26 +35,29 @@
             panel12 = new Panel();
             pnlMain = new Panel();
             panel3 = new Panel();
-            label2 = new Label();
-            pictureBox3 = new PictureBox();
-            panel2 = new Panel();
-            label1 = new Label();
-            pictureBox2 = new PictureBox();
-            panel1 = new Panel();
-            label8 = new Label();
-            pictureBox1 = new PictureBox();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
+            panel6 = new Panel();
             label12 = new Label();
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
+            label2 = new Label();
+            pictureBox3 = new PictureBox();
+            panel2 = new Panel();
+            panel5 = new Panel();
+            label7 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label1 = new Label();
+            pictureBox2 = new PictureBox();
+            panel1 = new Panel();
+            panel4 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label8 = new Label();
+            pictureBox1 = new PictureBox();
             pnlMain.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -112,6 +115,8 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.Controls.Add(panel6);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(label13);
             panel3.Controls.Add(label14);
@@ -123,6 +128,51 @@
             panel3.Padding = new Padding(10);
             panel3.Size = new Size(1073, 310);
             panel3.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel6.BackColor = Color.FromArgb(53, 79, 82);
+            panel6.Location = new Point(13, 270);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1047, 40);
+            panel6.TabIndex = 60;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(442, 120);
+            label12.Name = "label12";
+            label12.Size = new Size(393, 160);
+            label12.TabIndex = 59;
+            label12.Text = resources.GetString("label12.Text");
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(576, 90);
+            label13.Name = "label13";
+            label13.Size = new Size(30, 20);
+            label13.TabIndex = 58;
+            label13.Text = "5-8";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(359, 120);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 20);
+            label14.TabIndex = 57;
+            label14.Text = "Inclusion:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(359, 90);
+            label15.Name = "label15";
+            label15.Size = new Size(201, 40);
+            label15.TabIndex = 56;
+            label15.Text = "Maximum person allowed:\r\n\r\n";
             // 
             // label2
             // 
@@ -147,6 +197,8 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(panel5);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label10);
@@ -159,98 +211,14 @@
             panel2.Size = new Size(1073, 310);
             panel2.TabIndex = 1;
             // 
-            // label1
+            // panel5
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(55, 58, 64);
-            label1.Location = new Point(359, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(150, 23);
-            label1.TabIndex = 47;
-            label1.Text = "DELUXE ROOM";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(13, 13);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(315, 179);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(23, 23);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(10);
-            panel1.Size = new Size(1073, 310);
-            panel1.TabIndex = 0;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(55, 58, 64);
-            label8.Location = new Point(349, 33);
-            label8.Name = "label8";
-            label8.Size = new Size(183, 23);
-            label8.TabIndex = 47;
-            label8.Text = "STANDARD ROOM";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(13, 13);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(315, 179);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(349, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(201, 40);
-            label3.TabIndex = 48;
-            label3.Text = "Maximum person allowed:\r\n\r\n";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(349, 112);
-            label4.Name = "label4";
-            label4.Size = new Size(77, 20);
-            label4.TabIndex = 49;
-            label4.Text = "Inclusion:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(566, 82);
-            label5.Name = "label5";
-            label5.Size = new Size(30, 20);
-            label5.TabIndex = 50;
-            label5.Text = "1-2";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(432, 112);
-            label6.Name = "label6";
-            label6.Size = new Size(353, 100);
-            label6.TabIndex = 51;
-            label6.Text = "2 King Sized Bed with\r\na private bathroom with basic toiletries,\r\na desk or workspace, and \r\nstandard entertainment options like a television\r\n\r\n";
-            label6.Click += label6_Click;
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel5.BackColor = Color.FromArgb(53, 79, 82);
+            panel5.Location = new Point(13, 257);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1047, 40);
+            panel5.TabIndex = 56;
             // 
             // label7
             // 
@@ -288,41 +256,109 @@
             label11.TabIndex = 52;
             label11.Text = "Maximum person allowed:\r\n\r\n";
             // 
-            // label12
+            // label1
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(442, 120);
-            label12.Name = "label12";
-            label12.Size = new Size(393, 160);
-            label12.TabIndex = 59;
-            label12.Text = resources.GetString("label12.Text");
+            label1.AutoSize = true;
+            label1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(55, 58, 64);
+            label1.Location = new Point(359, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(150, 23);
+            label1.TabIndex = 47;
+            label1.Text = "DELUXE ROOM";
             // 
-            // label13
+            // pictureBox2
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(576, 90);
-            label13.Name = "label13";
-            label13.Size = new Size(30, 20);
-            label13.TabIndex = 58;
-            label13.Text = "5-8";
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(13, 13);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(315, 179);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
-            // label14
+            // panel1
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(359, 120);
-            label14.Name = "label14";
-            label14.Size = new Size(77, 20);
-            label14.TabIndex = 57;
-            label14.Text = "Inclusion:";
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(23, 23);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(10);
+            panel1.Size = new Size(1073, 310);
+            panel1.TabIndex = 0;
             // 
-            // label15
+            // panel4
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(359, 90);
-            label15.Name = "label15";
-            label15.Size = new Size(201, 40);
-            label15.TabIndex = 56;
-            label15.Text = "Maximum person allowed:\r\n\r\n";
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel4.BackColor = Color.FromArgb(53, 79, 82);
+            panel4.Location = new Point(13, 257);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1047, 40);
+            panel4.TabIndex = 52;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(432, 112);
+            label6.Name = "label6";
+            label6.Size = new Size(353, 100);
+            label6.TabIndex = 51;
+            label6.Text = "2 King Sized Bed with\r\na private bathroom with basic toiletries,\r\na desk or workspace, and \r\nstandard entertainment options like a television\r\n\r\n";
+            label6.Click += label6_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(566, 82);
+            label5.Name = "label5";
+            label5.Size = new Size(30, 20);
+            label5.TabIndex = 50;
+            label5.Text = "1-2";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(349, 112);
+            label4.Name = "label4";
+            label4.Size = new Size(77, 20);
+            label4.TabIndex = 49;
+            label4.Text = "Inclusion:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(349, 82);
+            label3.Name = "label3";
+            label3.Size = new Size(201, 40);
+            label3.TabIndex = 48;
+            label3.Text = "Maximum person allowed:\r\n\r\n";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(55, 58, 64);
+            label8.Location = new Point(349, 33);
+            label8.Name = "label8";
+            label8.Size = new Size(183, 23);
+            label8.TabIndex = 47;
+            label8.Text = "STANDARD ROOM";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(13, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(315, 179);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // RoomInfo
             // 
@@ -378,5 +414,8 @@
         private Label label13;
         private Label label14;
         private Label label15;
+        private Panel panel6;
+        private Panel panel5;
+        private Panel panel4;
     }
 }

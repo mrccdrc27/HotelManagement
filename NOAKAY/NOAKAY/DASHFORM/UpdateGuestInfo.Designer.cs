@@ -71,9 +71,11 @@
             entryFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             label1 = new Label();
             entryLastName = new Guna.UI2.WinForms.Guna2TextBox();
+            roomCategoryDTOBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picExit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label13
@@ -152,8 +154,8 @@
             // comboRoomNType
             // 
             comboRoomNType.BackColor = Color.FromArgb(204, 227, 222);
+            comboRoomNType.DataSource = roomCategoryDTOBindingSource;
             comboRoomNType.FormattingEnabled = true;
-            comboRoomNType.Items.AddRange(new object[] { "1 (Standard)", "2 (Standard)", "3 (Standard)", "4 (Standard)", "5 (Standard)", "6 (Deluxe)", "7 (Deluxe)", "8 (Deluxe)", "9 (Deluxe)", "10 (Deluxe)", "11 (Suite)", "12 (Suite)", "13 (Suite)", "14 (Suite)", "15 (Suite)" });
             comboRoomNType.Location = new Point(29, 396);
             comboRoomNType.Name = "comboRoomNType";
             comboRoomNType.Size = new Size(188, 28);
@@ -437,6 +439,10 @@
             entryLastName.Size = new Size(188, 35);
             entryLastName.TabIndex = 31;
             // 
+            // roomCategoryDTOBindingSource
+            // 
+            roomCategoryDTOBindingSource.DataSource = typeof(CLASSES.Joined_Tables.RoomCategoryDTO);
+            // 
             // UpdateGuestInfo
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -475,6 +481,7 @@
             ((System.ComponentModel.ISupportInitialize)guestsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)roomModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)picExit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roomCategoryDTOBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -508,5 +515,6 @@
         private Guna.UI2.WinForms.Guna2TextBox entryFirstName;
         private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox entryLastName;
+        private BindingSource roomCategoryDTOBindingSource;
     }
 }

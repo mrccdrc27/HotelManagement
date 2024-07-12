@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NOAKAY.DASHFORM
 {
-    public partial class ReservedString : Form
+    public partial class UpdatekBookInfo : Form
     {
-        public ReservedString()
+        public UpdatekBookInfo()
         {
             InitializeComponent();
         }

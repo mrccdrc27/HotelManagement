@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMain));
             pnlNav = new Panel();
+            btnPayment = new Button();
+            btnHouseKeeping = new Button();
             btnDashBoard = new Button();
             btnBook = new Button();
             btnReport = new Button();
@@ -54,7 +56,10 @@
             // 
             // pnlNav
             // 
+            pnlNav.AutoScroll = true;
             pnlNav.BackColor = Color.FromArgb(53, 79, 82);
+            pnlNav.Controls.Add(btnPayment);
+            pnlNav.Controls.Add(btnHouseKeeping);
             pnlNav.Controls.Add(btnDashBoard);
             pnlNav.Controls.Add(btnBook);
             pnlNav.Controls.Add(btnReport);
@@ -70,6 +75,34 @@
             pnlNav.Size = new Size(250, 664);
             pnlNav.TabIndex = 0;
             // 
+            // btnPayment
+            // 
+            btnPayment.Cursor = Cursors.Hand;
+            btnPayment.FlatAppearance.BorderSize = 0;
+            btnPayment.FlatStyle = FlatStyle.Flat;
+            btnPayment.ForeColor = Color.FromArgb(246, 255, 248);
+            btnPayment.Location = new Point(-3, 604);
+            btnPayment.Name = "btnPayment";
+            btnPayment.Size = new Size(247, 61);
+            btnPayment.TabIndex = 8;
+            btnPayment.Text = "Billing";
+            btnPayment.UseVisualStyleBackColor = true;
+            btnPayment.Click += btnPayment_Click;
+            // 
+            // btnHouseKeeping
+            // 
+            btnHouseKeeping.Cursor = Cursors.Hand;
+            btnHouseKeeping.FlatAppearance.BorderSize = 0;
+            btnHouseKeeping.FlatStyle = FlatStyle.Flat;
+            btnHouseKeeping.ForeColor = Color.FromArgb(246, 255, 248);
+            btnHouseKeeping.Location = new Point(0, 537);
+            btnHouseKeeping.Name = "btnHouseKeeping";
+            btnHouseKeeping.Size = new Size(247, 61);
+            btnHouseKeeping.TabIndex = 7;
+            btnHouseKeeping.Text = "Housekeeping";
+            btnHouseKeeping.UseVisualStyleBackColor = true;
+            btnHouseKeeping.Click += btnHouseKeeping_Click_1;
+            // 
             // btnDashBoard
             // 
             btnDashBoard.Cursor = Cursors.Hand;
@@ -80,7 +113,7 @@
             btnDashBoard.Name = "btnDashBoard";
             btnDashBoard.Size = new Size(247, 61);
             btnDashBoard.TabIndex = 7;
-            btnDashBoard.Text = "Dashboard";
+            btnDashBoard.Text = "Home";
             btnDashBoard.UseVisualStyleBackColor = true;
             btnDashBoard.Click += btnDashBoard_Click;
             // 
@@ -134,7 +167,7 @@
             btnOut.FlatAppearance.BorderSize = 0;
             btnOut.FlatStyle = FlatStyle.Flat;
             btnOut.ForeColor = Color.FromArgb(246, 255, 248);
-            btnOut.Location = new Point(0, 603);
+            btnOut.Location = new Point(0, 665);
             btnOut.Name = "btnOut";
             btnOut.Size = new Size(250, 61);
             btnOut.TabIndex = 4;
@@ -168,7 +201,7 @@
             btnRoom.RightToLeft = RightToLeft.No;
             btnRoom.Size = new Size(247, 61);
             btnRoom.TabIndex = 1;
-            btnRoom.Text = "Room Available";
+            btnRoom.Text = "Room List";
             btnRoom.UseVisualStyleBackColor = true;
             btnRoom.Click += btnRoom_Click;
             // 
@@ -291,5 +324,7 @@
         private Button btnReport;
         private Button btnRoomInfo;
         private Button btnDashBoard;
+        private Button btnHouseKeeping;
+        private Button btnPayment;
     }
 }

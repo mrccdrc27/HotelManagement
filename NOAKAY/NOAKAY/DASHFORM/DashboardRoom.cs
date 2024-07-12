@@ -39,7 +39,7 @@ namespace NOAKAY.DASHFORM
                                    // IF Error, Data Must Be nulled, GO back and input data properly
                                    RoomId = Room.RoomID,
                                    GuestID = 0,
-                                   Status = "0",
+                                   Status = "1",
                                    CheckIn = null,
                                    CheckOut = null,
 
@@ -65,15 +65,15 @@ namespace NOAKAY.DASHFORM
 
             foreach (var item in unionlist)
             {
-                if (item.Status == "0")
+                if (item.Status == "0" || item.Status == "2")
                 {
                     // Change GuestStatus if it is 1
-                    item.Status = "Available"; // Example change to 3
+                    item.Status = "Occupied"; // Example change to 3
                 }
-                else if (item.Status == "1" || item.Status == "2")
+                else if (item.Status == "1" )
                 {
                     // Change GuestStatus if it is 2
-                    item.Status = "Occupied"; // Example change to 3
+                    item.Status = "Available"; // Example change to 3
                 }
                 // Add more conditions as needed
             }
@@ -108,8 +108,8 @@ namespace NOAKAY.DASHFORM
         public void TimespanFilter(List<RoomGuestModel> roomGuest, DateTime Start, DateTime End)
         {
             List<RoomGuestModel> printlist = new List<RoomGuestModel>();
-
             List<int> roomlist = new List<int>();
+
             foreach (var item in roomGuest)
             {
                 if ((Start <= item.CheckIn && item.CheckOut <= End))
@@ -123,42 +123,10 @@ namespace NOAKAY.DASHFORM
                     printlist.Add(item);
                 }
             }
-            roomGuestModelBindingSource.DataSource = printlist.ToList();
+            roomGuestModelBindingSource.DataSource = printlist.ToList(); 
         }
 
-        // == OLD CODE ==
-        public void oldcode()
-        {
-            // Loading of database objects
-            dbContext = new Connection();
-
-            // Ensure database is created
-            dbContext.Database.EnsureCreated();
-
-            // Raw SQL query with CASE statement for RoomStatus
-            string sqlQuery = @"
-                SELECT RoomModels.RoomId,
-                       CASE RoomModels.RoomStatus
-                           WHEN 0 THEN 'Occupied'
-                           WHEN 1 THEN 'Available'
-                           WHEN 2 THEN 'Unavailable'
-                           ELSE 'Unknown'  -- Handle any other values if necessary
-                       END AS RoomStatus,
-                       RoomModels.RoomNum,
-                       CategoryModels.CategoryName
-                FROM RoomModels
-                INNER JOIN CategoryModels ON RoomModels.CategoryID = CategoryModels.CategoryID;";
-
-            // Execute the query and map the results to DTO
-            //var roomGuestCategoryList = dbContext.RoomCategoryDTO.FromSqlRaw(sqlQuery).ToList();
-
-            // Bind data to BindingSource
-            //roomModelBindingSource.DataSource = roomGuestCategoryList;
-
-            // Set DataSource of DataGridView to BindingSource
-            //dgvRoomList.DataSource = roomModelBindingSource;
-        }
-
+ 
         private void btnUpdateRStatus_Click(object sender, EventArgs e)
         {
             new UpdateRoomStat().Show();

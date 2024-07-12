@@ -46,6 +46,7 @@
             checkInDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             checkOutDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Update = new DataGridViewButtonColumn();
             invoiceBindingSource = new BindingSource(components);
             btnAdd = new Button();
             pnlGuestList.SuspendLayout();
@@ -132,7 +133,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvInvoiceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvInvoiceList.ColumnHeadersHeight = 22;
-            dgvInvoiceList.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, status, fullNameDataGridViewTextBoxColumn, roomNameDataGridViewTextBoxColumn, checkInDataGridViewTextBoxColumn, checkOutDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn });
+            dgvInvoiceList.Columns.AddRange(new DataGridViewColumn[] { guestIDDataGridViewTextBoxColumn, status, fullNameDataGridViewTextBoxColumn, roomNameDataGridViewTextBoxColumn, checkInDataGridViewTextBoxColumn, checkOutDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Update });
             dgvInvoiceList.DataSource = invoiceBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -171,6 +172,7 @@
             dgvInvoiceList.ThemeStyle.RowsStyle.Height = 29;
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvInvoiceList.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvInvoiceList.CellContentClick += dgvInvoiceList_CellContentClick;
             // 
             // guestIDDataGridViewTextBoxColumn
             // 
@@ -227,6 +229,18 @@
             priceDataGridViewTextBoxColumn.MinimumWidth = 6;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Update
+            // 
+            Update.FillWeight = 45F;
+            Update.FlatStyle = FlatStyle.Flat;
+            Update.HeaderText = "Update";
+            Update.MinimumWidth = 2;
+            Update.Name = "Update";
+            Update.ReadOnly = true;
+            Update.Text = "Update";
+            Update.ToolTipText = "Update";
+            Update.UseColumnTextForButtonValue = true;
             // 
             // invoiceBindingSource
             // 
@@ -286,5 +300,6 @@
         private DataGridViewTextBoxColumn checkInDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn checkOutDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn Update;
     }
 }

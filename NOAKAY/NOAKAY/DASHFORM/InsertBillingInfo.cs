@@ -12,14 +12,12 @@ using SQLCONNECTION;
 using NOAKAY.CLASSES;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using NOAKAY.CLASSES.Joined_Tables;
-
-
 namespace NOAKAY.DASHFORM
 {
-    public partial class UpdateGuestInfo : Form
+    public partial class InsertBillingInfo : Form
     {
         public Connection? dbContext;
-        public UpdateGuestInfo()
+        public InsertBillingInfo()
         {
             InitializeComponent();
             Comboload(loadcombo());
@@ -46,7 +44,6 @@ namespace NOAKAY.DASHFORM
             comboRoomNType.DataSource = combolist;
             comboRoomNType.DisplayMember = "CategoryName";
         }
-
         private int guestID;
         public void LoadGuestInfo(int guestID, string lastName, string firstName, string middleName,
                                   string suffix, string address, string contact, string email,
@@ -68,12 +65,6 @@ namespace NOAKAY.DASHFORM
 
         } // LoadGuestInfo
 
-        private void picExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             dbContext = new Connection();  // Connects to the database
@@ -94,13 +85,12 @@ namespace NOAKAY.DASHFORM
 
             var guestToUpdate = dbContext.GuestModels.SingleOrDefault(g => g.GuestID == guestID);
 
-
             if (guestToUpdate != null)
             {
 
                 // Check if the room is already occupied
                 bool isRoomOccupied = dbContext.GuestModels.Any(g => g.RoomID == roomid && g.GuestID != guestID && g.GuestStatus == 0);
-              //  bool isRoomOccupied = dbContext.GuestModels.Any(g => g.RoomID == roomid && g.GuestID != guestID && g.GuestStatus == 0);
+                //  bool isRoomOccupied = dbContext.GuestModels.Any(g => g.RoomID == roomid && g.GuestID != guestID && g.GuestStatus == 0);
 
                 if (isRoomOccupied)
                 {
@@ -131,6 +121,11 @@ namespace NOAKAY.DASHFORM
                 MessageBox.Show("Error: Guest not found.");
             }
 
+            this.Close();
+        }
+
+        private void picExit_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
